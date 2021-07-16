@@ -1,12 +1,29 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://res/scenes/Illusion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/scenes/Attribute.tscn" type="PackedScene" id=2]
+[ext_resource path="res://res/scenes/AttributeDynamic.tscn" type="PackedScene" id=3]
 
 [node name="Unit" type="Node2D"]
 
-[node name="TestMessage" type="Label" parent="."]
-margin_right = 137.0
-margin_bottom = 79.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Doll" parent="." instance=ExtResource( 1 )]
+position = Vector2( 151.205, 387.128 )
+scale = Vector2( 0.0800001, 0.0800001 )
 
 [node name="Attribute" type="Node" parent="."]
+
+[node name="Health" parent="Attribute" instance=ExtResource( 3 )]
+
+[node name="Spirit" parent="Attribute" instance=ExtResource( 3 )]
+
+[node name="Stamina" parent="Attribute" instance=ExtResource( 3 )]
+
+[node name="Endurance" parent="Attribute" instance=ExtResource( 2 )]
+
+[node name="Physique" parent="Attribute" instance=ExtResource( 2 )]
+
+[node name="Mentality" parent="Attribute" instance=ExtResource( 2 )]
+
+[node name="Speed" parent="Attribute" instance=ExtResource( 2 )]
+
+[node name="EffectOvertime" type="Node" parent="."]

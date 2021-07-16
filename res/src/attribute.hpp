@@ -16,13 +16,13 @@ class Attribute: public Node
 
         Attribute();
         ~Attribute();
-        void _ready();
-        void _init();
-        void AddBase(int add);
-        void AddBonus(int add);
-        int GetBase() const;
-        int GetBonus() const;
-        int GetTotal() const;
+        virtual void _ready();
+        virtual void _init();
+        virtual void AddBase(int add);
+        virtual void AddBonus(int add);
+        virtual int GetBase() const;
+        virtual int GetBonus() const;
+        virtual int GetTotal() const;
 
     protected:
         int _base;
@@ -31,47 +31,18 @@ class Attribute: public Node
 
 class AttributeDynamic: public Attribute
 {
-    GODOT_CLASS(Attribute, Node)
+    GODOT_CLASS(AttributeDynamic, Attribute)
     public:
 
-        static void _register_methods()
-        {
-            /*
-            register_property("Base", AttributeDynamic::_base, 10);
-            register_property("Bonus", AttributeDynamic::_bonus, 10);
-            register_property("Current", AttributeDynamic::_current, 10);
-
-            register_method("AddBase", AttributeDynamic::AddBase);
-            register_method("AddBonus", AttributeDynamic::AddBonus);
-            register_method("GetBase", AttributeDynamic::GetBase);
-            register_method("GetBonus", AttributeDynamic::GetBonus);
-            */
-            register_method("AddCurrent", &AttributeDynamic::AddBase);
-            register_method("GetCurrent", &AttributeDynamic::AddBonus);
-        }
-        void _init()
-        {
-            _base = 10;
-            _bonus = 0;
-            _current = 10;
-        }
-
-        void AddCurrent(int add)
-        {
-            _current += add;
-            if (_current < 0) _current = 0;
-            int max = GetTotal();
-            if (_current > max) _current = max;
-        }
-
-        int GetCurrent() const
-        {
-            return _current < 0 ? 0 : _current;
-        }
+        AttributeDynamic();
+        ~AttributeDynamic();
+        static void _register_methods();
+        void AddCurrent(int add);
+        int GetCurrent() const;
+        void _init();
+        void _ready();
 
     protected:
         int _current;
-
 };
-
 #endif

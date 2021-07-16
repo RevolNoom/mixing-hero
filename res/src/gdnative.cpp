@@ -14,5 +14,5 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
 
 //    godot::register_class<Unit>();
     godot::register_class<Attribute>();
-//    godot::register_class<AttributeDynamic>();
+    godot::register_class<AttributeDynamic>();
 }

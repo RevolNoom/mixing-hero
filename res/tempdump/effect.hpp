@@ -13,14 +13,10 @@
 #ifndef EFFECT_H
 #define EFFECT_H
 
-#include <memory>
-#include <functional>
 #include <algorithm>
-#include <deque>
 #include <Godot.hpp>
 
 #include "unit.hpp"
-//#include "entity.hpp"
 
 using namespace godot;
 
@@ -49,14 +45,19 @@ namespace Effect
         (When a stat-modifying EffectOvertime takes effect, it remembers
         how much _intensity it has taken/granted, so that it may returns it
         when the effect ends.)
-    class Effect
+    */
+    class Effect: public Node
     {
-    friend class Unit;
+        GODOT_CLASS(Effect, Node)
+        friend class Unit;
     public:
+
+        static void _register_methods();
+
         // Every effect has do-nothing for default behaviour
-        virtual bool IsType(Type type) const;
+        // virtual bool IsType(Type type) const;
         virtual void AffectOnUnit(Unit &u) const {}
-        virtual void AffectOnEffect(Effect &e) const {}
+        //virtual void AffectOnEffect(Effect &e) const {}
         
         virtual void AffectedBy(Effect &e) 
         {
@@ -77,19 +78,20 @@ namespace Effect
         int _intensity;
     };
 
-
-    template <Unit::ATTRIBUTE ATTR_TYPE>
     class Empower: public Effect
     {
+        GODOT_CLASS(Empower, Effect)
         public:
-            // Inherit ALL Effect constructors
-            // "It'll be fine!" - I thought
-            //using Effect::Effect;
+            static void _register_methods();
 
             virtual void AffectOnUnit(Unit &u) const override;
-            virtual bool IsType(Type type) const {return type == Type::BUFF;}
+            //virtual bool IsType(Type type) const {return type == Type::BUFF;}
+        
+        private:
+            String _affectedAttribute;
     };
 
+/*
     template <Unit::ATTRIBUTE ATTR_TYPE>
     class Weaken: public Effect
     {
@@ -121,9 +123,9 @@ namespace Effect
             virtual bool IsType(Type type) const {return type == Type::DAMAGE;}
     };
 
-/*
     namespace Misc
     {
+        class Mystify; // Hide the real effect in a bunch of innocent ones
         class ShieldPhysical;
         class ShieldMental;
         class Root;
