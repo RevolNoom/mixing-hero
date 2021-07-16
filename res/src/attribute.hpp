@@ -16,7 +16,6 @@ class Attribute: public Node
 
         Attribute();
         ~Attribute();
-        virtual void _ready();
         virtual void _init();
         virtual void AddBase(int add);
         virtual void AddBonus(int add);
@@ -40,7 +39,6 @@ class AttributeDynamic: public Attribute
         void AddCurrent(int add);
         int GetCurrent() const;
         void _init();
-        void _ready();
 
     protected:
         int _current;

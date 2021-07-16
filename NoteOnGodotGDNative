@@ -1,0 +1,22 @@
+- Do not access child nodes at _init(), they are not instantiated yet. Access them at _ready()
+
+- Do not multi-inherit a class with a Godot class and another. For example:
+	class A: public Other, public GodotNode
+  This will result in the dynamic library unusable
+
+- Don't forget that your code needs to be compiled to take effect. The Sconstruct only compile the *.cpp
+
+- In register_method, if you pass an invalid(?) function pointer, it will not be known
+
+- Some Script variables might not appear even though registered properly. You must restart Godot to see them.
+
+- Variant can't cast to your custom class, so, function like these won't work:
+	class CustomClass: public GodotClass
+	{
+		GODOT_CLASS(CustomClass, GodotClass);
+		void function(CustomClass c);
+	}
+	
+	void function(CustomClass c) is implicitly converted from void function(Variant c). Variant does not know how to cast to CustomClass, but it knows how to cast to a pointer of CustomClass, so this works:
+	
+	void function(CustomClass *c);

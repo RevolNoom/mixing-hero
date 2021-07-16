@@ -390,14 +390,14 @@ __meta__ = {
 }
 
 [node name="ArmLLower" type="Sprite" parent="ArmL"]
-position = Vector2( 94.332, 867.273 )
+position = Vector2( 94.3325, 867.273 )
 rotation = -0.763779
 scale = Vector2( 1.14202, 1.09581 )
 texture = ExtResource( 2 )
 offset = Vector2( -71.5104, 418.713 )
 
 [node name="HandL" type="Sprite" parent="ArmL/ArmLLower"]
-position = Vector2( 83.6829, 897.966 )
+position = Vector2( 83.6824, 897.963 )
 rotation = 0.680561
 scale = Vector2( 0.670758, 0.670758 )
 texture = ExtResource( 8 )
@@ -420,8 +420,8 @@ texture = ExtResource( 6 )
 offset = Vector2( -77.9342, 423.803 )
 
 [node name="FootL" type="Sprite" parent="ThighL/LegL"]
-position = Vector2( -183.792, 932.314 )
-rotation = 0.0585925
+position = Vector2( -183.794, 932.315 )
+rotation = 0.0585929
 scale = Vector2( 0.783003, 1.16048 )
 texture = ExtResource( 9 )
 offset = Vector2( 215.41, 101.24 )
@@ -574,5 +574,5 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="Animation" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 1 )
