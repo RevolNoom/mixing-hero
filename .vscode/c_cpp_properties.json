@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${default}",
+                "/home/rev/Projects/MixingHero/res/src",
+                "/home/rev/Projects/MixingHero/res/godot-cpp/include/",
+                "/home/rev/Projects/MixingHero/res/godot-cpp/include/gen",
+                "/home/rev/Projects/MixingHero/res/godot-cpp/include/core",
+                "/home/rev/Projects/MixingHero/res/godot-cpp/godot-headers"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

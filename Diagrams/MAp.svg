@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1000mm"
+   height="800mm"
+   viewBox="0 0 1000 800"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e81, 2020-09-07)"
+   sodipodi:docname="MAp.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.23701022"
+     inkscape:cx="2085.1902"
+     inkscape:cy="1505.4198"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffff00;stroke:none;stroke-width:2.64599;stroke-linecap:round;stroke-linejoin:round"
+       id="path883"
+       sodipodi:type="arc"
+       sodipodi:cx="472.98264"
+       sodipodi:cy="223.5479"
+       sodipodi:rx="125.67101"
+       sodipodi:ry="82.634644"
+       sodipodi:start="0"
+       sodipodi:end="6.0434294"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m 598.65365,223.5479 a 125.67101,82.634644 0 0 1 -118.14293,82.48625 125.67101,82.634644 0 0 1 -132.29719,-72.60389 125.67101,82.634644 0 0 1 102.29291,-91.18464 125.67101,82.634644 0 0 1 144.55251,61.6794" />
+    <path
+       style="fill:#00ff00;stroke:none;stroke-width:2.646;stroke-linecap:round;stroke-linejoin:round"
+       id="path881"
+       sodipodi:type="arc"
+       sodipodi:cx="555.86365"
+       sodipodi:cy="457.74747"
+       sodipodi:rx="149.65562"
+       sodipodi:ry="141.58876"
+       sodipodi:start="0"
+       sodipodi:end="6.0434294"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="M 705.51927,457.74747 A 149.65562,141.58876 0 0 1 564.82848,599.08196 149.65562,141.58876 0 0 1 407.28207,474.68021 149.65562,141.58876 0 0 1 529.09782,318.44162 a 149.65562,141.58876 0 0 1 172.1407,105.6834" />
+    <path
+       style="fill:#00ffff;stroke:none;stroke-width:2.646;stroke-linecap:round;stroke-linejoin:round"
+       id="path873"
+       sodipodi:type="arc"
+       sodipodi:cx="298.57846"
+       sodipodi:cy="303.09851"
+       sodipodi:rx="92.530891"
+       sodipodi:ry="53.359661"
+       sodipodi:start="0"
+       sodipodi:end="6.0434294"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m 391.10935,303.09851 a 92.530891,53.359661 0 0 1 -86.988,53.26384 92.530891,53.359661 0 0 1 -97.40971,-46.8825 92.530891,53.359661 0 0 1 75.31772,-58.88065 92.530891,53.359661 0 0 1 106.43324,39.82823" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 180.40099,211.29162 c 45.41555,-75.98714 77.72253,-25.81996 134.17613,-33.88476 37.67931,-5.38276 67.23964,-47.79226 104.25633,-58.49436 18.92848,-5.47252 26.67582,31.84583 50.33322,31.53012 44.01474,-0.58737 88.77753,-23.64401 132.96207,-27.86046 15.67373,-1.49572 200.6786,51.06724 227.41392,73.09345 11.78767,9.7114 13.47695,64.54522 22.50173,81.01365 12.19518,22.25381 54.83061,57.7397 59.82277,77.70828 11.92292,47.69165 -7.21439,103.87433 -1.9799,150.98475 4.57996,41.21949 58.5058,111.99957 25.6468,155.81156 -63.23282,84.31043 -437.18448,-84.00333 -497.28977,-98.29464 -11.29937,-2.68666 -25.11724,-24.89888 -31.38969,-15.1239 -9.16244,14.27877 -22.0291,26.71781 -33.27889,39.82355 -54.98844,64.06012 -60.00591,32.67363 -123.92785,18.89223 -83.83629,-18.07494 -144.52299,-0.091 -155.908084,-120.99322 -3.168679,-33.64926 53.654194,-29.9978 53.654194,-59.22113 0,-18.50181 -7.9529,-122.27213 -9.28427,-125.15075 -14.27213,-30.85803 16.99944,-55.25024 46.50971,-35.57672 34.51641,23.01092 14.47112,60.3336 37.06429,78.43025 18.27917,14.64122 50.72585,17.88388 72.61281,17.88388 43.86186,0 128.94824,-9.77673 92.02706,-83.61908 -30.87944,-61.75891 -158.86958,-36.43814 -205.92258,-66.9527 z"
+       id="path833" />
+    <path
+       style="fill:#808080;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 759.69256,164.07132 c -21.08951,12.1113 -52.20462,14.60114 -69.36875,31.76526 -15.05244,15.05245 36.81436,46.47637 30.99247,60.9139 -5.12133,12.70023 -23.75387,17.888 -27.24512,28.36176 -7.81053,23.43158 27.42723,37.31877 31.30028,56.68407 3.05496,15.27469 -14.22892,21.50838 -18.03886,34.84322 -10.5246,36.83606 4.5924,84.65299 17.17982,116.12155 9.84276,24.60688 -26.99893,82.78635 22.94466,166.02567 15.71207,26.18676 56.2963,10.08025 77.91863,26.05704 37.19052,27.48015 144.53571,53.31941 171.58247,-0.55026 C 1036.0119,606.50918 932.2319,442.7202 909.35552,376.55423 869.18508,260.36811 897.77635,80.302776 734.56392,168.18638"
+       id="path837" />
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="741.12775"
+       y="421.70755"
+       id="text841"><tspan
+         sodipodi:role="line"
+         id="tspan839"
+         x="741.12775"
+         y="421.70755"
+         style="font-size:38.1px;stroke-width:0.264583">Mountain</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="111.66807"
+       y="495.46179"
+       id="text845"><tspan
+         sodipodi:role="line"
+         id="tspan843"
+         x="111.66807"
+         y="495.46179"
+         style="font-size:38.1px;stroke-width:0.264583">Human Kingdom</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="666.81732"
+       y="473.50482"
+       id="text849"><tspan
+         sodipodi:role="line"
+         id="tspan847"
+         x="666.81732"
+         y="473.50482"
+         style="font-size:38.1px;stroke-width:0.264583">Celestial Kingdom</tspan></text>
+    <path
+       style="fill:#ff0000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 717.35071,238.04668 c -57.45446,-90.86265 -97.49668,47.67649 -50.04999,83.26152 64.10698,48.08024 91.97324,-41.04524 50.04999,-83.26152 z"
+       id="path851" />
+    <text
+       xml:space="preserve"
+       style="font-size:19.05px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="596.44897"
+       y="236.11273"
+       id="text855"><tspan
+         sodipodi:role="line"
+         id="tspan853"
+         x="596.44897"
+         y="236.11273"
+         style="font-size:19.05px;stroke-width:0.264583">Underground Tunnel</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="631.57336"
+       y="277.99164"
+       id="text859"><tspan
+         sodipodi:role="line"
+         id="tspan857"
+         x="631.57336"
+         y="277.99164"
+         style="stroke-width:0.264583" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="551.23914"
+       y="286.54633"
+       id="text863"><tspan
+         sodipodi:role="line"
+         id="tspan861"
+         x="551.23914"
+         y="286.54633"
+         style="stroke-width:0.264583">Infernal Kingdom</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="257.36465"
+       y="278.07721"
+       id="text867"><tspan
+         sodipodi:role="line"
+         id="tspan865"
+         x="257.36465"
+         y="278.07721"
+         style="stroke-width:0.264583">Lake</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="142.78264"
+       y="325.55219"
+       id="text871"><tspan
+         sodipodi:role="line"
+         id="tspan869"
+         x="142.78264"
+         y="325.55219"
+         style="stroke-width:0.264583">Octopus Kingdom</tspan></text>
+    <path
+       style="fill:#00ff00;stroke:none;stroke-width:2.64599;stroke-linecap:round;stroke-linejoin:round"
+       id="path875"
+       sodipodi:type="arc"
+       sodipodi:cx="197.19258"
+       sodipodi:cy="387.01282"
+       sodipodi:rx="21.005116"
+       sodipodi:ry="17.271612"
+       sodipodi:start="0"
+       sodipodi:end="6.0434294"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m 218.1977,387.01282 a 21.005116,17.271612 0 0 1 -19.74685,17.24059 21.005116,17.271612 0 0 1 -22.11264,-15.17506 21.005116,17.271612 0 0 1 17.09762,-19.05867 21.005116,17.271612 0 0 1 24.16104,12.89172" />
+    <path
+       style="fill:#00ff00;stroke:none;stroke-width:2.64599;stroke-linecap:round;stroke-linejoin:round"
+       id="path877"
+       sodipodi:type="arc"
+       sodipodi:cx="325.92035"
+       sodipodi:cy="439.39832"
+       sodipodi:rx="20.403236"
+       sodipodi:ry="22.635637"
+       sodipodi:start="0"
+       sodipodi:end="6.0434294"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m 346.32359,439.39832 a 20.403236,22.635637 0 0 1 -19.18102,22.59498 20.403236,22.635637 0 0 1 -21.47903,-19.88797 20.403236,22.635637 0 0 1 16.6077,-24.97769 20.403236,22.635637 0 0 1 23.46873,16.89549" />
+    <path
+       style="fill:#00ff00;stroke:none;stroke-width:2.64599;stroke-linecap:round;stroke-linejoin:round"
+       id="path879"
+       sodipodi:type="arc"
+       sodipodi:cx="252.20258"
+       sodipodi:cy="540.41022"
+       sodipodi:rx="23.524878"
+       sodipodi:ry="15.056108"
+       sodipodi:start="0"
+       sodipodi:end="6.0434294"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m 275.72745,540.41022 a 23.524878,15.056108 0 0 1 -22.11566,15.02907 23.524878,15.056108 0 0 1 -24.76526,-13.2285 23.524878,15.056108 0 0 1 19.14863,-16.61392 23.524878,15.056108 0 0 1 27.05939,11.23804" />
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="435.92508"
+       y="188.35107"
+       id="text887"><tspan
+         sodipodi:role="line"
+         id="tspan885"
+         x="435.92508"
+         y="188.35107"
+         style="stroke-width:0.264583">Desert</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="282.32935"
+       y="230.57161"
+       id="text891"><tspan
+         sodipodi:role="line"
+         id="tspan889"
+         x="282.32935"
+         y="230.57161"
+         style="stroke-width:0.264583">Snake Kingdom</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="489.57657"
+       y="384.38037"
+       id="text895"><tspan
+         sodipodi:role="line"
+         id="tspan893"
+         x="489.57657"
+         y="384.38037"
+         style="stroke-width:0.264583">Forest</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="460.9491"
+       y="439.58038"
+       id="text899"><tspan
+         sodipodi:role="line"
+         id="tspan897"
+         x="460.9491"
+         y="439.58038"
+         style="stroke-width:0.264583">Tree people</tspan></text>
+    <path
+       style="fill:#000080;stroke:none;stroke-width:2.64599;stroke-linecap:round;stroke-linejoin:round"
+       id="path919"
+       sodipodi:type="arc"
+       sodipodi:cx="906.44244"
+       sodipodi:cy="602.09106"
+       sodipodi:rx="25.420622"
+       sodipodi:ry="22.089905"
+       sodipodi:start="0"
+       sodipodi:end="6.0434294"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="m 931.86307,602.09106 a 25.420622,22.089905 0 0 1 -23.89785,22.05024 25.420622,22.089905 0 0 1 -26.76096,-19.40848 25.420622,22.089905 0 0 1 20.69172,-24.37549 25.420622,22.089905 0 0 1 29.23995,16.48814" />
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="793.32153"
+       y="571.33398"
+       id="text923"><tspan
+         sodipodi:role="line"
+         id="tspan921"
+         x="793.32153"
+         y="571.33398"
+         style="stroke-width:0.264583">Sacred Land</tspan></text>
+  </g>
+</svg>

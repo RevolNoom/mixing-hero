@@ -10,7 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Versu"
+config/name="Mixing Hero"
+run/main_scene="res://res/scenes/Attribute.tscn"
 config/icon="res://icon.png"
 
 [rendering]

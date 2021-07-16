@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>608</x>
+      <x>588</x>
       <y>0</y>
-      <w>360</w>
-      <h>392</h>
+      <w>315</w>
+      <h>273</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-/(Visitor, Composite, Prototype)/
+/(Visitor, Singleton)/
 Effect
 --
-- _childEffect: List&lt;Effect*&gt;
-- _intensity: long long
 --
-+ IsType(EffectType* e): bool (??? Type casting)
++ IsType(Effect* e): bool (??? Type casting)
++ GetIntensity(): int
++ AddIntensity(int amount): void
+ 
+/+ EndEffect(): void/
 
-/+ AffectOnEffect(Effect &amp;effect): void/
-/+ AffectOnUnit(Unit &amp;unit): void/
-/+ AffectOnItem(Item &amp;item): void/
-/+ AffectOnAction(Item &amp;item): void/
-/+ AffectOnEnvironment(Environment &amp;e): void/
+/+ AffectOnEffect(Effect &amp;effect, int intensity): void/
+/+ AffectOnUnit(Unit &amp;unit, int intensity): void/
+/+ AffectOnItem(Item &amp;item, int intensity): void/
+/+ AffectOnAction(Action *action, int intensity): void/
+/+ AffectOnEnvironment(Environment &amp;e, int intensity): void/
 --
 - This is the ONLY way to communicate with an Unit
 
@@ -30,25 +32,17 @@ Effect
 
 - Effects of this type are one-time. When it's casted on 
   an object, the object takes effect then the effect disappears.
-  
-- Manage the effect intensity of its children Effect.
 
-- Cause different behaviors on different object type (Visitor)
-
-- A new effect can be manufactured by combining existing
-  Effects (Composite)
-
-- Effect Prototypes might be available for ease 
-  of creation (Prototype)</panel_attributes>
+- Cause different behaviors on different object type (Visitor)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>496</y>
-      <w>368</w>
-      <h>208</h>
+      <x>308</x>
+      <y>399</y>
+      <w>322</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Unit
@@ -56,7 +50,7 @@ Unit
 # _action: List&lt;Action*&gt;
 # _inventory : List&lt;Item*&gt;
 # _equipped : List&lt;Item*&gt;
-# _effects: List&lt;Effect*&gt;
+# _effects: List&lt;EffectOvertime*&gt;
 # _attribute: List&lt;Attribute*&gt;
 --
 + Perform(Action a): bool
@@ -76,10 +70,10 @@ Unit
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>232</x>
-      <y>744</y>
-      <w>184</w>
-      <h>168</h>
+      <x>259</x>
+      <y>616</y>
+      <w>161</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;
 Attribute
@@ -88,7 +82,7 @@ Attribute
 - _bonus: long long
 --
 + Attribute(long long base)
-+ addMax(long long b): void
++ addBase(long long b): void
 + getTotal(): long long
 + getBase(): long long</panel_attributes>
     <additional_attributes/>
@@ -96,10 +90,10 @@ Attribute
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>456</x>
-      <y>976</y>
-      <w>200</w>
-      <h>152</h>
+      <x>455</x>
+      <y>819</y>
+      <w>175</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Environment
@@ -110,13 +104,13 @@ Environment
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>232</x>
-      <y>976</y>
-      <w>184</w>
-      <h>152</h>
+      <x>259</x>
+      <y>819</y>
+      <w>161</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-DynamicAttribute
+AttributeDynamic
 --
 - _current: long long
 --
@@ -127,10 +121,10 @@ DynamicAttribute
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>312</x>
-      <y>904</y>
-      <w>24</w>
-      <h>88</h>
+      <x>329</x>
+      <y>756</y>
+      <w>21</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
@@ -138,10 +132,10 @@ DynamicAttribute
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>696</y>
-      <w>24</w>
-      <h>64</h>
+      <x>336</x>
+      <y>574</y>
+      <w>21</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 </panel_attributes>
@@ -150,10 +144,10 @@ DynamicAttribute
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>904</y>
-      <w>24</w>
-      <h>80</h>
+      <x>539</x>
+      <y>756</y>
+      <w>21</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
@@ -161,10 +155,10 @@ DynamicAttribute
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>696</y>
-      <w>24</w>
-      <h>64</h>
+      <x>539</x>
+      <y>574</y>
+      <w>21</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
@@ -172,10 +166,10 @@ DynamicAttribute
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>704</x>
-      <y>760</y>
-      <w>200</w>
-      <h>144</h>
+      <x>672</x>
+      <y>630</y>
+      <w>175</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract Class&gt;&gt;
 Item
@@ -189,10 +183,10 @@ Item
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>456</x>
-      <y>744</y>
-      <w>200</w>
-      <h>168</h>
+      <x>455</x>
+      <y>616</y>
+      <w>175</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract Class&gt;&gt;
 Object
@@ -205,10 +199,10 @@ Object
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>536</y>
-      <w>184</w>
-      <h>176</h>
+      <x>56</x>
+      <y>434</y>
+      <w>161</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>lt=.
 Enum Attribute
@@ -230,10 +224,10 @@ _*MAX_ATTRIBUTE_COUNT*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>176</x>
-      <y>552</y>
-      <w>128</w>
-      <h>24</h>
+      <x>210</x>
+      <y>448</y>
+      <w>112</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
@@ -241,29 +235,31 @@ _*MAX_ATTRIBUTE_COUNT*_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>264</x>
-      <y>32</y>
-      <w>280</w>
-      <h>152</h>
+      <x>259</x>
+      <y>0</y>
+      <w>245</w>
+      <h>133</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Interface&gt;&gt;
-Action
+    <panel_attributes>&lt;&lt;class&gt;&gt;
+Interaction
+--
+- _effects: deque&lt;Effect*&gt;
 --
 /+ CanBePerformedBy(Unit u): bool/
-/+ CalculateCost(Unit u): List&lt;Attribute*&gt;/
-/+ PerformOn(Object o):  bool/
 /+ CanBePerformedOn(Object o): bool/
+/+ CalculateCost(Unit u): List&lt;Attribute*&gt;/
+/+ Perform(Object *source, Object *target): void/
 --
-- Subject to be deleted. We'll see about that.</panel_attributes>
+- Manages interaction between objects</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>288</y>
-      <w>224</w>
-      <h>152</h>
+      <x>308</x>
+      <y>217</y>
+      <w>196</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Player
@@ -275,10 +271,10 @@ Player
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>0</x>
-      <y>200</y>
-      <w>176</w>
-      <h>56</h>
+      <x>63</x>
+      <y>336</y>
+      <w>154</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Note:
 _static_
@@ -289,10 +285,10 @@ _static_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>392</x>
-      <y>432</y>
-      <w>24</w>
-      <h>80</h>
+      <x>399</x>
+      <y>343</y>
+      <w>21</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
@@ -300,10 +296,10 @@ _static_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>968</x>
-      <y>760</y>
-      <w>168</w>
-      <h>152</h>
+      <x>903</x>
+      <y>630</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Consumable
@@ -315,10 +311,10 @@ Consumable
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>968</x>
-      <y>976</y>
-      <w>168</w>
-      <h>152</h>
+      <x>903</x>
+      <y>819</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Equipable
@@ -330,10 +326,10 @@ Equipable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>896</x>
-      <y>896</y>
-      <w>88</w>
-      <h>104</h>
+      <x>840</x>
+      <y>749</y>
+      <w>77</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>90.0;110.0;10.0;10.0</additional_attributes>
@@ -341,10 +337,10 @@ Equipable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>896</x>
-      <y>824</y>
-      <w>88</w>
-      <h>24</h>
+      <x>840</x>
+      <y>686</y>
+      <w>77</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
@@ -352,10 +348,10 @@ Equipable
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>704</x>
-      <y>976</y>
-      <w>200</w>
-      <h>152</h>
+      <x>672</x>
+      <y>819</y>
+      <w>175</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=.
 Enum EquipmentSlot
@@ -373,10 +369,10 @@ _*MAX_EQUIPMENT_SLOTS*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>896</x>
-      <y>1040</y>
-      <w>88</w>
-      <h>24</h>
+      <x>840</x>
+      <y>875</y>
+      <w>77</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
@@ -384,10 +380,10 @@ _*MAX_EQUIPMENT_SLOTS*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>648</x>
-      <y>688</y>
-      <w>72</w>
-      <h>304</h>
+      <x>623</x>
+      <y>567</y>
+      <w>63</w>
+      <h>266</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;360.0</additional_attributes>
@@ -395,10 +391,10 @@ _*MAX_EQUIPMENT_SLOTS*_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>648</x>
-      <y>656</y>
-      <w>72</w>
-      <h>120</h>
+      <x>623</x>
+      <y>539</y>
+      <w>63</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 </panel_attributes>
@@ -407,28 +403,24 @@ _*MAX_EQUIPMENT_SLOTS*_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1024</x>
+      <x>952</x>
       <y>0</y>
-      <w>352</w>
-      <h>272</h>
+      <w>308</w>
+      <h>238</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-/(Observer)/
+/(Observer, Composite, Prototype)/
 EffectOverTime
 --
-- _potency: long long
-- _watching: Map&lt;Signal&gt;
+- _potency: int
+- _childEffect: deque&lt;Effect*&gt;
 --
-+ GetIntensity(): long long ???
-+ GetPotency(): long long ???
-+ AddPotency(long long amount): void ???
-+ AddIntensity(long long amount): void ???
++ GetPotency(): int
++ AddPotency(int amount): void
 
-/+ EndEffect(): void/
 
 --
-- How to implement intensity/potency-affecting effects
-  without exposing implementation details (creating get()'s)?
+- Manage a group of effect and their intensity every turn
 
 - Effect of this type clings to the affected object after the 
   object is casted on.
@@ -440,10 +432,10 @@ EffectOverTime
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>104</y>
-      <w>80</w>
-      <h>24</h>
+      <x>896</x>
+      <y>91</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
@@ -451,24 +443,13 @@ EffectOverTime
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>384</y>
-      <w>64</w>
-      <h>128</h>
+      <x>602</x>
+      <y>266</y>
+      <w>56</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=-
 friends</panel_attributes>
-    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>536</x>
-      <y>104</y>
-      <w>88</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

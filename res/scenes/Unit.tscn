@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="Unit" type="Node2D"]
+
+[node name="TestMessage" type="Label" parent="."]
+margin_right = 137.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attribute" type="Node" parent="."]
