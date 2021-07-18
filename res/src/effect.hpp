@@ -39,7 +39,7 @@ namespace Effect
         friend class Unit;
     public:
         static void _register_methods();
-        void _init();
+        virtual void _init();
 
         // POINTERS TROUBLE! :>
         // const T* ptr: You can't modify the value through ptr (*ptr=someT raises error)
@@ -51,7 +51,6 @@ namespace Effect
         // Every effect has do-nothing for default behaviour
         // when affecting other objects
         // virtual bool IsType(Type type) const;
-        // TODO: These must be of Pointer or Ref
         virtual void AffectOnUnit(Unit* const u) const;
         virtual void AffectOnEffect(BaseEffect* const e) const; 
 
@@ -60,9 +59,57 @@ namespace Effect
         //void AffectOnItem(Item *e);
         //void AffectOnAction(Action *e);
         //void AffectOnEnvironment(Environment *e);
+    
+    protected:
+        // Returns the intensity of current effect
+        // Is never less than zero
+        virtual int GetIntensity() const;
+
+        // Add to the intensity of current effect
+        // Can never drops below zero
+        virtual void AddIntensity(const int intensity);
 
     private:
         int _intensity;
+    };
+
+    /*
+        EFFECT OVERTIME:
+        Keep children nodes of type Effect. 
+
+        When invoked, EffectOvertime creates and passes some Effect
+        with _intensity it manages to the affected entity
+
+    */
+    class EffectOvertime: public BaseEffect
+    {
+        GODOT_CLASS(EffectOvertime, BaseEffect)
+    public:
+        static void _register_methods();
+        virtual void _init() override;
+
+        virtual void AffectedBy(const BaseEffect* const e);
+
+        // virtual bool IsType(Type type) const;
+        virtual void AffectOnUnit(Unit* const u) const;
+        virtual void AffectOnEffect(BaseEffect* const e) const; 
+
+        // Not yet implemented
+        //void AffectOnItem(Item *e);
+        //void AffectOnAction(Action *e);
+        //void AffectOnEnvironment(Environment *e);
+
+    protected:
+        // Returns the potency of current effect overtime
+        // Is never less than zero
+        virtual int GetPotency() const;
+
+        // Add to the potency of current effect overtime
+        // Can never drops below zero
+        virtual void AddPotency(const int potency);
+        
+    private:
+            int _potency;
     };
 /*
     class Empower: public Effect
@@ -89,26 +136,7 @@ namespace Effect
             virtual bool IsType(Type type) const {return type == Type::DEBUFF;}
     };
 
-    template <Unit::ATTRIBUTE_DYNAMIC ATTR_TYPE>
-    class Heal: public Effect
-    {
-        public:
-            //using Effect::Effect;
 
-            virtual void AffectOnUnit(Unit &u) const override;
-            virtual bool IsType(Type type) const {return type == Type::HEAL;}
-    };
-
-    template <Unit::ATTRIBUTE_DYNAMIC ATTR_TYPE>
-    class Damage: public Effect
-    {
-        public:
-            //using Effect::Effect;
-            Damage(int intensity): Effect(intensity){}
-
-            virtual void AffectOnUnit(Unit &u) const override;
-            virtual bool IsType(Type type) const {return type == Type::DAMAGE;}
-    };
 
     namespace Misc
     {

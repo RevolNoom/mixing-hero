@@ -1,5 +1,6 @@
 #include "unit.hpp"
 #include "effect.hpp"
+#include "attr_modify.hpp"
 
 using namespace godot;
 using namespace Effect;
@@ -11,6 +12,7 @@ void Unit::_register_methods() {
 
 void Unit::AffectedBy(BaseEffect* const e) 
 {
+    godot::Godot::print("This Unit is affected by some effect.");
     e->AffectOnUnit(this);
 }
 
@@ -18,8 +20,6 @@ void Unit::_ready()
 {
     AnimationPlayer *anim = get_node<AnimationPlayer>("Doll/AnimationPlayer");
     anim->play("Idle");
-
-    BaseEffect e;
 }
 
 void Unit::_init() {

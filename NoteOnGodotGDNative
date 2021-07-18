@@ -3,6 +3,14 @@
 - Do not multi-inherit a class with a Godot class and another. For example:
 	class A: public Other, public GodotNode
   This will result in the dynamic library unusable
+	(?) virtual function without default implementation will make the library unusable?
+
+- The order in which you godot::register_class is important (!! CONFIRMED !!)
+	You must register parent classes before child classes, or else
+	register_property in _register_methods() won't expose parent variable 
+	to its child class in the Godot editor.
+	
+	Also, it may jumbles up virtual functions?
 
 - Don't forget that your code needs to be compiled to take effect. The Sconstruct only compile the *.cpp
 
@@ -10,13 +18,22 @@
 
 - Some Script variables might not appear even though registered properly. You must restart Godot to see them.
 
-- Variant can't cast to your custom class, so, function like these won't work:
+- Variant can't cast to your custom class. So, functions like this won't work:
 	class CustomClass: public GodotClass
 	{
 		GODOT_CLASS(CustomClass, GodotClass);
-		void function(CustomClass c);
+
+		void function(CustomClass c); <=== This fails
 	}
 	
-	void function(CustomClass c) is implicitly converted from void function(Variant c). Variant does not know how to cast to CustomClass, but it knows how to cast to a pointer of CustomClass, so this works:
+	void function(CustomClass c) is implicitly converted from void function(Variant c). 
+Variant does not know how to cast to CustomClass, but it knows how to cast to a pointer of CustomClass, so this works:
 	
 	void function(CustomClass *c);
+
+
+- Be sure that you write your function name correctly. 
+	static void _register_method();
+	static void _register_methods();
+	
+	One missing 's' and the library won't register a thing

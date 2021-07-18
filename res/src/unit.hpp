@@ -5,6 +5,8 @@
 #include <Node.hpp>
 #include <AnimationPlayer.hpp>
 
+#include <attribute.hpp>
+
 namespace Effect
 {
     class BaseEffect;
@@ -23,10 +25,6 @@ public:
     virtual void _init(); // our initializer called by Godot
     virtual void _ready();
     virtual void AffectedBy(BaseEffect* const e);
-
-    //virtual void AffectedBy(Effect::Effect e);
-
 };
-
 
 #endif

@@ -3,6 +3,6 @@
 [ext_resource path="res://res/libs/gdnativelibrary.tres" type="GDNativeLibrary" id=1]
 
 [resource]
-resource_name = "AttributeDynamic"
-class_name = "AttributeDynamic"
+resource_name = "BaseEffect"
+class_name = "BaseEffect"
 library = ExtResource( 1 )
