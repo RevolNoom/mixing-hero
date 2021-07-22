@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="19mm"
-   height="19mm"
-   viewBox="0 0 19 19"
+   width="27mm"
+   height="62mm"
+   viewBox="0 0 27 62"
    version="1.1"
    id="svg1844"
    inkscape:version="1.0.1 (3bc2e81, 2020-09-07)"
-   sodipodi:docname="armlower.svg">
+   sodipodi:docname="shin.svg">
   <defs
      id="defs1838" />
   <sodipodi:namedview
@@ -24,17 +24,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="179.03496"
+     inkscape:cx="165.82068"
      inkscape:cy="136.45769"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1642"
-     inkscape:window-height="752"
-     inkscape:window-x="20"
-     inkscape:window-y="147"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata1841">
     <rdf:RDF>
@@ -51,12 +51,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <ellipse
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.64599;stroke-linecap:round;stroke-linejoin:round"
-       id="path3253"
-       cx="9.5"
-       cy="9.5"
-       rx="7.9735551"
-       ry="7.7386808" />
+    <path
+       id="rect833"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.64602;stroke-linecap:round;stroke-linejoin:round"
+       d="M 9.5089965,4.2668466 C 10.516579,-0.3461835 24.398364,1.9003366 25.050657,5.8975864 27.853524,23.073537 20.94384,47.027687 17.417891,58.950458 16.36295,62.517658 11.605327,60.481107 9.7611395,60.118017 6.2302583,59.422848 2.2145202,43.939518 1.9860132,41.713827 0.55681978,27.793167 7.2316723,14.693047 9.5089965,4.2668466 Z"
+       sodipodi:nodetypes="ssssss" />
   </g>
 </svg>

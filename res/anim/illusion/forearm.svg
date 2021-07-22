@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="19mm"
-   height="19mm"
-   viewBox="0 0 19 19"
+   width="20mm"
+   height="47mm"
+   viewBox="0 0 20 47"
    version="1.1"
    id="svg1844"
    inkscape:version="1.0.1 (3bc2e81, 2020-09-07)"
-   sodipodi:docname="armlower.svg">
+   sodipodi:docname="hand.svg">
   <defs
      id="defs1838" />
   <sodipodi:namedview
@@ -51,12 +51,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <ellipse
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.64599;stroke-linecap:round;stroke-linejoin:round"
-       id="path3253"
-       cx="9.5"
-       cy="9.5"
-       rx="7.9735551"
-       ry="7.7386808" />
+    <path
+       id="path2663"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.64597;stroke-linecap:round;stroke-linejoin:round"
+       d="m 16.935994,29.711781 c 0,11.062398 -0.639048,15.47922 -5.257763,15.47922 -4.6187152,0 -9.7258639,-9.90786 -9.7258639,-20.970271 0,-11.06241 -0.08316,-22.3026212 4.5355497,-22.3026212 2.35774,0 8.0153442,-1.03965997 10.5120462,3.29955 2.394238,4.161121 -0.06397,19.0787912 -0.06397,24.4941222 z"
+       sodipodi:nodetypes="ssssss" />
   </g>
 </svg>

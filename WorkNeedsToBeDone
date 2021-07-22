@@ -1,0 +1,17 @@
+GUI:
+	+ General GUI
+	+ Bags, Skill tree, Map,... buttons
+	+ Inventory
+	+ Equipment
+	+ Action Picker Pallete => dump into Action interface?
+
+Classes:
+	+ Action
+	+ Map Making
+	+ Generate map
+	+ Arena Manager
+	+ More EFFECTS
+
+World:
+	+ Animation
+	+ Storyline

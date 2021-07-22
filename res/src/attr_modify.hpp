@@ -3,6 +3,7 @@
 
 #include "effect.hpp"
 #include "unit.hpp"
+#include "attribute.hpp"
 
 namespace Effect
 {

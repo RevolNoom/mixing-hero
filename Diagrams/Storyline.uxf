@@ -1,246 +1,104 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>9</zoom_level>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>315</x>
-      <y>0</y>
-      <w>135</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Main Character
-fg=red</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>315</x>
-      <y>45</y>
-      <w>135</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Support Character
-fg=black</panel_attributes>
-    <additional_attributes/>
-  </element>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>486</x>
-      <y>306</y>
-      <w>243</w>
-      <h>54</h>
+      <x>130</x>
+      <y>230</y>
+      <w>80</w>
+      <h>30</h>
     </coordinates>
-    <panel_attributes>Tree people tells the adventurer that
-they can find all the answers in 
-the world by praying to a God Tree</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>450</x>
-      <y>153</y>
-      <w>306</w>
-      <h>99</h>
-    </coordinates>
-    <panel_attributes>The longer you pray to the god tree,
-the stronger the buff 
-(until a certain threshold)
-Pray a total time of two (game) days 
-without extra buff to gain access 
-to the secret location of Barkskin Armor</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>585</x>
-      <y>243</y>
-      <w>27</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>396</x>
-      <y>675</y>
-      <w>288</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>Defeat and Torture the demon girl
-to unlock the BloodBlade secret
+    <panel_attributes>Prologue:
+--
+Millenias ago, there was a war between human and monsters of
+the continent
 
-Torture: Break her mind to 10% and 
-heal her up 100%. Do it 3 times in 20 turns.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>423</x>
-      <y>585</y>
-      <w>198</w>
-      <h>45</h>
-    </coordinates>
-    <panel_attributes>The infernal girl and her band 
-raided the player's party</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>99</x>
-      <y>414</y>
-      <w>261</w>
-      <h>54</h>
-    </coordinates>
-    <panel_attributes>Saves the Octopus from human slaver
-and befriend the Octopus to unlock
-the secret of Shadow Cloak</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>513</x>
-      <y>621</y>
-      <w>27</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>900</x>
-      <y>279</y>
-      <w>297</w>
-      <h>126</h>
-    </coordinates>
-    <panel_attributes>Wander around the desert for one week 
-straight with almost nothing in inventory.
-When the player almost dies, unlock the
-hidden passage to oasis with Sandflow Rune.
+Human emerged victory, and taken with them the most valuable
+trophy: The Ethereal Shard
+The Ethereal Shard contains infinite magical power. 
 
-Wandering: Define some locations around
-the map. The player must visits all locations
-without leaving the desert. </panel_attributes>
+With this shard, and skill in unnatural magic, the Emperor 
+has successfully extended his life for millenias.
+
+Those who served under the King gets their reward as well. 
+The higher their rank, the longer they live.
+
+It's almost seems too happy to be an ending. 
+
+...
+
+Because of its rich magic source, 
+monsters of all kind attacks the Empire, 
+trying to lay their hand on the Shard.
+
+And thus, the Emperor recruits adventurers to aid him in 
+the continent conquest.
+
+Those who contributed most to monster conquest will get 
+a share in royalty luxury, and a long life.
+
+There was one legendary adventurer, so prominent that the
+King himself shared him a splinter of the Shard, who nearly
+ended the monsters reign long ago. 
+
+He was slain by the monster king. And the splinter fell into
+the hand of monsters.
+
+...
+
+Will you be the hero to take the shard back?</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>900</x>
-      <y>648</y>
-      <w>297</w>
-      <h>81</h>
+      <x>550</x>
+      <y>170</y>
+      <w>110</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>The Celestials know your intent. 
-Defeat the Celestial Emperor then 
-take her wings. Her Spirit must be 
-higher than 90% when defeated
-for the wings to be magical</panel_attributes>
+    <panel_attributes>End 1
+--
+The Adventurer brings the Shard back to the Emperor.
+He lives a prosperous life forever after...
+
+--
+That is, until magic starts running out. 
+You have to deal with people and monsters union. 
+And then your magic shard fades its light, too.
+
+-- 
+You travel to the capital and take the shard from him.
+The shard falls into your hand.
+And then, over time, the final shard, too, fades away.
+Life extinguish.</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>549</x>
-      <y>450</y>
-      <w>207</w>
-      <h>54</h>
+      <x>550</x>
+      <y>260</y>
+      <w>110</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>Come back to Sacred Land with 
-all the Artifacts to summon
-"Fallen" Hero Bastia.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>225</x>
-      <y>846</y>
-      <w>1017</w>
-      <h>801</h>
-    </coordinates>
-    <panel_attributes>Main Storyline</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>261</x>
-      <y>882</y>
-      <w>468</w>
-      <h>225</h>
-    </coordinates>
-    <panel_attributes>Human found the magic to extend life indefinitely.
-Thus, human population grew unstoppable.
-More magic was required to sustain life, so conflicts
-with monsters happened.
-In the conflict, there was a hero. His name was Bastia.
-Bastia's prowess aided the kingdom's expansion and magic gathering.
-However, one day, Bastia went missing.
-Without Bastia, the Kingdom's reach slowed down.
-And when he returned, Bastia was not a hero anymore.
-The monsters had made them one of their kind.
-To destroy Bastia, many people had sacrificed 
-their life spell to fuel destruction magic.
-It was a success. Bastia was slain. And humanity is 
-on the way to get rid of evil monsters forever.
+    <panel_attributes>End 2
+--
+The Adventurer learns the truth about Shards.
+The monster king is the legendary hero in the past.
+He's too tired with this job.
+He passes his sword to you, embelled with his shard.
+The final Shard that'll decide the fate of all.
+
+--
+The Adventurer travels back to the capital for the Emperor.
+To kill him.
+--
+
+The monster king instructed the Adventurer to bring all
+the Shard back to the tree after Adventurer has collected them all.
 </panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>279</x>
-      <y>1251</y>
-      <w>468</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>End 1:
-Humanity claimed the Spirit Crystal. Everyone lives a life-long ever-after.
-Monsters are hunted, killed. Some went into hiding. Others are slaved.
-The player becomes a Hero and revered for thousands of years after.
-...until all magic is spent...
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>279</x>
-      <y>1377</y>
-      <w>342</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>End 2:
-The Player succumbed to the Artifacts, 
-becoming the new Monsters.
-The Player takes the Spirit Ball, slain all the Kings,
-become the new King who dominates all himself.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>279</x>
-      <y>1503</y>
-      <w>459</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>End 3:
-The Player summons Bastia back to life.
-With his help, the dream of eternal life was put to an end.
-Peace is restored between human and monsters (?).</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

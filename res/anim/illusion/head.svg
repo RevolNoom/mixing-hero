@@ -7,18 +7,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="40mm"
+   height="51mm"
+   viewBox="0 0 40 51"
    version="1.1"
-   id="svg8"
+   id="svg1844"
    inkscape:version="1.0.1 (3bc2e81, 2020-09-07)"
-   sodipodi:docname="head.svg"
-   inkscape:export-filename="/home/rev/Projects/MixingHero/res/anim/illusion/head.png"
-   inkscape:export-xdpi="95.599998"
-   inkscape:export-ydpi="95.599998">
+   sodipodi:docname="head.svg">
   <defs
-     id="defs2" />
+     id="defs1838" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,20 +23,20 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.3209934"
-     inkscape:cx="-216.83974"
-     inkscape:cy="412.38964"
+     inkscape:zoom="0.7"
+     inkscape:cx="65.065706"
+     inkscape:cy="305.56859"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1848"
-     inkscape:window-height="1016"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1642"
+     inkscape:window-height="752"
+     inkscape:window-x="50"
+     inkscape:window-y="114"
+     inkscape:window-maximized="0" />
   <metadata
-     id="metadata5">
+     id="metadata1841">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -55,9 +52,9 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       id="path833"
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.64598;stroke-linecap:round;stroke-linejoin:round"
-       d="m 198.56138,204.22711 c -9.00344,40.07384 -33.28822,93.66009 -87.27207,69.15131 C 58.485036,249.40516 17.853864,217.58756 3.9408681,145.43802 -9.4383195,76.056696 58.840689,12.57821 117.90315,17.732173 233.17079,27.790765 208.37704,160.53801 198.56138,204.22711 Z"
+       id="path833-2"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.64597;stroke-linecap:round;stroke-linejoin:round"
+       d="M 35.158534,35.443098 C 33.679262,42.522533 29.689253,51.989068 20.819683,47.659352 12.143901,43.424241 5.4681764,37.803353 3.1822584,25.05743 0.98406044,12.800547 12.202338,1.5864466 21.906353,2.4969456 40.844882,4.2738952 36.771254,27.724988 35.158534,35.443098 Z"
        sodipodi:nodetypes="sssss" />
   </g>
 </svg>

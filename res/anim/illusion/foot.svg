@@ -7,18 +7,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="30mm"
+   height="23mm"
+   viewBox="0 0 30 23"
    version="1.1"
-   id="svg8"
+   id="svg1844"
    inkscape:version="1.0.1 (3bc2e81, 2020-09-07)"
-   sodipodi:docname="foot.svg"
-   inkscape:export-filename="/home/rev/Projects/MixingHero/res/anim/illusion/foot.png"
-   inkscape:export-xdpi="95.599998"
-   inkscape:export-ydpi="95.599998">
+   sodipodi:docname="foot.svg">
   <defs
-     id="defs2" />
+     id="defs1838" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.45395321"
-     inkscape:cx="75.474833"
-     inkscape:cy="270.13335"
+     inkscape:zoom="1.4"
+     inkscape:cx="165.82068"
+     inkscape:cy="136.45769"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -39,7 +36,7 @@
      inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
-     id="metadata5">
+     id="metadata1841">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -56,8 +53,8 @@
      id="layer1">
     <path
        id="path833"
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.64598;stroke-linecap:round;stroke-linejoin:round"
-       d="m 207.83621,169.6815 c 0,28.17701 -60.42086,29.60622 -110.025072,29.60622 -49.604248,0 -95.6473395,-1.72483 -95.6473465,-29.90184 7e-6,-28.17702 16.5383315,-60.066 41.9587485,-68.25186 56.3139,-18.134153 163.71367,40.37047 163.71367,68.54748 z"
-       sodipodi:nodetypes="sssas" />
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.64599;stroke-linecap:round;stroke-linejoin:round"
+       d="M 26.442432,11.171539 C 37.93624,26.94942 2.8827655,21.657089 1.7312215,14.189669 1.0633445,9.8586812 4.7866015,2.6256599 11.064997,1.8597099 c 8.843673,-0.60262 11.939471,4.592441 15.377435,9.3118291 z"
+       sodipodi:nodetypes="sscs" />
   </g>
 </svg>

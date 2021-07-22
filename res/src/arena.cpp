@@ -1,6 +1,7 @@
 #include "arena.hpp"
 #include "unit.hpp"
 #include "attr_modify.hpp"
+#include <Control.hpp>
 
 void Arena::_register_methods()
 {
@@ -13,10 +14,4 @@ void Arena::_init()
 
 void Arena::_ready()
 {
-    Unit* u = get_node<Unit>("Unit");
-    Damage* d = get_node<Damage>("Damage");
-    Heal* h = get_node<Heal>("Heal");
-
-    u->AffectedBy(d);
-    u->AffectedBy(h);
 }

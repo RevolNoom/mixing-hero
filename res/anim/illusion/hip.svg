@@ -7,18 +7,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="39mm"
+   height="25mm"
+   viewBox="0 0 39 25"
    version="1.1"
-   id="svg3285"
+   id="svg1844"
    inkscape:version="1.0.1 (3bc2e81, 2020-09-07)"
-   sodipodi:docname="hip.svg"
-   inkscape:export-filename="/home/rev/Memory/Projects/MixingHero/res/anim/illusion/hip.png"
-   inkscape:export-xdpi="95.599998"
-   inkscape:export-ydpi="95.599998">
+   sodipodi:docname="hip.svg">
   <defs
-     id="defs3279" />
+     id="defs1838" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,20 +23,20 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.64198679"
-     inkscape:cx="432.83172"
-     inkscape:cy="585.97702"
+     inkscape:zoom="0.7"
+     inkscape:cx="65.065706"
+     inkscape:cy="305.56859"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1848"
-     inkscape:window-height="1016"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1642"
+     inkscape:window-height="752"
+     inkscape:window-x="50"
+     inkscape:window-y="114"
+     inkscape:window-maximized="0" />
   <metadata
-     id="metadata3282">
+     id="metadata1841">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -56,8 +53,8 @@
      id="layer1">
     <path
        id="rect3848"
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.646;stroke-linecap:round;stroke-linejoin:round"
-       d="M 7.1959501,107.88636 C 21.710929,89.932452 161.46438,79.903207 199.39072,111.08686 c 22.06834,18.14495 -1.30966,38.35993 -21.28886,58.78255 -12.14575,12.41532 -23.25406,41.58545 -44.61147,35.2757 -27.47697,-8.11769 -37.75595,-36.93292 -57.982,-46.43044 C 41.485991,142.73886 -16.434622,137.11556 7.1959501,107.88636 Z"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.64602;stroke-linecap:round;stroke-linejoin:round"
+       d="m 3.4010279,3.596524 c 3.988928,-3.9205 30.6171631,-0.43605 32.8168351,2.77537 2.90413,4.23991 -0.238381,6.77666 -3.875029,10.38452 -2.210792,2.19329 -4.232741,7.34648 -8.120251,6.23179 -5.0014,-1.43406 -7.589728,-5.32055 -11.271308,-6.99838 C 6.7584739,13.167544 0.03645389,6.903364 3.4010279,3.596524 Z"
        sodipodi:nodetypes="ssssss" />
   </g>
 </svg>

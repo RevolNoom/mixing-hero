@@ -243,10 +243,10 @@ _*MAX_ATTRIBUTE_COUNT*_
     <panel_attributes>&lt;&lt;class&gt;&gt;
 Interaction
 --
-- _effects: deque&lt;Effect*&gt;
+- children: Effects
 --
 /+ CanBePerformedBy(Unit u): bool/
-/+ CanBePerformedOn(Object o): bool/
+/+ CanPerformOn(Object o): bool/
 /+ CalculateCost(Unit u): List&lt;Attribute*&gt;/
 /+ Perform(Object *source, Object *target): void/
 --

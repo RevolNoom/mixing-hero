@@ -7,18 +7,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="25mm"
+   height="52mm"
+   viewBox="0 0 25 52"
    version="1.1"
-   id="svg1486"
+   id="svg1844"
    inkscape:version="1.0.1 (3bc2e81, 2020-09-07)"
-   sodipodi:docname="arm.svg"
-   inkscape:export-filename="/home/rev/Projects/MixingHero/res/anim/illusion/arm.png"
-   inkscape:export-xdpi="95.599998"
-   inkscape:export-ydpi="95.599998">
+   sodipodi:docname="arm.svg">
   <defs
-     id="defs1480" />
+     id="defs1838" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,20 +23,20 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.67036613"
-     inkscape:cx="481.06744"
-     inkscape:cy="527.59773"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="192.94136"
+     inkscape:cy="219.16017"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1848"
-     inkscape:window-height="1016"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1642"
+     inkscape:window-height="752"
+     inkscape:window-x="50"
+     inkscape:window-y="114"
+     inkscape:window-maximized="0" />
   <metadata
-     id="metadata1483">
+     id="metadata1841">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -56,8 +53,8 @@
      id="layer1">
     <path
        id="path2049"
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.64598;stroke-linecap:round;stroke-linejoin:round"
-       d="m 180.6616,76.815536 c -0.97545,25.206274 9.83641,76.040564 8.65156,106.573534 -2.57402,66.33085 -23.42748,99.43627 -45.58887,109.32309 -19.18722,8.56 -62.361576,-7.24463 -72.456161,-12.87988 C 51.253286,268.65913 19.169058,221.99999 24.193265,189.10046 31.671434,140.1319 30.753734,107.36591 39.167304,82.393739 59.105916,23.214242 75.17618,4.3796551 115.13255,2.898341 154.09219,1.4539809 182.54253,28.210438 180.6616,76.815536 Z"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.64597;stroke-linecap:round;stroke-linejoin:round"
+       d="M 21.042696,38.178222 C 21.099806,34.030309 22.825558,25.7351 22.894349,20.710632 23.043746,9.7952868 20.651971,4.2402911 17.929502,2.4940274 15.572399,0.98212949 10.018064,3.3430441 8.7055529,4.2138827 6.1031859,5.9405097 1.7261879,13.433026 2.1244099,18.86747 c 0.592712,8.088776 0.243002,13.468725 1.125019,17.618904 2.090226,9.835146 3.981091,13.018592 9.0063731,13.480913 4.899925,0.450801 8.676762,-3.790698 8.786894,-11.789065 z"
        sodipodi:nodetypes="ssssssss" />
   </g>
 </svg>
