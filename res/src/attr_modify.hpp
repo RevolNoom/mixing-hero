@@ -7,6 +7,7 @@
 
 namespace Effect
 {
+    
     class Damage: public BaseEffect
     {
         GODOT_CLASS(Damage, BaseEffect)

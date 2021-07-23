@@ -34,12 +34,14 @@ void Damage::AffectOnUnit(Unit* const u) const
     if (attr)
     {
         attr->AddCurrent(-GetIntensity());
-        godot::Godot::print("Ouch, that's hurt");
+        godot::Godot::print(String("Ouch, that's hurt. Dealt ") + String::num_int64(GetIntensity()) + String(" damage."));
     }
     else 
     {
         godot::Godot::print_error(String("AttributeDynamic ") + GetAffectedAttributeName() + String(" not found"), "Damage::AffectOnUnit", "attr_modify.cpp", 0);
     }
+
+    u->emit_signal("attributes_modified", u);
 }
 
 
@@ -68,4 +70,6 @@ void Heal::AffectOnUnit(Unit* const u) const
     {
         godot::Godot::print_error(String("AttributeDynamic ") + GetAffectedAttributeName() + String(" not found"), "Heal::AffectOnUnit", "attr_modify.cpp", 0);
     }
+
+    u->emit_signal("attributes_modified");
 }

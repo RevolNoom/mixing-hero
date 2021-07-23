@@ -7,7 +7,8 @@
 #include <Control.hpp>
 #include <AnimationPlayer.hpp>
 
-#include "survival_bars.hpp"
+#include "survival_wheel.hpp"
+#include "attribute.hpp"
 
 namespace Effect
 {
@@ -33,7 +34,7 @@ private:
     Node2D* _doll;
 
     // The bars representing survival stats
-    SurvivalBars* _survivalBars;
+    SurvivalWheel* _survivalWheel;
 };
 
 #endif

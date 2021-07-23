@@ -5,8 +5,9 @@
 [ext_resource path="res://res/anim/icons/hp.svg" type="Texture" id=3]
 [ext_resource path="res://res/scripts/SurvivalBars.gdns" type="Script" id=4]
 
-[node name="SurvivalBars" type="Control"]
+[node name="SurvivalWheel" type="Control"]
 rect_scale = Vector2( 0.5017, 0.511697 )
+mouse_filter = 2
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -17,10 +18,11 @@ margin_left = -55.559
 margin_top = -55.9559
 margin_right = 57.441
 margin_bottom = 57.0441
-min_value = 100.0
+mouse_filter = 2
 value = 100.0
 texture_progress = ExtResource( 3 )
-fill_mode = 4
+fill_mode = 8
+radial_initial_angle = 300.0
 radial_fill_degrees = 120.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -31,11 +33,11 @@ margin_left = -55.559
 margin_top = -55.9559
 margin_right = 57.441
 margin_bottom = 57.0441
-min_value = 100.0
+mouse_filter = 2
 value = 100.0
 texture_progress = ExtResource( 2 )
-fill_mode = 4
-radial_initial_angle = 240.0
+fill_mode = 8
+radial_initial_angle = 60.0
 radial_fill_degrees = 120.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -46,11 +48,11 @@ margin_left = -55.559
 margin_top = -55.9559
 margin_right = 57.441
 margin_bottom = 57.0441
-min_value = 100.0
+mouse_filter = 2
 value = 100.0
 texture_progress = ExtResource( 1 )
-fill_mode = 4
-radial_initial_angle = 120.0
+fill_mode = 8
+radial_initial_angle = 180.0
 radial_fill_degrees = 120.0
 __meta__ = {
 "_edit_use_anchors_": false

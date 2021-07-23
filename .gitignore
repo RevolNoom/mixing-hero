@@ -1,5 +1,10 @@
+# Should I or should I not ignore these?
 res/godot-cpp
 res/libs/x11
 res/libs/gdnativelib
+
+# Hidden files. There're reasons they are hidden
 /**/.*
+
+# Object-shared files. Consequence of .cpp
 /**/*.os

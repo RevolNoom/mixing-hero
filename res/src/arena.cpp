@@ -14,4 +14,9 @@ void Arena::_init()
 
 void Arena::_ready()
 {
+    Unit* u = get_node<Unit>("Unit");
+    Damage* d = get_node<Damage>("Damage");
+    //Unit* u = get_node<Unit>("Unit");
+
+    u->AffectedBy(d);
 }

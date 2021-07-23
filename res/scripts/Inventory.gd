@@ -20,3 +20,8 @@ func _ready():
 func _on_Inventory_mouse_entered():
 	print("MOVE YOUR MOUSE AWAY!")
 	pass # Replace with function body.
+
+
+func _on_Inventory_mouse_exited():
+	print("Yeah, that's right!")
+	pass # Replace with function body.

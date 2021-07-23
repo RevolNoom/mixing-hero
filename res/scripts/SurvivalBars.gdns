@@ -4,5 +4,5 @@
 
 [resource]
 resource_name = "SurvivalBars"
-class_name = "SurvivalBars"
+class_name = "SurvivalWheel"
 library = ExtResource( 1 )

@@ -1,0 +1,2 @@
+- mouse_entered and mouse_exited will display blinking behaviour when suddenly there's a control node pop up over them and take over mouse handling
+	Be sure that that "sudden" control node has mouse filter "ignored"
