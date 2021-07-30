@@ -1,6 +1,6 @@
 extends Node2D
 
-signal mouse_entered
+signal mouse_event 
 signal mouse_exited
 
 # Called when the node enters the scene tree for the first time.
@@ -13,9 +13,10 @@ func _ready():
 #	pass
 
 
-func _on_MouseCapture_mouse_entered():
-	emit_signal("mouse_entered")
-
-
 func _on_MouseCapture_mouse_exited():
 	emit_signal("mouse_exited")
+
+
+func _on_MouseCapture_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouse:
+		emit_signal("mouse_event", event)

@@ -37,3 +37,15 @@ Variant does not know how to cast to CustomClass, but it knows how to cast to a 
 	static void _register_methods();
 	
 	One missing 's' and the library won't register a thing
+
+- If you don't godot::register_class<A>(), then A::_new() is nullptr. Don't forget that!
+
+(?) This next one needs testing
+- If you don't declare any constructor/destructor, you'll be supplied with default ones. With default ones, everything is sets to default value (0 for int, 0.0 for double, something like that)
+	But! If you define a default constructor that do nothing (e.g. A(){}) then beware, the member variables might be set to junk. 
+	When created, the engine will call the constructor first. And then it calls _init(). So, any modification in your constructor will be lost.
+	In the register_property function, the default value does two thing depends on how you edit it in the editor:
+	+ If you leave the field intact in the editor, then _init() will have the final say in what value that field will have when the object is created. (A(){} => _init())
+	+ If you modify the field in the editor, then objects will be created with the value of the field. (A(){} => _init() => value of field)
+	
+	Thus, register_method() argument named "default" should be coded with default-constructed value, NOT the default value you want it to be. 

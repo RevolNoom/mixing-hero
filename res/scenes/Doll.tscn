@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://res/anim/illusion/thigh.svg" type="Texture" id=1]
 [ext_resource path="res://res/anim/illusion/hand.svg" type="Texture" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://res/anim/illusion/foot.svg" type="Texture" id=9]
 [ext_resource path="res://res/scripts/Illusion.gd" type="Script" id=10]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Idle"
 length = 2.0
 loop = true
@@ -376,11 +376,14 @@ tracks/29/keys = {
 "values": [ -24.5565 ]
 }
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 17, 27.5 )
+
 [node name="Doll" type="Node2D"]
 script = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 2 )
+anims/Idle = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="AnimationPlayer"]
 wait_time = 0.001
@@ -391,7 +394,7 @@ scale = Vector2( 0.106574, 0.106574 )
 
 [node name="ArmL" type="Sprite" parent="Bodyparts"]
 position = Vector2( 64.6713, -244.933 )
-rotation = -0.357049
+rotation = -0.35705
 scale = Vector2( 1, 1 )
 texture = ExtResource( 7 )
 offset = Vector2( -9.9965, 75.6987 )
@@ -401,14 +404,13 @@ __meta__ = {
 }
 
 [node name="Forearm" type="Sprite" parent="Bodyparts/ArmL"]
-position = Vector2( -9.03374, 154.032 )
+position = Vector2( -9.03372, 154.032 )
 rotation = 0.142807
-scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 offset = Vector2( -2.33428, 57.8764 )
 
 [node name="Hand" type="Sprite" parent="Bodyparts/ArmL/Forearm"]
-position = Vector2( 8.29182, 139.461 )
+position = Vector2( 8.29184, 139.461 )
 rotation = 1.50491
 scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
@@ -569,14 +571,10 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="MouseCapture" type="Control" parent="."]
-margin_left = -23.0
-margin_top = -46.0
-margin_right = 25.0
-margin_bottom = 42.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MouseCapture" type="Area2D" parent="."]
 
-[connection signal="mouse_entered" from="MouseCapture" to="." method="_on_MouseCapture_mouse_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseCapture"]
+shape = SubResource( 2 )
+
+[connection signal="input_event" from="MouseCapture" to="." method="_on_MouseCapture_input_event"]
 [connection signal="mouse_exited" from="MouseCapture" to="." method="_on_MouseCapture_mouse_exited"]
