@@ -4,18 +4,10 @@
 [ext_resource path="res://res/scenes/effects/Damage.tscn" type="PackedScene" id=2]
 [ext_resource path="res://res/scripts/Arena.gdns" type="Script" id=3]
 [ext_resource path="res://res/scenes/effects/Heal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://res/scenes/effects/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://res/scenes/GUI/GUI.tscn" type="PackedScene" id=5]
 
 [node name="Arena" type="Node"]
 script = ExtResource( 3 )
-
-[node name="Unit" parent="." instance=ExtResource( 1 )]
-position = Vector2( 251.979, 261.666 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="Unit2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 507.9, 253.809 )
-scale = Vector2( 1.5, 1.5 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 anchor_left = 0.000387549
@@ -24,6 +16,14 @@ anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
 mouse_filter = 2
+
+[node name="Unit" parent="." instance=ExtResource( 1 )]
+position = Vector2( 251.979, 261.666 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Unit2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 507.9, 253.809 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="Damage" parent="." instance=ExtResource( 2 )]
 Intensity = 5

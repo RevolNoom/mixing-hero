@@ -1,5 +1,6 @@
 #!python
 import os
+import glob
 
 opts = Variables([], ARGUMENTS)
 
@@ -94,16 +95,21 @@ else:
 
 cpp_library += '.' + str(bits)
 
-# make sure our binding library is properly includes
+# make sure our binding library is properly included
 env.Append(CPPPATH=['.', godot_headers_path, cpp_bindings_path + 'include/', cpp_bindings_path + 'include/core/', cpp_bindings_path + 'include/gen/'])
 
 # Where the gdnative c++ binding is
 env.Append(LIBPATH=[GDNATIVELIB])
 env.Append(LIBS=[cpp_library])
 
-# tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=['src/', 'src/effects', 'src/effects/mindread', 'src/gui'])
-sources = Glob('src/*.cpp') +  Glob('src/effects/*.cpp') + Glob('src/gui/*.cpp') + Glob('src/effects/mindread/*.cpp')
+# Include recursively all folders in src/ for header files
+for dirpath, dirnames, filenames in os.walk("src/"):
+    for dirs in dirnames:
+        env.Append(CPPPATH=os.path.join(dirpath, dirs))
+# Add all .cpp source file recursively
+sources = [glob.glob('src/**/*.cpp', recursive=True)] 
+
+
 library = env.SharedLibrary(target=env['target_path'] + env['target_name'] , source=sources)
 
 Default(library)

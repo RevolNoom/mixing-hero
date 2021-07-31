@@ -49,16 +49,19 @@ namespace Effect
         void _init();
         void _ready();
 
-        // This is where we perform reading target
+        // Read the unit, and construct a profile about it
         void Read(const Unit* const u) const;
 
-        // Other words for Read(). 
-        // Don't worry about it. It's harmless
+        // Same as Read(). It's actually Read() in disguise.
         void AffectOnUnit(Unit* const u) const override;
 
-        // Return the reading result
+        // Return the profile you got from reading your last target.
+        // Nullptr if you didn't perform a read beforehand
+        // (Don't come running to me asking why your game crashes :> )
         const Profile* GetProfile() const;
 
+        // Set the perspective of this mind read. 
+        // Different unit gets different mindread result from the target
         void SetReader(const Unit* const source_reader);
 
     protected:

@@ -28,7 +28,7 @@ namespace Effect
 
         // Return a read-only Profile that's made by reading target unit
         // If you're going to use it, duplicate it 
-        virtual const Profile* GetProfile() const; 
+        const Profile* GetProfile() const; 
 
 
         // Return the profile of the target
@@ -39,7 +39,7 @@ namespace Effect
 
         // Set mrs to be our child strategy
         // Note that this will delete the old child strategy (if any) (but not if mrs is our current child)
-        virtual void Decorate(const MindReadStrategy* const mrs);
+        void Decorate(const MindReadStrategy* const mrs);
 
     protected:
 
@@ -53,6 +53,7 @@ namespace Effect
         // _Profile is snatched from child or created new if no child is there
         virtual void Tweak(const Unit* const reader, const Unit* const target);
 
+        // Our profile constructed so far
         Profile* _Profile;
         // The child strategy
         // Its node name is "Strategy"
