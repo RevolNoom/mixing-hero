@@ -1,9 +1,0 @@
-[gd_scene format=2]
-
-[node name="BasicInteraction" type="Node"]
-
-[node name="DirectEffect" type="Node" parent="."]
-
-[node name="EffectOvertime" type="Node" parent="."]
-
-[node name="Cost" type="Node" parent="."]

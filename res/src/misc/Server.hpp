@@ -1,5 +1,5 @@
-#ifndef ARENA_H
-#define ARENA_H
+#ifndef SERVER_H
+#define SERVER_H
 
 #include <Godot.hpp>
 #include <Node.hpp>
@@ -13,16 +13,16 @@ using namespace godot;
 class GUI;
 class Unit;
 
-class Arena: public Node
+class Server: public Node
 {
-    GODOT_CLASS(Arena, Node)
+    GODOT_CLASS(Server, Node)
 public:
     static void _register_methods();
     void _init();
     virtual void _ready();
 
     // Why don't I connect units directly to GUI, you ask?
-    // Because, Arena supplies the unit who has been touched
+    // Because, Server supplies the unit who has been touched
     // with the information of the player's unit 
     // (implementation details: MouseEntered/Clicked accepts u as non-const
     // because unit u is affected by a mind read

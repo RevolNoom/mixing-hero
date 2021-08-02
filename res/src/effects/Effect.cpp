@@ -21,7 +21,7 @@ void BaseEffect::_init()
 
 void BaseEffect::AffectOnUnit(Unit* const u) const
 {
-    //godot::Godot::print("A Strange Effect made the Unit feels dizzzzzzy. (This is a test message)");
+    godot::Godot::print("A Strange Effect made the Unit feels dizzzzzzy. (This is a test message)");
 }
 
 void BaseEffect::AffectOnEffect(BaseEffect* const e) const
@@ -36,6 +36,11 @@ void BaseEffect::AffectedBy(const BaseEffect* const e)
 int BaseEffect::GetIntensity() const
 {
     return _intensity < 0? 0 : _intensity;
+}
+
+void BaseEffect::SetIntensity(const int intensity)
+{
+    _intensity = intensity < 0? 0 : intensity;
 }
 
 // Add to the intensity of current effect overtime

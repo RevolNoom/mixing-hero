@@ -65,6 +65,10 @@ namespace Effect
         // Is never less than zero
         virtual int GetIntensity() const;
 
+        // Set the effect intensity
+        // Will be adjusted to 0 if it's set to a negative number
+        virtual void SetIntensity(const int intensity);
+
         // Add to the intensity of current effect
         // Can never drops below zero
         virtual void AddIntensity(const int intensity);

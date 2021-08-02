@@ -1,3 +1,4 @@
+#include <Node.hpp>
 #include "AttrModify.hpp"
 #include "Attribute.hpp"
 #include "Unit.hpp"
@@ -9,43 +10,33 @@ using namespace Effect;
 */
 void Damage::_register_methods()
 {
-    register_property("AffectedAttribute", &Damage::_affectedAttrName, String("Health"));
 }
 
 void Damage::_init()
 {
-    _affectedAttrName = "Health";
-}
-
-String Damage::GetAffectedAttributeName() const
-{
-    return _affectedAttrName;
 }
 
 void Damage::AffectOnUnit(Unit* const u) const
 {
-    // There's an internal gcc compiler error 
-    // when I shove the whole string into get_node
-    // AttributeDynamic *attr = u->get_node<AttributeDynamic>("Attribute/" + GetAffectedAttributeName());
-    // Something about "real"? Anyway... here's the workaround
-    String str = "Attribute/";
-    str += GetAffectedAttributeName();
-    NodePath np(str);
-    AttributeDynamic *attr = u->get_node<AttributeDynamic>(np);
+    auto u_attr = u->get_node("Attribute");
+    auto dmg_attr = get_children();
 
-    if (attr)
+    for (int iii=0; iii<dmg_attr.size(); ++iii)
     {
-        attr->AddValue(-GetIntensity());
-        //godot::Godot::print(String("Ouch, that's hurt. Dealt ") + String::num_int64(GetIntensity()) + String(" damage."));
+        String attr_name = cast_to<Node>(dmg_attr[iii])->get_name();
+        NodePath np(attr_name);
+        auto affected_attr = u_attr->get_node<AttributeDynamic>(np);
+        if (affected_attr)
+        {
+            affected_attr->AddValue(-GetIntensity());
+            godot::Godot::print(String("Ouch, that's hurt. Dealt ") + String::num_int64(GetIntensity()) + String(" damage."));
+        }
+        else 
+        {
+            godot::Godot::print_error(String("AttributeDynamic ") + attr_name + String(" not found"), "Damage::AffectOnUnit", "attr_modify.cpp", 0);
+        }
     }
-    else 
-    {
-        godot::Godot::print_error(String("AttributeDynamic ") + GetAffectedAttributeName() + String(" not found"), "Damage::AffectOnUnit", "attr_modify.cpp", 0);
-    }
-
-    u->emit_signal("attributes_modified", u);
 }
-
 
 
 /*
@@ -56,22 +47,27 @@ void Heal::_register_methods()
 {
 }
 
+void Heal::_init()
+{
+}
+
 void Heal::AffectOnUnit(Unit* const u) const
 {
-    String str = "Attribute/";
-    str += GetAffectedAttributeName();
-    NodePath np(str);
-    AttributeDynamic *attr = u->get_node<AttributeDynamic>(np);
+    Node* u_attr = u->get_node("Attribute");
+    auto dmg_attr = get_children();
 
-    if (attr)
+    for (int iii=0; iii<dmg_attr.size(); ++iii)
     {
-        attr->AddValue(GetIntensity());
-        //godot::Godot::print("It feels pleasant...");
+        String attr_name = cast_to<Node>(dmg_attr[iii])->get_name();
+        NodePath np(attr_name);
+        auto affected_attr = u_attr->get_node<AttributeDynamic>(np);
+        if (affected_attr)
+        {
+            affected_attr->AddValue(GetIntensity());
+        }
+        else 
+        {
+            godot::Godot::print_error(String("AttributeDynamic ") + attr_name + String(" not found"), "Damage::AffectOnUnit", "attr_modify.cpp", 0);
+        }
     }
-    else 
-    {
-        godot::Godot::print_error(String("AttributeDynamic ") + GetAffectedAttributeName() + String(" not found"), "Heal::AffectOnUnit", "attr_modify.cpp", 0);
-    }
-
-    u->emit_signal("attributes_modified");
 }

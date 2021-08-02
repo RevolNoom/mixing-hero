@@ -16,7 +16,10 @@
 
 - In register_method, if you pass an invalid(?) function pointer, it will not be known
 
-- Some Script variables might not appear even though registered properly. You must restart Godot to see them.
+- Restart Godot when:
+	+ Some Script variables does not appear.
+	+ Condition "!script_data" is true
+	(May not works all the time, but worth trying)
 
 - Variant can't cast to your custom class. So, functions like this won't work:
 	class CustomClass: public GodotClass

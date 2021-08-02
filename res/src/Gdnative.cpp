@@ -1,10 +1,13 @@
+// Whatever classes
 #include "Attribute.hpp"
 #include "Profile.hpp"
+#include "Interaction.hpp"
+
 // Unit related
 #include "Unit.hpp"
 
 // GUI related
-#include "Arena.hpp"
+#include "Server.hpp"
 #include "gui.hpp"
 #include "SurvivalWheel.hpp"
 #include "SurvivalBars.hpp"
@@ -25,21 +28,19 @@ extern "C" void GDN_EXPORT godot_gdnative_terminate(godot_gdnative_terminate_opt
 
 extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
     godot::Godot::nativescript_init(handle);
-
-    // Base classes that are important but no one cares
+    
+    // Unit related
+    godot::register_class<Unit>();
     godot::register_class<Profile>();
     godot::register_class<Attribute>();
     godot::register_class<AttributeDynamic>();
-
-    // Unit related
-    godot::register_class<Unit>();
 
     // GUI related
     godot::register_class<GUI>();
     godot::register_class<SurvivalBars>();
     godot::register_class<SurvivalWheel>();
 
-    godot::register_class<Arena>();
+    godot::register_class<Server>();
 
     // Effect related
     godot::register_class<BaseEffect>();
@@ -53,4 +54,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
         godot::register_class<Damage>();
         godot::register_class<Heal>();
 
+    // Interaction Family
+    godot::register_class<Interaction>();
 }

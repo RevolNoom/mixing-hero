@@ -3,6 +3,7 @@
 
 #include <Godot.hpp>
 #include <Node.hpp>
+#include <Math.hpp>
 
 using namespace godot;
 
@@ -18,9 +19,10 @@ class Attribute: public Node
 
         // Add an amount to base attribute
         // Clamped to be non-negative 
-        void AddBase(int add);
+        virtual void AddBase(int add);
         // Add an amount to bonus attribute
-        void AddBonus(int add);
+        virtual void AddBonus(int add);
+
         int GetBase() const;
         int GetBonus() const;
         // Return the total sum of base and bonus
@@ -41,9 +43,19 @@ class AttributeDynamic: public Attribute
 
         static void _register_methods();
 
+        // Add an amount to base attribute
+        // Clamped to be non-negative 
+        // Also clamp Attribute's Value to between 0 and max
+        void AddBase(int add) override;
+
+        // Add an amount to bonus attribute
+        // Also clamp Attribute's Value to between 0 and max
+        void AddBonus(int add) override;
+
         // Add an amount to current value
-        // Clamped between 0 and total() 
+        // Clamped between 0 and max() 
         void AddValue(int add);
+
         int GetValue() const;
         int GetMax() const;
 

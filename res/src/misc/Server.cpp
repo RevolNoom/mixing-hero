@@ -1,17 +1,18 @@
-#include "Arena.hpp"
-#include "Unit.hpp"
+#include "GlobalConstants.hpp"
+#include "Interaction.hpp"
 #include "AttrModify.hpp"
 #include <Control.hpp>
+#include "Server.hpp"
+#include "Unit.hpp"
 #include "gui.hpp"
-#include "GlobalConstants.hpp"
 
-void Arena::_init(){}
+void Server::_init(){}
 
-void Arena::_register_methods()
+void Server::_register_methods()
 {
-    register_method("_ready", &Arena::_ready);
-    register_method("UnitMouseEvent", &Arena::UnitMouseEvent);
-    register_method("UnitMouseExited", &Arena::UnitMouseExited);
+    register_method("_ready", &Server::_ready);
+    register_method("UnitMouseEvent", &Server::UnitMouseEvent);
+    register_method("UnitMouseExited", &Server::UnitMouseExited);
 
     // I have absolutely no idea what uses I have for them in the future
     // But rest assured that I won't delete 3 lines of code that took me 3 minutes to write
@@ -21,7 +22,7 @@ void Arena::_register_methods()
 }
 
 
-void Arena::_ready()
+void Server::_ready()
 {
     Unit* u = get_node<Unit>("Unit");
     _GUI = get_node<GUI>("GUI");
@@ -34,12 +35,15 @@ void Arena::_ready()
     u2->connect("unit_mouse_event", this, "UnitMouseEvent");
     u2->connect("unit_mouse_exited", this, "UnitMouseExited");
 
-    Damage* d = get_node<Damage>("Damage");
+    godot::Godot::print("Is it here?");
+    Interaction* i = get_node<Interaction>("Slap");
 
-    u->AffectedBy(d);
+    godot::Godot::print("Or is it here?");
+    i->Perform(u, u2);
+    godot::Godot::print("I'm pretty sure it's here");
 }
 
-void Arena::UnitMouseExited(const Unit* const u)
+void Server::UnitMouseExited(const Unit* const u)
 {
     _GUI->HideWheel(u);
 }
@@ -51,7 +55,7 @@ void Arena::UnitMouseExited(const Unit* const u)
 // TODO: Can MindRead be reused many times to avoid creation cost?
 // TODO: MindRead will also be affected by the caster's effects too. There has to be a way...
 
-void Arena::UnitMouseEvent(Unit* const u, InputEventMouse* const event)
+void Server::UnitMouseEvent(Unit* const u, InputEventMouse* const event)
 {
     if (cast_to<InputEventMouseMotion>(event))
         _GUI->ShowWheel(u);

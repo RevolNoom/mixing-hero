@@ -3,7 +3,7 @@
 [ext_resource path="res://res/anim/GUI/SurvivalWheel/stamina.svg" type="Texture" id=1]
 [ext_resource path="res://res/anim/GUI/SurvivalWheel/spirit.svg" type="Texture" id=2]
 [ext_resource path="res://res/anim/GUI/SurvivalWheel/health.svg" type="Texture" id=3]
-[ext_resource path="res://res/scripts/SurvivalWheel.gdns" type="Script" id=4]
+[ext_resource path="res://res/scripts/GUI/SurvivalWheel.gdns" type="Script" id=4]
 
 [node name="SurvivalWheel" type="Control"]
 mouse_filter = 2

@@ -26,10 +26,10 @@ void SurvivalBars::Display(const Profile* const p)
     for (int iii=0; iii < _attributes.size(); ++iii)
     {
         // Get each info from Profile
-        AttributeDynamic* attr = cast_to<AttributeDynamic>(p->get_node_or_null((NodePath) _attributes[iii]));
+        AttributeDynamic* attr = cast_to<AttributeDynamic>(p->GetInfo((NodePath) _attributes[iii]));
 
         // The progress bar of the attribute we're working on
-        TextureProgress* tp = cast_to<TextureProgress>(get_node_or_null((NodePath) _attributes[iii]));
+        TextureProgress* tp = cast_to<TextureProgress>(get_node((NodePath) _attributes[iii]));
 
         // The numbers that appear on the bar
         Label* stat = cast_to<Label>(tp->get_node("Label"));

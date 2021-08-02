@@ -25,5 +25,5 @@ void Profile::RemoveInfo(const NodePath nodepath)
 
 const Node* Profile::GetInfo(const NodePath nodepath) const
 {
-    return this->get_node(nodepath);
+    return this->get_node_or_null(nodepath);
 }

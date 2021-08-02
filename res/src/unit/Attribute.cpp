@@ -80,23 +80,25 @@ void AttributeDynamic::_ready()
     AddValue(0);
 }
 
+void AttributeDynamic::AddBase(int add)
+{
+    _base += add;
+    _base = _base < 0? 0 : _base;
+    _value = _value > GetTotal()? GetTotal() : _value;
+}
+
+void AttributeDynamic::AddBonus(int add)
+{
+    _bonus += add;
+    _value = _value > GetMax()? GetMax() : _value;
+}
+
 void AttributeDynamic::AddValue(int add)
 {
-    
-    _value += add;
+    _value = Math::clamp(_value + add, 0, GetMax());
 
-    // Don't change the order of these clamps
-    // The signal should be put at the bottom, 
-    // when the attribute is consistent
-    if (_value > GetTotal()) 
-        _value = GetTotal();
-
-    if (_value < 0) 
-    {
-        _value = 0;
+    if (_value == 0) 
         emit_signal("emptied", this);
-    }
-
 }
 
 int AttributeDynamic::GetValue() const
