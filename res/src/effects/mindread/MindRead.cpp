@@ -1,4 +1,3 @@
-#include "MindReadStrategy.hpp"
 #include "MindRead.hpp"
 #include "Profile.hpp"
 #include "Unit.hpp"
@@ -9,26 +8,45 @@ void MindRead::_register_methods()
 {
     register_method("Read", &MindRead::Read);
     register_method("GetProfile", &MindRead::GetProfile);
+    register_method("SetReader", &MindRead::SetReader);
 
-    // I'm thinking about removing this line. 
+    // TODO: I'm thinking about removing this line. 
     // BaseEffect class already register this
     register_method("AffectOnUnit", &MindRead::AffectOnUnit);
     register_method("_ready", &MindRead::_ready);
 }
+
 void MindRead::_init()
 {
-    _Strategy = DefaultRead::_new();
-    _Strategy->set_name("Strategy");
-    this->add_child(_Strategy);
+    // Create a new, blank profile
+    _Profile = Profile::_new();
+    add_child(_Profile);
+    _Profile->set_name("Profile");
+
+    _peekedNodes.append("Attribute/Health");
+    _peekedNodes.append("Attribute/Spirit");
+    _peekedNodes.append("Attribute/Stamina");
+    _peekedNodes.append("Attribute/Endurance");
+    _peekedNodes.append("Attribute/Physique");
+    _peekedNodes.append("Attribute/Mentality");
+    _peekedNodes.append("Attribute/Speed");
+    //_peekedNodes.append("EffectOvertime");
 }
 
-void MindRead::Read(const Unit* const u) const
+void MindRead::_ready()
 {
-    _Strategy->Read(_reader, u); 
 }
 
-void MindRead::AffectOnUnit(Unit* const u) const                  
+void MindRead::Read(const Unit* const target) const
 {
+    _Profile->WipeClean(); 
+    // And here comes the real reading part
+    DoRead(_reader, target, _Profile);
+}
+
+void MindRead::AffectOnUnit(Unit* const u) const                 
+{
+    // a bit silly, eh?
     Read(u);
 }
 
@@ -39,19 +57,45 @@ void MindRead::SetReader(const Unit* const source_reader)
 
 const Profile* MindRead::GetProfile() const                       
 {
-    return _Strategy->GetProfile();
+    return _Profile; 
 } 
 
-void MindRead::Decorate(const MindReadStrategy* const mrs)
+void MindRead::AppendChain(const MindRead* const mr)
 {
-    MindReadStrategy* duplicate = cast_to<MindReadStrategy>(mrs->duplicate());
-    duplicate->Decorate(_Strategy);
-    duplicate->set_name(String("Strategy"));
-    this->remove_child(_Strategy);
-    _Strategy = duplicate;
-    this->add_child(_Strategy);
+    // Base case, when we're at the end of the chain
+    if (_nextMindRead == nullptr)
+    {
+        _nextMindRead = cast_to<MindRead>(mr->duplicate());
+        _nextMindRead->set_name("MindRead");
+        add_child(_nextMindRead);
+        return;
+    }
+
+    _nextMindRead->AppendChain(mr);
 }
 
-void MindRead::_ready()
+void MindRead::DoRead(const Unit* const source, const Unit* const target, Profile* const dirtyProfile) const
 {
+    // Do nothing because we have no right to stalk other people
+    // TODO: Read not just ourselves, but also our team
+    if (target != source)
+        return;
+
+    // First time I see Read and Write child classes. Pretty neat
+    auto peekedNodes = _peekedNodes.read();
+
+    for (int iii=0; iii<_peekedNodes.size(); ++iii)
+    {
+        // We already have the info of this attribute, skip
+        if (dirtyProfile->get_node_or_null((NodePath) peekedNodes[iii]))
+            continue;
+
+        // Copy the attribute we need to read
+        // Add it to the Profile
+        auto attr = target->get_node_or_null((NodePath) peekedNodes[iii]);
+        if (attr)
+            dirtyProfile->AddInfo(attr);
+    }
+
+    // TODO: Add Effect infos to Profile
 }

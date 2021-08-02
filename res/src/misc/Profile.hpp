@@ -27,15 +27,16 @@ class Profile: public Node
     public:
 
     static void _register_methods();
-    void _init(){};
-    Profile(){}
-    ~Profile(){}
+    void _init();
 
     // Add more node (info) to this Profile
     void AddInfo(const Node* info);
 
     // Remove node (info) from this Profile
     void RemoveInfo(const NodePath nodepath);
+
+    // Remove all infos on this Profile
+    void WipeClean();
 
     // Ask for info, and I'll tell you what I know
     const Node* GetInfo(const NodePath nodepath) const;

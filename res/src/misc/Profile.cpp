@@ -1,5 +1,9 @@
 #include "Profile.hpp"
 
+void Profile::_init()
+{
+}
+
 void Profile::_register_methods()
 {
     register_method("AddInfo", &Profile::AddInfo);
@@ -26,4 +30,17 @@ void Profile::RemoveInfo(const NodePath nodepath)
 const Node* Profile::GetInfo(const NodePath nodepath) const
 {
     return this->get_node_or_null(nodepath);
+}
+
+void Profile::WipeClean()
+{
+    auto children = this->get_children();
+
+    for (int iii = 0; iii<children.size(); ++iii)
+    {
+        auto info = cast_to<Node>(children[iii]);
+        remove_child(info);
+        info->queue_free();
+    }
+    
 }
