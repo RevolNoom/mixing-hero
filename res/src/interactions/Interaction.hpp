@@ -39,28 +39,28 @@
         its information is inconsistent (e.g. some interactions have 
         cost and effectiveness depends on current units' state)
         In inconsistent cases, it's essential for Interaction to perform
-        a MindRead, so that it can show informations correctly
+        a MindReading, so that it can show informations correctly
         + If the Interaction wishes to communicate with GUI, then 
-            it does a basic MindRead
+            it does a basic MindReading
         + If Interaction needs to know exact information 
-        (not contaminated by any MindRead-confusing effect), 
+        (not contaminated by any MindReading-confusing effect), 
             it should use DivineRead. 
-            DivineRead is created solely with Interaction in mind 
 */
 
 #ifndef INTERACTION_H
 #define INTERACTION_H
 
 #include <Godot.hpp>
-#include <Node.hpp>
+#include <Node2D.hpp>
+#include <TextureButton.hpp>
 
 using namespace godot;
 class Unit;
 class Profile;
 
-class Interaction: public Node
+class Interaction: public Node2D
 {
-    GODOT_CLASS(Interaction, Node)
+    GODOT_CLASS(Interaction, Node2D)
 
 public:
     static void _register_methods();
@@ -68,7 +68,7 @@ public:
     void _init();
 
     // TODO: There must be a way for SourceCanPerform() 
-    // and CanApplyOnTarget() to communicate with a Server
+    // and CanApplyOnTarget() to communicate with a Manager
     // so that they can fetch needed information.
 
     // True if source can perform this interaction.
@@ -94,7 +94,7 @@ public:
 private:
     Node* _effectToSource;
     Node* _effectToTarget;
-    
+    TextureButton* _button;
 };
 
 #endif

@@ -1,15 +1,12 @@
 GUI:
-	+ General GUI
 	+ Bags, Skill tree, Map,... buttons
 	+ Inventory
 	+ Equipment
-	+ Action Picker Pallete => dump into Action interface?
+	+ Action Picker Pallete 
 
 Classes:
-	+ Action
 	+ Map Making
 	+ Generate map
-	+ Server Manager
 	+ More EFFECTS
 
 World:

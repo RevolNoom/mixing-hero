@@ -3,6 +3,6 @@
 [ext_resource path="res://res/libs/gdnativelibrary.tres" type="GDNativeLibrary" id=1]
 
 [resource]
-resource_name = "Arena"
-class_name = "Server"
+resource_name = "InteractionManager"
+class_name = "InteractionManager"
 library = ExtResource( 1 )

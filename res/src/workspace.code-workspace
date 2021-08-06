@@ -19,7 +19,10 @@
 			"variant": "cpp",
 			"atomic": "cpp",
 			"chrono": "cpp",
-			"complex": "cpp"
+			"complex": "cpp",
+			"bitset": "cpp",
+			"string_view": "cpp",
+			"initializer_list": "cpp"
 		}
 	}
 }

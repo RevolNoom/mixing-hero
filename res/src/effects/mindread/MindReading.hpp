@@ -1,5 +1,5 @@
 /*
-    MindRead classes
+    MindReading classes
 
     Provide a way for players to see attributes of other characters or themselves
 
@@ -11,16 +11,16 @@
     This is Decorator pattern 
     (or Composite pattern? I think it's Decorator)
 
-    BaseEffect MindRead                                 |
+    BaseEffect MindReading                                 |
     |_ Profile Profile  (shared along the chain)        |
-    |_ MindRead MindRead                                | Read
-        |_ MindRead MindRead                            | Sequence
-            |_ MindRead MindRead                        |
+    |_ MindReading MindReading                                | Read
+        |_ MindReading MindReading                            | Sequence
+            |_ MindReading MindReading                        |
                 |_ ...                                  v
     
     It's also worth note-taking that Profile is going to be 
     shared by the chain.
-    Meaning that only the root (top) MindRead owns it
+    Meaning that only the root (top) MindReading owns it
     But, Profile can be modified by any link in the chain.
 */
 #ifndef MIND_READ_H
@@ -42,19 +42,19 @@ namespace Effect
         This is not supposed to be an Interaction.
         It's intended for private use in implementation
         
-        How MindRead implementation works:
+        How MindReading implementation works:
         + This process is done when you click on an unit or hover your mouse on
-        + A MindRead is created by your controlled character.
-        + That character will pass Mindread to the target Unit.
-        + MindRead then constructs a Profile of target Unit.
+        + A MindReading is created by your controlled character.
+        + That character will pass MindReading to the target Unit.
+        + MindReading then constructs a Profile of target Unit.
         + Finally, based on how you invoke this process (Hover mouse/Click),
             then pass it to GUI
         
-        Default _strategy is a DefaultRead. See MindReadStrategy.hpp for more details
+        Default _strategy is a DefaultRead. See MindReadingStrategy.hpp for more details
     */ 
-    class MindRead: public BaseEffect 
+    class MindReading: public BaseEffect 
     {
-        GODOT_CLASS(MindRead, BaseEffect)
+        GODOT_CLASS(MindReading, BaseEffect)
     public:
 
         static void _register_methods();
@@ -75,15 +75,15 @@ namespace Effect
         const Profile* GetProfile() const;
 
         // Set the perspective of this mind read. 
-        // Different source unit gets different mindread result from the target
+        // Different source unit gets different MindReading result from the target
         void SetReader(const Unit* const source_reader);
 
-        // Pass Mr. along the MindRead chain. Hopefully
+        // Pass Mr. along the MindReading chain. Hopefully
         // that Mr. will reach the chain ending and be appended there
         // NOT GUARANTEED, though.
         // Some effects could stop Mr. from joining the family
         // *aggressively glare DivineRead (>_>)
-        virtual void AppendChain(const MindRead* const mr);
+        virtual void AppendChain(const MindReading* const mr);
 
     protected:
         // TODO: Naming convention. What was the prefix for
@@ -95,27 +95,45 @@ namespace Effect
         virtual void DoRead(const Unit* const source, const Unit* const target, Profile* const dirtyProfile) const;
 
         // List of NodePath for all the nodes 
-        // this MindRead is going to peek at an Unit
+        // this MindReading is going to peek at an Unit
         PoolStringArray _peekedNodes;
 
-    private:
         // Who's doing reading?
         const Unit* _reader;
 
         // Our Profile constructed so far
         // This Profile is shared for modification to the whole chain
-        // But there's only one owner: The root MindRead
+        // But there's only one owner: The root MindReading
         Profile* _Profile;
 
         // The next Profile processing phase
-        MindRead* _nextMindRead;
+        MindReading* _nextMindReading;
     };
 
+    /*
+        The strongest MindReading type.
+        This type is intended for Interaction & Effects
+        to correctly acquire informations from unit.
+    */
+    class DivineInterrogation: public MindReading 
+    {
+        GODOT_CLASS(DivineInterrogation, MindReading)
+    public:
+
+        static void _register_methods();
+        void _init();
+        void _ready();
+
+        void AppendChain(const MindReading* const actuallyNotAppendedButIsHereJustForFun) override;
+    
+    protected:
+        void DoRead(const Unit* const source, const Unit* const target, Profile* const dirtyProfile) const override;
+    };
 
 
     /*  
         More advanced Mind Reading
-        When it catches a MindRead, it will allow that MindRead 
+        When it catches a MindReading, it will allow that MindReading 
         to read the attributes of any unit
 
         DeepGaze intensity will reveal how much information is disclosed.
@@ -165,6 +183,7 @@ namespace Effect
     {
         GODOT_CLASS(SoulStare, DeepGaze)
     };*/
+
 }
 
 #endif

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/scenes/unit/Unit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/scenes/manager/InteractionManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://res/scripts/manager/Manager.gdns" type="Script" id=3]
+[ext_resource path="res://res/scenes/GUI/GUI.tscn" type="PackedScene" id=5]
+
+[node name="Manager" type="Node"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 5 )]
+anchor_left = 0.000387549
+anchor_right = 1.00039
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+mouse_filter = 2
+
+[node name="Unit" parent="." instance=ExtResource( 1 )]
+position = Vector2( 274.979, 265.666 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Unit2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 507.9, 253.809 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 510.651, 298.806 )
+current = true
+editor_draw_drag_margin = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Camera2D"]
+position = Vector2( -214.321, -187.682 )
+enabled = true
+cast_to = Vector2( 0, 0 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="InteractionManager" parent="." instance=ExtResource( 2 )]

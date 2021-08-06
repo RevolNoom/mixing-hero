@@ -1,22 +1,25 @@
 // Whatever classes
-#include "Attribute.hpp"
 #include "Profile.hpp"
-#include "Interaction.hpp"
+#include "Manager.hpp"
+#include "InteractionManager.hpp"
 
 // Unit related
 #include "Unit.hpp"
+#include "Attribute.hpp"
 
 // GUI related
-#include "Server.hpp"
-#include "gui.hpp"
+#include "InteractionWheel.hpp"
 #include "SurvivalWheel.hpp"
 #include "SurvivalBars.hpp"
+#include "GUI.hpp"
 
 // Effects related
 #include "Effect.hpp"
 #include "AttrModify.hpp"
-#include "MindRead.hpp"
-#include "MindReadStrategy.hpp"
+#include "MindReading.hpp"
+
+// Interaction related 
+#include "Interaction.hpp"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options *o) {
     godot::Godot::gdnative_init(o);
@@ -29,6 +32,10 @@ extern "C" void GDN_EXPORT godot_gdnative_terminate(godot_gdnative_terminate_opt
 extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
     godot::Godot::nativescript_init(handle);
     
+    // Managers family
+    godot::register_class<Manager>();
+    godot::register_class<InteractionManager>();
+
     // Unit related
     godot::register_class<Unit>();
     godot::register_class<Profile>();
@@ -39,16 +46,16 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
     godot::register_class<GUI>();
     godot::register_class<SurvivalBars>();
     godot::register_class<SurvivalWheel>();
+    godot::register_class<InteractionWheel>();
 
-    godot::register_class<Server>();
 
     // Effect related
     godot::register_class<BaseEffect>();
     godot::register_class<EffectOvertime>();
 
         // Mind Readings
-        godot::register_class<MindRead>();
-        godot::register_class<DefaultRead>();
+        godot::register_class<MindReading>();
+        godot::register_class<DivineInterrogation>();
 
         // Attributes modifying
         godot::register_class<Damage>();

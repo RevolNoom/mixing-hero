@@ -23,9 +23,9 @@ namespace Effect
             virtual void AffectOnUnit(Unit* const u) const override;
     };
 
-    class Heal: public Damage
+    class Heal: public BaseEffect 
     {
-        GODOT_CLASS(Heal, Damage)
+        GODOT_CLASS(Heal, BaseEffect)
         public:
             static void _register_methods();
             void _init();

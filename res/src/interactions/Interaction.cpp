@@ -16,6 +16,8 @@ void Interaction::_ready()
 {
     _effectToSource = get_node("EffectsToSource");
     _effectToTarget = get_node("EffectsToTarget");
+
+    _button = get_node<TextureButton>("Button");
 }
 
 void Interaction::_init()
