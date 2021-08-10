@@ -1,8 +1,14 @@
 /*
     MANAGER CLASS
 
-    This class glues all child objects together, 
-    ensure that they co-operate smoothly
+    Has the responsibility to set up:
+    + Player (Controller)
+    + PickSurvivalBars & GUI
+
+    Manager
+    |_ GUI
+    |_ InteractionManager
+    |_ Units?
 */
 #ifndef MANAGER_H
 #define MANAGER_H
@@ -10,7 +16,6 @@
 #include <Godot.hpp>
 #include <Node.hpp>
 #include <Control.hpp>
-#include <InputEventMouse.hpp>
 
 using namespace godot;
 
@@ -44,5 +49,7 @@ private:
 
     GUI* _GUI;
     InteractionManager* _InteractionManager;
+
+
 };
 #endif

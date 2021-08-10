@@ -15,8 +15,10 @@
 #include <InputEventMouse.hpp>
 #include <GlobalConstants.hpp>
 
+class InteractionWheel;
 class SurvivalWheel;
 class Unit;
+class GUI;
 
 // This class serves as an Abstract Class
 // It's not intended to be instantiated
@@ -32,17 +34,13 @@ public:
     // Discards everything I have picked and try again
     void ResetPicking();
 
+    // OVERRIDE me!
     // Feed me with Events and I'll hog them up
     // I will only digests Events that interests me
     // You'll get "sequence_done" signal when I'm done
-    void Accept(const InputEvent* const event, Unit* const performer) override;
+    virtual void Accept(const InputEvent* const event, Unit* const performer) override;
 
 protected:
-
-    // Override this function.
-    // This is what you do to your InputSequence's Accept()
-    // The Ray has been casted, mouse event tested
-    virtual void DoYourJob(const InputEvent* const ev, Unit* const performer);
 
     // The RayCast used to pick object
     RayCast2D* _Picker;
@@ -63,9 +61,7 @@ public:
     static void _register_methods();
     void _init();
     void _ready();
-
-protected:
-    virtual void DoYourJob(const InputEvent* const ev, Unit* const performer);
+    virtual void Accept(const InputEvent* const event, Unit* const performer) override;
 };
 
 
@@ -78,9 +74,7 @@ public:
     static void _register_methods();
     void _init();
     void _ready();
-
-protected:
-    virtual void DoYourJob(const InputEvent* const ev, Unit* const performer);
+    virtual void Accept(const InputEvent* const event, Unit* const performer) override;
 };
 
 
@@ -97,13 +91,50 @@ public:
 
     // Set this unit to be the source of reading
     // other units' attributes
-    // If no performer is present, PickSurvivalWheel 
-    // shows a full-by-default SurvivalWheel
     void SetPerformer(Unit* const performer);
+
+    // Move RayCast along with the mouse pointer
+    void Accept(const InputEvent* const ev, Unit* const performer);
 
 protected:
     SurvivalWheel* _SurvivalWheel;
     Unit*          _Performer;
-    
 };
+
+// Exclusively made to work with GUI
+// Bind and unbind an unit to right Survival Bars
+// Click on an Unit to bind, click on any non-Unit to unbind
+class PickSurvivalBars: public Pick 
+{
+    GODOT_CLASS(PickSurvivalBars, Pick)
+
+public:
+    static void _register_methods();
+    void _init();
+    void _ready();
+
+    // Set this unit to be the source of reading
+    // other units' attributes
+    void SetPerformer(Unit* const performer);
+
+    void BindGUI(GUI* const gui);
+    virtual void Accept(const InputEvent* const event, Unit* const performer) override;
+
+protected:
+    // The _GUI that this Pick is bound to
+    GUI*    _GUI;
+
+    // Who performs MindReading on the clicked Unit? 
+    // (probably the Player)
+    Unit*   _Performer;
+
+};
+/*
+    // The Wheel which this Pick is responsible to.
+    InteractionWheel* _InteractionWheel;
+
+    // _InteractionWheel is bound to this unit
+    // Wherever it goes, the wheel follows
+    Unit*   _BoundUnit;
+    */
 #endif

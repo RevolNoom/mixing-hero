@@ -72,5 +72,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
         godot::register_class<Pick>();
         godot::register_class<PickUnit>();
         godot::register_class<PickPosition>();
+        godot::register_class<PickSurvivalBars>();
         godot::register_class<PickSurvivalWheel>();
 }

@@ -6,6 +6,8 @@
 
     MindReading are performed here. 
     Though you probably don't need to know that
+
+    TODO: Nah, MindReading should not be performed here
 */
 
 #ifndef GUI_H
@@ -33,25 +35,11 @@ public:
     // The info shown on the GUI is what this unit is permitted to see
     void SetController(Unit* const player);
 
-    // BARS RELATED
-
-        // MindReading unit, then show an unit profile on the right bars
-        // If this unit is the player (already bound to left bars),
-        // then nothing new needs to be updated
-        void ShowBars(Unit* const unit);
-
-    // WHEEL RELATED
-        /*
-        // MindReading unit, then show the survival Wheel
-        // Show the SurvivalWheel on target, with the given profile 
-        void ShowWheel(Unit* const unit);
-
-        // Hide the SurvivalWheel
-        void HideWheel();
-        */
-    // Signal Handler
-    // Update the GUI component accordingly to the event
-    void UnitMouseEvent(Unit* const u, InputEventMouse* const event);
+    // TODO: Let the bars update automatically when units have attributes changed
+    // MindReading unit, then show an unit profile on the right bars
+    // If this unit is the player (already bound to left bars),
+    // then nothing new needs to be updated
+    void ShowBars(Unit* const unit);
 
 private:
     // The character which the user is controlling

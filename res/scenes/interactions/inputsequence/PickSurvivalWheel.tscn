@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://res/scenes/GUI/SurvivalWheel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://res/scenes/interactions/inputsequence/SequencePick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://res/scenes/interactions/inputsequence/Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://res/scripts/interactions/inputsequence/PickSurvivalWheel.gdns" type="Script" id=3]
 
 [node name="PickSurvivalWheel" instance=ExtResource( 2 )]

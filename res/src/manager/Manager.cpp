@@ -1,10 +1,10 @@
-#include <InputEvent.hpp>
 #include "InteractionManager.hpp"
 #include "Interaction.hpp"
-//#include "AttrModify.hpp"
+#include <InputEvent.hpp>
 #include <Control.hpp>
 #include "Manager.hpp"
 #include "Unit.hpp"
+#include "Pick.hpp"
 #include "GUI.hpp"
 
 void Manager::_init(){}
@@ -29,13 +29,18 @@ void Manager::SetController(Unit* const u)
 void Manager::_ready()
 {
     Unit* u = get_node<Unit>("Unit");
+    Unit* u2 = get_node<Unit>("Unit2");
+
     _GUI = get_node<GUI>("CanvasLayer/GUI");
     _InteractionManager = get_node<InteractionManager>("InteractionManager");
     SetController(u);
 
-    RegisterUnit(u);
+    // Bind unit-mouse-clicks to _GUI
+    auto pickSurvivalBars = _InteractionManager->get_node<PickSurvivalBars>("PickSurvivalBars");
+    pickSurvivalBars->BindGUI(_GUI);
 
-    Unit* u2 = get_node<Unit>("Unit2");
+
+    RegisterUnit(u);
     RegisterUnit(u2);
 }
 

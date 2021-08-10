@@ -3,6 +3,7 @@
 #include "Profile.hpp"
 #include "Pick.hpp"
 #include "Unit.hpp"
+#include "GUI.hpp"
 
 // ================================= 
 // B A S E  S E Q U E N C E  P I C K
@@ -12,6 +13,7 @@ void Pick::_register_methods()
 {
     register_property("PickAmount", &Pick::_PickAmount, 0);
     register_method("ResetPicking", &Pick::ResetPicking);
+    register_method("Accept", &Pick::Accept);
 }
 
 void Pick::_init()
@@ -39,22 +41,6 @@ void Pick::_ready()
 
 void Pick::Accept(const InputEvent* const ev, Unit* const performer)
 {
-    auto event = cast_to<InputEventMouse>(ev);
-
-    if (event)
-    {
-        // RayCast at mouse position to search for adorable thingies
-        _Picker->set_position(event->get_position());
-        _Picker->force_raycast_update();
-
-        // and then...
-        DoYourJob(ev, performer);
-    }
-}
-
-
-void Pick::DoYourJob(const InputEvent* const ev, Unit* const performer)
-{
 }
 
 // ========================
@@ -79,7 +65,7 @@ void PickPosition::_ready()
     _Picker->set_enabled(false);
 }
 
-void PickPosition::DoYourJob(const InputEvent* const ev, Unit* const performer)
+void PickPosition::Accept(const InputEvent* const ev, Unit* const performer)
 {
 }
 
@@ -101,7 +87,7 @@ void PickUnit::_ready()
     _Picker->set_enabled(false);
 }
 
-void PickUnit::DoYourJob(const InputEvent* const ev, Unit* const performer)
+void PickUnit::Accept(const InputEvent* const ev, Unit* const performer)
 {
     if (_Picker->is_colliding())
     {
@@ -113,8 +99,9 @@ void PickUnit::DoYourJob(const InputEvent* const ev, Unit* const performer)
     }
 }
 
-// =============================== 
-// =============================== 
+// =================================== 
+// P I C K  S U R V I V A L  W H E E L
+// =================================== 
 
 void PickSurvivalWheel::_register_methods()
 {
@@ -138,6 +125,16 @@ void PickSurvivalWheel::_ready()
 void PickSurvivalWheel::SetPerformer(Unit* const u)
 {
     _Performer = u;
+}
+
+void PickSurvivalWheel::Accept(const InputEvent* const ev, Unit* const performer)
+{
+    auto mouseMovement = cast_to<InputEventMouseMotion>(ev);
+
+    if (mouseMovement)
+    {
+        _Picker->set_position(mouseMovement->get_position());
+    }
 }
 
 // TODO: Use the cache to stop creating so many MindReading
@@ -164,5 +161,58 @@ void PickSurvivalWheel::_process(float delta)
     {
         // Am I Tweening too much?
         _SurvivalWheel->FadeAway();
+    }
+}
+
+// ================================= 
+// P I C K  S U R V I V A L  B A R S 
+// ================================= 
+
+void PickSurvivalBars::_register_methods()
+{
+    register_method("_ready", &PickSurvivalBars::_ready);
+}
+
+void PickSurvivalBars::_init()
+{
+}
+
+void PickSurvivalBars::_ready()
+{
+    // With this Picker, we need to enable it to make it update
+    // wheel position in runtime
+    _Picker = get_node<RayCast2D>("RayCast2D");
+    _Picker->set_enabled(false);
+}
+
+void PickSurvivalBars::SetPerformer(Unit* const u)
+{
+    _Performer = u;
+}
+
+void PickSurvivalBars::BindGUI(GUI* const gui)
+{
+    _GUI = gui;
+}
+
+void PickSurvivalBars::Accept(const InputEvent* const ev, Unit* const performer)
+{
+    auto event = cast_to<InputEventMouseButton>(ev);
+    // Only care about left mouse clicks
+    if (event &&
+        event->is_pressed() &&
+        event->get_button_index() == GlobalConstants::BUTTON_LEFT)
+    {
+        _Picker->set_position(event->get_position());
+        _Picker->force_raycast_update();
+
+        if (_Picker->is_colliding())
+        {
+            auto ominousObject = cast_to<Unit>(_Picker->get_collider());
+            if (ominousObject)
+            {
+                _GUI->ShowBars(ominousObject);
+            }
+        }
     }
 }

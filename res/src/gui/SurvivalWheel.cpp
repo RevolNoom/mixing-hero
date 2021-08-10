@@ -24,6 +24,7 @@ void SurvivalWheel::_ready()
 {
     // Completely hide the bars when created
     set_visible(false);
+    _isFading = true;
     set_modulate(Color(1,1,1,0));
 
     // Setup signals and handlers
@@ -66,21 +67,25 @@ void SurvivalWheel::Show(const Profile* const p)
     set_visible(true);
     Update(p);
 
-    // Be sure to interrupt tween if it's fading
-    _tween->stop_all();
-
-    // Set Transparency from Fully Transparent to Fully Opaque
-    _tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 1), 0.4, Tween::TRANS_LINEAR, Tween::EASE_OUT_IN);
-    _tween->start();
+    // Only start tweening if it's not fading
+    if (_isFading)
+    {
+        _isFading = false;
+        // Set Transparency from Fully Transparent to Fully Opaque
+        _tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 1), 0.4, Tween::TRANS_LINEAR, Tween::EASE_OUT_IN);
+        _tween->start();
+    }
 }
 
 void SurvivalWheel::FadeAway()
 {
-    // Be sure to interrupt tween if it's in process of showing
-    _tween->stop_all();
-    // Set Transparency from Fully Opaque to Fully Transparent
-    _tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 0), 0.4, Tween::TRANS_LINEAR, Tween::EASE_IN_OUT);
-    _tween->start();
+    if (!_isFading)
+    {
+        _isFading = true;
+        // Set Transparency from Fully Opaque to Fully Transparent
+        _tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 0), 0.4, Tween::TRANS_LINEAR, Tween::EASE_IN_OUT);
+        _tween->start();
+    }
 }
 
 void SurvivalWheel::CompletedTweening()

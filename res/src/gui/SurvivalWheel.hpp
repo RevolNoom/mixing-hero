@@ -52,10 +52,13 @@ protected:
     void Update(const Profile* const p);
 
 private:
-
-    // VARIABLES
     Tween* _tween;
     PoolStringArray _attributeNames;
+
+    // Test Variable to make sure I'm not starting
+    // and stopping tween too many time
+    // True if tween is fading or already hidden, false otherwise
+    bool _isFading;
 };
 
 #endif

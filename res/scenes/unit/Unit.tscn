@@ -43,6 +43,7 @@ Base = 10
 [node name="Interaction" type="Node" parent="."]
 
 [node name="Slap" parent="Interaction" instance=ExtResource( 5 )]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
