@@ -86,8 +86,6 @@ namespace Effect
         virtual void AppendChain(const MindReading* const mr);
 
     protected:
-        // TODO: Naming convention. What was the prefix for
-        // function names that are intended for overriding?
         // Here's where you:
         // + Perform reading unit
         // + Modify already known informations

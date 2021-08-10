@@ -29,7 +29,7 @@ class Profile: public Node
     static void _register_methods();
     void _init();
 
-    // Add more node (info) to this Profile
+    // Add a duplicated node (info) to this Profile
     void AddInfo(const Node* info);
 
     // Remove node (info) from this Profile

@@ -15,16 +15,14 @@ void GUI::_register_methods()
 {
     register_method("_ready", &GUI::_ready);
     register_method("ShowBars", &GUI::ShowBars);
-    register_method("ShowWheel", &GUI::ShowWheel);
-    register_method("HideWheel", &GUI::HideWheel);
+    //register_method("ShowWheel", &GUI::ShowWheel);
+    //register_method("HideWheel", &GUI::HideWheel);
     register_method("SetController", &GUI::SetController);
     register_method("UnitMouseEvent", &GUI::UnitMouseEvent);
 }
 
 void GUI::_ready()
 {
-    _wheeler = nullptr;
-    _wheel = get_node<SurvivalWheel>("SurvivalWheel");
     _controllerBars = get_node<SurvivalBars>("Bars/SurvivalBarsLeft");
     _rightBars = get_node<SurvivalBars>("Bars/SurvivalBarsRight");
 }
@@ -71,7 +69,7 @@ void GUI::ShowBars(Unit* const unit)
     this->remove_child(MindReading);
     MindReading->queue_free();
 }
-
+/*
 // TODO: Stop creating so many MindReading!
 void GUI::ShowWheel(Unit* const unit)
 {
@@ -81,12 +79,6 @@ void GUI::ShowWheel(Unit* const unit)
         godot::Godot::print("Hey, Who Is Doing Reading? _controller is not initialized");
         return;
     }
-
-    // Like a mutex, lock the wheel exclusively for this unit
-    _wheeler = unit;
-
-    // Move the wheel to the unit's position
-    _wheel->set_position(unit->get_position());
 
     MindReading *MindReading = MindReading::_new();
     MindReading->set_name("MindReading");
@@ -98,37 +90,28 @@ void GUI::ShowWheel(Unit* const unit)
     // And thus it must acts like an Effect
     // (other effects may modify MindReading too)
     unit->AffectedBy(MindReading); 
-
-    // Bink blink magic. Appear!
-    _wheel->Show(MindReading->GetProfile());
     
     this->remove_child(MindReading);
     MindReading->queue_free();
 }
-
 // Hide the SurvivalWheel 
 // Only hide if it's showing info for unit
 // Do nothing otherwise
-void GUI::HideWheel(const Unit* const unit)
+void GUI::HideWheel()
 {
-    if (unit != _wheeler)
-        return;
-    
-    _wheeler = nullptr;
-
     _wheel->FadeAway();
 }
+*/
 
 // I need to come up with a new way to manage MindReading
 //
-// TODO: Rethink about GUI design. Should it knows which unit the player controls?
 // TODO: Can MindReading be reused many times to avoid creation cost?
-// TODO: MindReading will also be affected by the caster's effects too. There has to be a way...
 
 void GUI::UnitMouseEvent(Unit* const u, InputEventMouse* const event)
 {
     if (cast_to<InputEventMouseMotion>(event))
-        ShowWheel(u);
+    {
+    }
     else
     {
         auto mouse_button = cast_to<InputEventMouseButton>(event);

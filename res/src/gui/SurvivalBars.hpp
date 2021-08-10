@@ -13,9 +13,6 @@
 
     I don't inherit this class from SurvivalWheel because
     their interfaces are mostly different. Their behaviours also.
-
-    TODO: Other opponents can hide their information from us, 
-    So there'll be an effect to decide which info is shown on GUI
 */
 
 #ifndef SURVIVAL_BARS_H
@@ -23,6 +20,7 @@
 
 #include <Godot.hpp>
 #include <Control.hpp>
+// TODO: Make animation smooth with Tweeeeeenie
 //#include <Tween.hpp>
 #include <TextureProgress.hpp>
 

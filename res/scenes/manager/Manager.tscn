@@ -31,11 +31,4 @@ position = Vector2( 510.651, 298.806 )
 current = true
 editor_draw_drag_margin = true
 
-[node name="RayCast2D" type="RayCast2D" parent="Camera2D"]
-position = Vector2( -214.321, -187.682 )
-enabled = true
-cast_to = Vector2( 0, 0 )
-collide_with_areas = true
-collide_with_bodies = false
-
 [node name="InteractionManager" parent="." instance=ExtResource( 2 )]

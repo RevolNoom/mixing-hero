@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://res/scenes/unit/Doll.tscn" type="PackedScene" id=1]
 [ext_resource path="res://res/scenes/unit/Attribute.tscn" type="PackedScene" id=2]
@@ -6,7 +6,10 @@
 [ext_resource path="res://res/scripts/unit/Unit.gdns" type="Script" id=4]
 [ext_resource path="res://res/scenes/interactions/Slap.tscn" type="PackedScene" id=5]
 
-[node name="Unit" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17, 27.5 )
+
+[node name="Unit" type="KinematicBody2D"]
 position = Vector2( 122.944, 83.299 )
 scale = Vector2( 2.16, 2.17071 )
 script = ExtResource( 4 )
@@ -40,3 +43,6 @@ Base = 10
 [node name="Interaction" type="Node" parent="."]
 
 [node name="Slap" parent="Interaction" instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

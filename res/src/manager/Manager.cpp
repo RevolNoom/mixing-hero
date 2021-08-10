@@ -15,11 +15,9 @@ void Manager::_register_methods()
     register_method("_unhandled_input", &Manager::_unhandled_input);
 }
 
+// TODO: Delete this?
 void Manager::RegisterUnit(Unit* const u)
 {
-    u->connect("unit_mouse_event", _GUI, "UnitMouseEvent");
-    u->connect("unit_mouse_exited", _GUI, "HideWheel");
-
 }
 
 void Manager::SetController(Unit* const u)
@@ -43,12 +41,5 @@ void Manager::_ready()
 
 void Manager::_unhandled_input(InputEvent* const event)
 {
-    /*
-    auto mouse_button = cast_to<InputEventMouseButton>(event);
-    if (mouse_button && 
-        mouse_button->get_button_index() == GlobalConstants::BUTTON_LEFT &&
-        mouse_button->is_pressed())
-    {
-    }
-    */
+    _InteractionManager->FeedInput(event);
 }

@@ -1,12 +1,23 @@
 /*
     Interaction Manager class
 
-    Defines an interface for interactions to query into the world
-    for information
+    That awesome class who handles ALL (All? all.) of your input,
+    from keyboard to mouse movement to mouse click etc. etc.
 
-    Receive the input from the world and react accordingly for 
-    the interaction
+    Actually, it's here as a representative. 
+    The actual works are delegated to its InputSequence children
 
+    So what do you do with this class? Well, each input sequence does
+    different thing based on the input it wants. So, you can create more
+    functionalities to your mouse clicks, mouse movement, keyboard
+    strokes,... anything, by adding an InputSequence to this InteractionManager.
+
+    Node InteractionManager
+    |_ PickSurvivalWheel 
+    |_ InputSequence 1
+    |_ InputSequence 2
+    |_ InputSequence 3
+    |_ ...
 */
 #ifndef INTERACTION_MANAGER_HPP
 #define INTERACTION_MANAGER_HPP
@@ -17,6 +28,7 @@
 using namespace godot;
 class Unit;
 class InteractionWheel;
+class PickSurvivalWheel;
 
 class InteractionManager: public Node
 {
@@ -30,17 +42,20 @@ public:
     // Set newController to be the one who initiate interactions
     void SetController(Unit* const newController);
 
-    // Class InputSequence defines the sequence of inputs needed
-    // to perform the interaction
+    // Duplicate this InputSequence as a child
     // void AcceptInputSequence(const InputSequence* const input);
 
-    // Feed input to the InputSequence
-    // void FeedInput(const InputEvent* const event);
+    // Feed input to all InputSequence, hoping for some miracle to happen 
+    void FeedInput(const InputEvent* const event);
 
 private:
+    // This unit is the source of all interaction 
+    // (probably the Player)
     Unit* _controller;
-    InteractionWheel* _InteractionWheel;
-    // InputSequence* _InputSequence;
+
+    // Mouse Event Handler for SurvivalWheel
+    // This one needs info on Performer
+    PickSurvivalWheel* _PickSurvivalWheel;
 };
 
 #endif

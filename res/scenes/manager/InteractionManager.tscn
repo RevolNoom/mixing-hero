@@ -1,15 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://res/scenes/GUI/InteractionWheel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/scenes/interactions/inputsequence/PickSurvivalWheel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://res/scripts/manager/InteractionManager.gdns" type="Script" id=2]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 28.218, 0.0511972, -28.218, -0.0511972, 75.5441, 25.8365, -0.0379772, -27.7827, 0.0379772, 27.7827, 27.4568, 73.9238, -28.3994, 0.175468, 28.3994, -0.175468, 75.5441, 122.011, 0.267769, 27.724, -0.267769, -27.724, 123.631, 73.9238, 27.9491, -0.0535732, -27.9491, 0.0535732, 75.5441, 25.8365 )
-}
 
 [node name="InteractionManager" type="Node"]
 script = ExtResource( 2 )
 
-[node name="InteractionWheel" parent="." instance=ExtResource( 1 )]
-curve = SubResource( 1 )
+[node name="PickSurvivalWheel" parent="." instance=ExtResource( 1 )]

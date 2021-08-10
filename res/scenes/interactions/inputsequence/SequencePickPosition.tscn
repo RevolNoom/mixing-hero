@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://res/scripts/interactions/inputsequence/SequencePickPosition.gdns" type="Script" id=1]
+[ext_resource path="res://res/scenes/interactions/inputsequence/SequencePick.tscn" type="PackedScene" id=2]
+
+[node name="SequencePickPosition" instance=ExtResource( 2 )]
+script = ExtResource( 1 )

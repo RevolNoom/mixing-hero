@@ -1,5 +1,7 @@
 // Whatever classes
 #include "Profile.hpp"
+
+// Manager classes
 #include "Manager.hpp"
 #include "InteractionManager.hpp"
 
@@ -19,7 +21,9 @@
 #include "MindReading.hpp"
 
 // Interaction related 
+#include "InputSequence.hpp"
 #include "Interaction.hpp"
+#include "Pick.hpp"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options *o) {
     godot::Godot::gdnative_init(o);
@@ -61,6 +65,12 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
         godot::register_class<Damage>();
         godot::register_class<Heal>();
 
-    // Interaction Family
+    // Interaction related
     godot::register_class<Interaction>();
+        // InputSequence family
+        godot::register_class<InputSequence>();
+        godot::register_class<Pick>();
+        godot::register_class<PickUnit>();
+        godot::register_class<PickPosition>();
+        godot::register_class<PickSurvivalWheel>();
 }

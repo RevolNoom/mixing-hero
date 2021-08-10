@@ -1,9 +1,10 @@
 - Do not access child nodes at _init(), they are not instantiated yet. Access them at _ready()
 
+- Pure virtual function is prohibited. The existence of one will break the dynamic library
+
 - Do not multi-inherit a class with a Godot class and another. For example:
 	class A: public Other, public GodotNode
-  This will result in the dynamic library unusable
-	(?) virtual function without default implementation will make the library unusable?
+  This will result in the dynamic library unusable(?? or because of pure virtual function ??)
 
 - The order in which you godot::register_class is important (!! CONFIRMED !!)
 	You must register parent classes before child classes, or else

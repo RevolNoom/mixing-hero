@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="SequencePick" type="Node"]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 1 )
+collide_with_areas = true

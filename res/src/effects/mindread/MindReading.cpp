@@ -9,10 +9,7 @@ void MindReading::_register_methods()
     register_method("Read", &MindReading::Read);
     register_method("GetProfile", &MindReading::GetProfile);
     register_method("SetReader", &MindReading::SetReader);
-
-    // TODO: I'm thinking about removing this line. 
-    // BaseEffect class already register this
-    register_method("AffectOnUnit", &MindReading::AffectOnUnit);
+    
     register_method("_ready", &MindReading::_ready);
 }
 

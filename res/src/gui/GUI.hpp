@@ -41,24 +41,19 @@ public:
         void ShowBars(Unit* const unit);
 
     // WHEEL RELATED
-
+        /*
         // MindReading unit, then show the survival Wheel
         // Show the SurvivalWheel on target, with the given profile 
         void ShowWheel(Unit* const unit);
 
-        // Hide the SurvivalWheel if it's showing info for target
-        // Do nothing otherwise
-        void HideWheel(const Unit* const unit);
-
+        // Hide the SurvivalWheel
+        void HideWheel();
+        */
     // Signal Handler
     // Update the GUI component accordingly to the event
     void UnitMouseEvent(Unit* const u, InputEventMouse* const event);
 
 private:
-
-    // This unit has the priviledge to show survival wheel
-    Unit* _wheeler;
-
     // The character which the user is controlling
     // The left survival bars are bound to this unit
     Unit* _controller;
@@ -72,7 +67,6 @@ private:
     // needs to redo MindReading (when they are "attribute_modified", maybe?)
 
     // Child Nodes
-    SurvivalWheel* _wheel;
     SurvivalBars*  _rightBars;
     SurvivalBars*  _controllerBars;
 };
