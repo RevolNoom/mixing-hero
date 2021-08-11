@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/SurvivalBars.gdns" type="Script" id=1]
+[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/StaminaBarContent.svg" type="Texture" id=2]
+[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/SurvivalBar.svg" type="Texture" id=3]
+[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/SpiritBarContent.svg" type="Texture" id=4]
+[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/HealthBarContent.svg" type="Texture" id=5]
+[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/AvatarDock.svg" type="Texture" id=6]
+[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/SurvivalBarUnder.svg" type="Texture" id=7]
+
+[node name="SurvivalBarsLeft" type="Control"]
+margin_right = 226.0
+margin_bottom = 79.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stamina" type="TextureProgress" parent="."]
+margin_left = 104.0
+margin_top = -8.0
+margin_right = 221.0
+margin_bottom = 82.0
+rect_rotation = 30.0
+value = 100.0
+texture_under = ExtResource( 7 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Stamina"]
+margin_left = 3.0
+margin_top = 71.0
+margin_right = 132.0
+margin_bottom = 85.0
+rect_rotation = -30.0
+size_flags_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spirit" type="TextureProgress" parent="."]
+margin_left = 120.0
+margin_top = -32.0
+margin_right = 237.0
+margin_bottom = 58.0
+rect_rotation = 30.0
+value = 100.0
+texture_under = ExtResource( 7 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Spirit"]
+margin_left = 3.0
+margin_top = 71.0
+margin_right = 134.0
+margin_bottom = 85.0
+rect_rotation = -30.0
+size_flags_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="TextureProgress" parent="."]
+margin_left = 136.0
+margin_top = -56.0
+margin_right = 253.0
+margin_bottom = 34.0
+rect_rotation = 30.0
+value = 100.0
+texture_under = ExtResource( 7 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Health"]
+margin_left = 3.0
+margin_top = 71.0
+margin_right = 124.0
+margin_bottom = 85.0
+rect_rotation = -30.0
+size_flags_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 105.0
+margin_bottom = 83.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

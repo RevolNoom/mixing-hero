@@ -1,28 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "../.."
-		}
-	],
-	"settings": {
-		"files.associations": {
-			"deque": "cpp",
-			"string": "cpp",
-			"vector": "cpp",
-			"memory": "cpp",
-			"array": "cpp",
-			"*.tcc": "cpp",
-			"istream": "cpp",
-			"functional": "cpp",
-			"tuple": "cpp",
-			"utility": "cpp",
-			"variant": "cpp",
-			"atomic": "cpp",
-			"chrono": "cpp",
-			"complex": "cpp",
-			"bitset": "cpp",
-			"string_view": "cpp",
-			"initializer_list": "cpp"
-		}
-	}
+    "folders": [
+        {
+            "path": ".."
+        }
+    ]
 }

@@ -392,19 +392,19 @@ Profile
       <h>208</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-MindReading
+MindRead
 {Builder, Decorator}
 --
 - _reader: Unit*
 - _Profile: Profile*
-- _nextMindReading: MindReading*
+- _nextMindRead: MindRead*
 # _peekedNodes: PoolStringArray
 --
 + AffectOnUnit(Unit*): void
 + Read(Unit*): void
 + GetProfile(): Profile*
 + SetReader(Unit*): void
-+ AppendChain(MindReading*): void
++ AppendChain(MindRead*): void
 
 /# DoRead(Unit* source, Unit* target): void/</panel_attributes>
     <additional_attributes/>

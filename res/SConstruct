@@ -103,11 +103,11 @@ env.Append(LIBPATH=[GDNATIVELIB])
 env.Append(LIBS=[cpp_library])
 
 # Include recursively all folders in src/ for header files
-for dirpath, dirnames, filenames in os.walk("src/"):
+for dirpath, dirnames, filenames in os.walk("scenes/"):
     for dirs in dirnames:
         env.Append(CPPPATH=os.path.join(dirpath, dirs))
 # Add all .cpp source file recursively
-sources = [glob.glob('src/**/*.cpp', recursive=True)] 
+sources = [glob.glob('scenes/**/*.cpp', recursive=True)] 
 
 
 library = env.SharedLibrary(target=env['target_path'] + env['target_name'] , source=sources)
