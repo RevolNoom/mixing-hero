@@ -19,7 +19,7 @@
 
         Node Interaction
         |_ TextureButton Button
-        |_ TextureRect Icon
+        |_ [InputHogger] (each derived class will have one)
         |_ Profile "Profile"
         |   |_ Node Info1
         |   |_ Node Info2
@@ -55,8 +55,9 @@
 #include <TextureButton.hpp>
 
 using namespace godot;
-class Unit;
+class InputHogger;
 class Profile;
+class Unit;
 
 class Interaction: public Node2D
 {
@@ -87,14 +88,23 @@ public:
     // (Probably, just a few Label notes with lots of text)
     virtual const Profile* GetInfo(const Unit* const source, const Unit* const target) const;
 
-    // Apply effects on target, and then on source. 
-    // Also tell source and target to play corresponding animations
-    virtual void Perform(Unit* const source, Unit* const target);
+    // Execute the Interaction and flush InputHogger buffer
+    // I might want to delay execution (It's a turn-based game after all!)
+    virtual void Execute(Unit* const source);
 
-private:
+    // Accept input and feed to InputHogger
+    // Wait, do we need to?
+    // void _unhandled_input(const InputEvent* const ev);
+
+    // InputHogger "done" handler 
+    void ReadyToExecute(InputHogger* const InputHogger);
+    
+    // Button signal handler
+    void _on_Button_pressed();
+protected:
     Node* _effectToSource;
     Node* _effectToTarget;
-    TextureButton* _button;
+    InputHogger* _InputHogger;
 };
 
 #endif

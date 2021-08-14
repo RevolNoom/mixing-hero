@@ -6,17 +6,14 @@
 [ext_resource path="res://res/anim/GUI/SurvivalBars/Right/AvatarDock.svg" type="Texture" id=4]
 [ext_resource path="res://res/anim/GUI/SurvivalBars/Right/HealthBarContent.svg" type="Texture" id=5]
 [ext_resource path="res://res/anim/GUI/SurvivalBars/Right/SurvivalBarUnder.svg" type="Texture" id=6]
-[ext_resource path="res://res/libs/gdnativelibrary.tres" type="GDNativeLibrary" id=7]
-
-[sub_resource type="NativeScript" id=1]
-resource_name = "SurvivalBars"
-class_name = "SurvivalBars"
-library = ExtResource( 7 )
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/SurvivalBarsRight.gdns" type="Script" id=7]
+[ext_resource path="res://res/scenes/interactions/InputHogger/Click/ClickUnit/ClickUnit.tscn" type="PackedScene" id=8]
 
 [node name="SurvivalBarsRight" type="Control"]
 margin_right = 226.0
 margin_bottom = 79.0
-script = SubResource( 1 )
+mouse_filter = 2
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -108,3 +105,6 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ClickUnit" parent="." instance=ExtResource( 8 )]
+PickAmount = 1

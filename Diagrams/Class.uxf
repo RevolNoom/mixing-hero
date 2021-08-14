@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>48</x>
+      <x>992</x>
       <y>848</y>
       <w>240</w>
       <h>128</h>
@@ -29,7 +29,7 @@ Node2d Doll
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>56</x>
+      <x>1000</x>
       <y>1096</y>
       <w>184</w>
       <h>160</h>
@@ -51,7 +51,7 @@ Attribute
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>56</x>
+      <x>1000</x>
       <y>1328</y>
       <w>184</w>
       <h>96</h>
@@ -68,7 +68,7 @@ AttributeDynamic
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>136</x>
+      <x>1080</x>
       <y>1248</y>
       <w>24</w>
       <h>96</h>
@@ -79,7 +79,7 @@ AttributeDynamic
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
+      <x>1088</x>
       <y>968</y>
       <w>24</w>
       <h>144</h>
@@ -91,7 +91,7 @@ AttributeDynamic
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>384</x>
+      <x>1328</x>
       <y>1112</y>
       <w>200</w>
       <h>144</h>
@@ -108,20 +108,18 @@ Item
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>48</x>
-      <y>560</y>
+      <x>512</x>
+      <y>608</y>
       <w>280</w>
-      <h>240</h>
+      <h>192</h>
     </coordinates>
     <panel_attributes>&lt;&lt;class&gt;&gt;
 Interaction
 {Prototype}
 --
-TextureRect Icon
-
-Node Effect
-|_ SomeEffectType Effect
-|_ ...
+*Signals*
+picked(Interaction: i)
+ready_to_exec(Interaction: i)
 --
 - children: Effects
 --
@@ -136,7 +134,7 @@ Node Effect
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>0</x>
+      <x>944</x>
       <y>416</y>
       <w>176</w>
       <h>56</h>
@@ -150,7 +148,7 @@ _static_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
+      <x>1592</x>
       <y>1112</y>
       <w>168</w>
       <h>152</h>
@@ -165,7 +163,7 @@ Consumable
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
+      <x>1592</x>
       <y>1328</y>
       <w>168</w>
       <h>104</h>
@@ -180,7 +178,7 @@ Equipable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
+      <x>1520</x>
       <y>1248</y>
       <w>88</w>
       <h>104</h>
@@ -191,7 +189,7 @@ Equipable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
+      <x>1520</x>
       <y>1176</y>
       <w>88</w>
       <h>24</h>
@@ -202,7 +200,7 @@ Equipable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>1224</x>
       <y>968</y>
       <w>120</w>
       <h>160</h>
@@ -214,7 +212,7 @@ Equipable
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>744</x>
+      <x>1688</x>
       <y>840</y>
       <w>168</w>
       <h>144</h>
@@ -232,7 +230,7 @@ ObManager, Composite
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>648</x>
+      <x>1592</x>
       <y>944</y>
       <w>112</w>
       <h>24</h>
@@ -243,7 +241,7 @@ ObManager, Composite
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>1224</x>
       <y>920</y>
       <w>120</w>
       <h>32</h>
@@ -255,7 +253,7 @@ friends</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>384</x>
+      <x>1328</x>
       <y>840</y>
       <w>272</w>
       <h>168</h>
@@ -282,7 +280,7 @@ BaseEffect
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>648</x>
+      <x>1592</x>
       <y>896</y>
       <w>112</w>
       <h>32</h>
@@ -295,7 +293,7 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
+      <x>1664</x>
       <y>280</y>
       <w>208</w>
       <h>184</h>
@@ -322,7 +320,7 @@ Tween Tween
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
+      <x>1280</x>
       <y>280</y>
       <w>176</w>
       <h>176</h>
@@ -347,7 +345,7 @@ TextureProgress Stamina
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
+      <x>1640</x>
       <y>248</y>
       <w>120</w>
       <h>48</h>
@@ -358,7 +356,7 @@ TextureProgress Stamina
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
+      <x>1352</x>
       <y>248</y>
       <w>144</w>
       <h>48</h>
@@ -369,7 +367,7 @@ TextureProgress Stamina
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
+      <x>1464</x>
       <y>336</y>
       <w>184</w>
       <h>96</h>
@@ -386,7 +384,7 @@ Profile
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>384</x>
+      <x>1328</x>
       <y>560</y>
       <w>264</w>
       <h>208</h>
@@ -412,7 +410,7 @@ MindRead
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>104</x>
+      <x>1048</x>
       <y>168</y>
       <w>192</w>
       <h>48</h>
@@ -423,7 +421,7 @@ MindRead
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>504</x>
+      <x>1448</x>
       <y>760</y>
       <w>24</w>
       <h>96</h>
@@ -434,7 +432,7 @@ MindRead
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>536</x>
+      <x>1480</x>
       <y>0</y>
       <w>168</w>
       <h>256</h>
@@ -465,7 +463,7 @@ VBoxContainer Bars
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1456</x>
+      <x>2400</x>
       <y>504</y>
       <w>80</w>
       <h>24</h>
@@ -477,7 +475,7 @@ VBoxContainer Bars
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1144</x>
+      <x>2088</x>
       <y>600</y>
       <w>256</w>
       <h>256</h>
@@ -491,7 +489,7 @@ InteractionManager
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1456</x>
+      <x>2400</x>
       <y>600</y>
       <w>80</w>
       <h>24</h>
@@ -502,7 +500,7 @@ InteractionManager
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1592</x>
+      <x>2536</x>
       <y>600</y>
       <w>80</w>
       <h>24</h>
@@ -513,7 +511,7 @@ InteractionManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1352</x>
+      <x>2296</x>
       <y>520</y>
       <w>120</w>
       <h>96</h>
@@ -524,7 +522,7 @@ InteractionManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1488</x>
+      <x>2432</x>
       <y>520</y>
       <w>24</w>
       <h>96</h>
@@ -535,12 +533,127 @@ InteractionManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1528</x>
+      <x>2472</x>
       <y>520</y>
       <w>112</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>120.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>520</y>
+      <w>224</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Abstract Class&gt;&gt;
+InputHogger
+--
+*Signals:*
+hogged_full(InputHogger: i)
+--
+/+ _unhandled_input(InputEvent): void/
++ GetProfile(): Profile
++ Reset(): void
+--
+# _Profile</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>464</y>
+      <w>64</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>392</y>
+      <w>184</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Abstract Class&gt;&gt;
+Picker
+--
++ _PickAmount: int
+--
+_RayCast2D
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>544</x>
+      <y>384</y>
+      <w>88</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>PickUnit</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>544</x>
+      <y>424</y>
+      <w>88</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>PickPosition</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>384</y>
+      <w>88</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>PickUnitHover</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>384</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>384</y>
+      <w>64</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>424</y>
+      <w>96</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
   </element>
 </diagram>

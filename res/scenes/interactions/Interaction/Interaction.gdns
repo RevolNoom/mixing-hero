@@ -4,5 +4,5 @@
 
 [resource]
 resource_name = "Interaction"
-class_name = "Interaction"
+class_name = "Slap"
 library = ExtResource( 1 )

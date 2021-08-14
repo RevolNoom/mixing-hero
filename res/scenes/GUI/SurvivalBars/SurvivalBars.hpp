@@ -3,49 +3,100 @@
 
     Display more detailed information of an unit
 
-    There're only 2 instances of survival bars, 
-    in contrast to survival wheel, in which each unit
-    owns one
-
-    Details of which unit is displayed is handled by GUI,
-    this class provides the interface that GUI may need 
-    to connect Units with the bars.
-
-    I don't inherit this class from SurvivalWheel because
-    their interfaces are mostly different. Their behaviours also.
+    SurvivalBarsLeft
+    |_ TextureProgress Health
+        |_ Label Label
+    |_ TextureProgress Spirit
+        |_ Label Label
+    |_ TextureProgress Stamina 
+        |_ Label Label
+    |_ TextureRect TextureRect
 */
 
-#ifndef SURVIVAL_BARS_H
-#define SURVIVAL_BARS_H
+#ifndef SURVIVAL_BARS_HPP
+#define SURVIVAL_BARS_HPP
 
-#include <Godot.hpp>
+#include <TextureProgress.hpp>
 #include <Control.hpp>
+#include <Godot.hpp>
 // TODO: Make animation smooth with Tweeeeeenie
 //#include <Tween.hpp>
-#include <TextureProgress.hpp>
 
-class Profile;
-
+#include "Profile.hpp"
+#include "Click.hpp"
 using namespace godot;
+class Unit;
 
-class SurvivalBars: public Control
+// TODO: Implement this when you figure out the MindRead cache
+class SurvivalBarsLeft: public Control
 {
-    GODOT_CLASS(SurvivalBars, Control)
-    public:
-    static void _register_methods();
-    void _init();
-    void _ready();
+    GODOT_CLASS(SurvivalBarsLeft, Control)
+public:
+    static void _register_methods()
+    {
+        register_method("_ready", &SurvivalBarsLeft::_ready);
+    }
+    virtual void _ready(){}
+    virtual void _init()
+    {
+        // The order of attributes ARE IMPORTANT
+        // (not at the moment, but in the future (i think?))
+        // Don't mess them up
+        _attributes.append("Health");
+        _attributes.append("Spirit");
+        _attributes.append("Stamina");
+    }
 
-    // Display a profile. Whose profile? I don't care 
-    void Display(const Profile* const p);
+    // Get a Profile holding info of an Unit
+    // Update the bars to reflect the info 
+    virtual void Update(const Profile* const unitProfile);
 
-    private:
+protected:
 
     // Consider adding a tween here. They're smooooooth
-    // Tween* _tween;
+    // Tween* _Tween;
+
+    // The Bars are bound to this unit
+    Unit* _subject;
 
     // The attributes this objects requires from a Profile
     PoolStringArray _attributes;
 };
 
+
+/*
+    SURVIVAL BARS RIGHT
+
+    These bars show info of the unit you click on
+
+    SurvivalBarsRight
+    |_ (all the nodes of SurvivalBarsLeft)
+    ...
+    |_ ClickUnit ClickUnit
+*/
+class SurvivalBarsRight: public SurvivalBarsLeft
+{
+    GODOT_CLASS(SurvivalBarsRight, SurvivalBarsLeft)
+
+public:
+
+    static void _register_methods()
+    {
+        register_method("_on_ClickUnit_hogged_full", &SurvivalBarsRight::_on_ClickUnit_hogged_full);
+    }
+
+    virtual void _ready()
+    {
+        _ClickUnit = get_node<ClickUnit>("ClickUnit");
+        _ClickUnit->SetPickAmount(1);
+        _ClickUnit->connect("hogged_full", this, "_on_ClickUnit_hogged_full");
+    }
+
+
+    void _on_ClickUnit_hogged_full(const Profile* const unitPath);
+
+protected:
+    
+    ClickUnit* _ClickUnit;
+};
 #endif

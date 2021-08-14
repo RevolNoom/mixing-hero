@@ -1,29 +1,33 @@
 /*
-    SURVIVAL BARS
+    SURVIVAL WHEEL
 
-    Is a child of an Unit
+    Show core stats of an unit.
+    "Tween" controls showing animation
 
-    Show three core stats of an unit: Health, Spirit, Stamina
-    
-    Three TextureProgress children "Health", "Spirit", "Stamina"
-
-    Tween node "Tween" controls its visibility
+    SURVIVAL WHEEL
+    |_ TextureProgress Health
+    |_ TextureProgress Spirit
+    |_ TextureProgress Stamina
+    |_ InputHogger InputHogger
+    |_ Tween Tween
 */
 
-#ifndef SURVIVAL_WHEEL_H
-#define SURVIVAL_WHEEL_H
+#ifndef SURVIVAL_WHEEL_HPP
+#define SURVIVAL_WHEEL_HPP
 
-#include <Godot.hpp>
-#include <Control.hpp>
-#include <Tween.hpp>
 #include <TextureProgress.hpp>
 #include <PoolArrays.hpp>
+#include <Control.hpp>
+#include <Godot.hpp>
+#include <Tween.hpp>
 
+#include "Profile.hpp"
+#include "Click.hpp"
 
 using namespace godot;
 class Unit;
-class Profile;
 
+// TODO: SurvivalWheel's glitchy when we move mouse in and out too quickly
 class SurvivalWheel: public Control 
 {
     GODOT_CLASS(SurvivalWheel, Control)
@@ -31,29 +35,37 @@ public:
     static void _register_methods();
     void _init();
     void _ready();
+    void _process(float delta);
 
-    // Show the wheel to the screen
-    // Should connect to unit's mouse entered signal
-    void Show(const Profile* const p);
-
-
-    // Fade the wheel from screen
-    // Should connect to unit's mouse exited signal
-    void FadeAway();
-
-    // Things to do when tween finishes
-    // If the wheel is transparent when tweening complete
-    // Set visibility to false
-    void CompletedTweening();
+    // The Wheel will show info based on point of view of this Unit
+    void SetViewer(Unit* const viewer) { _viewer = viewer;}
 
 protected:
+    // Show the wheel when you hover on the unit
+    void _on_HoverUnit_hover_new_unit(const Profile* const unitPtr);
+
+    void FadeAway();
+
+    // If the wheel is transparent when tweening complete
+    // Set visibility to false
+    void _on_Tween_tween_completed();
+
     // Update the wheel values with this profile
-    // Should connect to unit's attributes_modified signal
-    void Update(const Profile* const p);
+    void Update(const Profile* const mindReadInfo);
 
 private:
-    Tween* _tween;
+
+    Tween* _Tween;
+
     PoolStringArray _attributeNames;
+
+    HoverUnit* _HoverUnit;
+
+    // The Unit who is trying to see info of others
+    Unit* _viewer;
+
+    // The Wheel will try to follow this Unit 
+    Unit* _hoveredUnit;
 
     // Test Variable to make sure I'm not starting
     // and stopping tween too many time

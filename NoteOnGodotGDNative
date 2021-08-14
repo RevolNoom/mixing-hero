@@ -22,6 +22,10 @@
 	+ Condition "!script_data" is true
 	(May not works all the time, but worth trying)
 
+- "!script_data":
+	+ You have your class name in .gdns wrong. Probably you renamed some class and forgot to edit .gdns?
+	+ Try restarting Godot.
+
 - Variant can't cast to your custom class. So, functions like this won't work:
 	class CustomClass: public GodotClass
 	{
@@ -53,3 +57,8 @@ Variant does not know how to cast to CustomClass, but it knows how to cast to a 
 	+ If you modify the field in the editor, then objects will be created with the value of the field. (A(){} => _init() => value of field)
 	
 	Thus, register_method() argument named "default" should be coded with default-constructed value, NOT the default value you want it to be. 
+
+- Properties registered in base class will be recognized in derived classes
+- Virtual Methods registered in base class will also be "recognized" (does it show on editor?) in derived classes
+	Base's version will be called if Derived does not redefine it.
+	(applied to _init() as well)

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://res/anim/GUI/SurvivalWheel/health.svg" type="Texture" id=1]
+[ext_resource path="res://res/anim/GUI/SurvivalWheel/spirit.svg" type="Texture" id=2]
+[ext_resource path="res://res/scenes/interactions/Interaction/Interaction.tscn" type="PackedScene" id=3]
+[ext_resource path="res://res/scenes/interactions/InputHogger/Click/ClickUnit/ClickUnit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://res/scenes/effects/AttributeModify/Damage/Damage.tscn" type="PackedScene" id=5]
+
+[node name="Slap" instance=ExtResource( 3 )]
+
+[node name="Button" parent="." index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.5
+margin_top = -56.5
+margin_right = 56.5
+margin_bottom = 56.5
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+
+[node name="Damage" parent="EffectsToSource" index="0" instance=ExtResource( 5 )]
+
+[node name="Stamina" type="Node" parent="EffectsToSource/Damage" index="0"]
+
+[node name="Damage" parent="EffectsToTarget" index="0" instance=ExtResource( 5 )]
+
+[node name="Health" type="Node" parent="EffectsToTarget/Damage" index="0"]
+
+[node name="ClickUnit" parent="." index="4" instance=ExtResource( 4 )]
+PickAmount = 1

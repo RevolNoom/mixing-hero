@@ -3,7 +3,6 @@
 
 // Manager classes
 #include "Manager.hpp"
-#include "InteractionManager.hpp"
 
 // Unit related
 #include "Unit.hpp"
@@ -22,9 +21,10 @@
 #include "MindRead.hpp"
 
 // Interaction related 
-#include "InputSequence.hpp"
+#include "InputHogger.hpp"
 #include "Interaction.hpp"
-#include "Pick.hpp"
+#include "Click.hpp"
+#include "Slap.hpp"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options *o) {
     godot::Godot::gdnative_init(o);
@@ -41,7 +41,13 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
     
     // Managers family
     godot::register_class<Manager>();
-    godot::register_class<InteractionManager>();
+
+    // InputHogger family
+    godot::register_class<InputHogger>();
+    godot::register_class<Click>();
+    godot::register_class<ClickUnit>();
+    godot::register_class<ClickPosition>();
+    godot::register_class<HoverUnit>();
 
     // Unit related
     godot::register_class<Unit>();
@@ -51,10 +57,10 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
 
     // GUI related
     godot::register_class<GUI>();
-    godot::register_class<SurvivalBars>();
     godot::register_class<SurvivalWheel>();
     godot::register_class<InteractionWheel>();
-
+    godot::register_class<SurvivalBarsLeft>();
+    godot::register_class<SurvivalBarsRight>();
 
     // Effect related
     godot::register_class<BaseEffect>();
@@ -65,17 +71,10 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
         godot::register_class<DivineInterrogation>();
 
         // Attributes modifying
-        godot::register_class<Damage>();
         godot::register_class<Heal>();
+        godot::register_class<Damage>();
 
     // Interaction related
     godot::register_class<Interaction>();
-        // InputSequence family
-        godot::register_class<InputSequence>();
-        godot::register_class<Pick>();
-        godot::register_class<PickUnit>();
-        godot::register_class<PickPosition>();
-        godot::register_class<PickSurvivalBars>();
-        godot::register_class<PickSurvivalWheel>();
-        godot::register_class<PickInteractionWheel>();
+    godot::register_class<Slap>();
 }

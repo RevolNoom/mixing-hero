@@ -3,6 +3,6 @@
 [ext_resource path="res://res/libs/gdnativelibrary.tres" type="GDNativeLibrary" id=1]
 
 [resource]
-resource_name = "SequencePickPosition"
-class_name = "PickPosition"
+resource_name = "HoverUnit"
+class_name = "HoverUnit"
 library = ExtResource( 1 )

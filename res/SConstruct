@@ -102,7 +102,7 @@ env.Append(CPPPATH=['.', godot_headers_path, cpp_bindings_path + 'include/', cpp
 env.Append(LIBPATH=[GDNATIVELIB])
 env.Append(LIBS=[cpp_library])
 
-# Include recursively all folders in src/ for header files
+# Include recursively all folders for header files
 for dirpath, dirnames, filenames in os.walk("scenes/"):
     for dirs in dirnames:
         env.Append(CPPPATH=os.path.join(dirpath, dirs))

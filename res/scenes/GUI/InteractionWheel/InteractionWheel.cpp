@@ -9,7 +9,7 @@ void InteractionWheel::_register_methods()
 
     register_method("Show", &InteractionWheel::Show);
     register_method("Hide", &InteractionWheel::Hide);
-    register_method("Invisiblize", &InteractionWheel::Invisiblize);
+    register_method("Invisiblize", &InteractionWheel::_on_Tween_Tween_completed);
 
     register_method("CleanWheel", &InteractionWheel::CleanWheel);
     register_method("AddInteraction", &InteractionWheel::AddInteraction);
@@ -17,7 +17,7 @@ void InteractionWheel::_register_methods()
     register_method("Squeeze", &InteractionWheel::Squeeze);
     register_method("Untumble", &InteractionWheel::Untumble);
     register_method("SocialDistancing", &InteractionWheel::SocialDistancing);
-    register_signal<InteractionWheel>("InteractionCalled", "interaction", GODOT_VARIANT_TYPE_OBJECT);
+    register_signal<InteractionWheel>("interaction_picked", "interaction", GODOT_VARIANT_TYPE_OBJECT);
 }
 
 void InteractionWheel::_init()
@@ -50,7 +50,7 @@ void InteractionWheel::_ready()
 
 
 // TODO: Come on! Give me some grand animation here!
-// Where's my tween? I want my Tween.
+// Where's my tween? I waaaaaaaaant my Tween.
 // ===========
 // A N I M E Z
 // ===========
@@ -65,7 +65,7 @@ void InteractionWheel::Hide()
     set_visible(false);
 }
 
-void InteractionWheel::Invisiblize()
+void InteractionWheel::_on_Tween_Tween_completed()
 {
     set_visible(false);
 }
@@ -94,8 +94,13 @@ bool InteractionWheel::AddInteraction(const Interaction* const interaction)
         return false;
     }
 
+    // Set up signals
+    auto newInteraction = interaction->duplicate();
+    newInteraction->connect("picked", this, "_on_Interaction_picked");
+
+    // Set up new home in node hierachy
     NodePath slotPath = String::num_int64(_size);
-    get_node(slotPath)->add_child(interaction->duplicate());
+    get_node(slotPath)->add_child(newInteraction);
     ++_size;
     return true;
 }
@@ -151,6 +156,12 @@ void InteractionWheel::CleanWheel()
             aNode->queue_free();
         }
     }
+}
+
+void InteractionWheel::_on_Interaction_picked(Interaction* const pickedInteraction)
+{
+    godot::Godot::print("An Interaction was picked!");
+    emit_signal("interaction_picked", pickedInteraction);
 }
 
 

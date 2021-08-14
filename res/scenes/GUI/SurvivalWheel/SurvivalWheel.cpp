@@ -1,15 +1,25 @@
 #include "SurvivalWheel.hpp"
 #include "Attribute.hpp"
+#include "MindRead.hpp"
 #include "Profile.hpp"
+#include "Click.hpp"
 #include "Unit.hpp"
 
 void SurvivalWheel::_register_methods()
 {
-    register_method("Show", &SurvivalWheel::Show);
-    register_method("FadeAway", &SurvivalWheel::FadeAway);
     register_method("_ready", &SurvivalWheel::_ready);
+    register_method("_process", &SurvivalWheel::_process);
+
     register_method("Update", &SurvivalWheel::Update);
-    register_method("CompletedTweening", &SurvivalWheel::CompletedTweening); 
+    register_method("FadeAway", &SurvivalWheel::FadeAway);
+    register_method("_on_Tween_tween_completed", &SurvivalWheel::_on_Tween_tween_completed); 
+    register_method("_on_HoverUnit_hover_new_unit", &SurvivalWheel::_on_HoverUnit_hover_new_unit);
+}
+
+void SurvivalWheel::_process(float delta)
+{
+    set_position(_hoveredUnit->get_position());
+
 }
 
 void SurvivalWheel::_init()
@@ -17,7 +27,6 @@ void SurvivalWheel::_init()
     _attributeNames.append("Health");
     _attributeNames.append("Spirit");
     _attributeNames.append("Stamina");
-
 }
 
 void SurvivalWheel::_ready()
@@ -27,9 +36,17 @@ void SurvivalWheel::_ready()
     _isFading = true;
     set_modulate(Color(1,1,1,0));
 
+    // Stop the Wheel from processing
+    // when it's not hovering on any one
+    set_process(false);
+
     // Setup signals and handlers
-    _tween = get_node<Tween>("Tween");
-    _tween->connect("tween_completed", this, "CompletedTweening");
+    _Tween = get_node<Tween>("Tween");
+    _Tween->connect("tween_completed", this, "_on_Tween_tween_completed");
+
+    _HoverUnit = get_node<HoverUnit>("HoverUnit");
+    _HoverUnit->connect("off_unit", this, "FadeAway");
+    _HoverUnit->connect("hover_new_unit", this, "_on_HoverUnit_hover_new_unit");
 }
 
 void SurvivalWheel::Update(const Profile* const p)
@@ -42,7 +59,8 @@ void SurvivalWheel::Update(const Profile* const p)
     // Sequentially grabs each needed attribute and update the wheels
     for (int iii=0; iii<_attributeNames.size(); ++iii)
     {
-        const AttributeDynamic *attr = cast_to<AttributeDynamic>(p->get_node_or_null((String)_attributeNames[iii]));
+        const AttributeDynamic *attr = p->Get<AttributeDynamic>(_attributeNames[iii]);
+
         TextureProgress *prog  = cast_to<TextureProgress>(get_node_or_null((String)_attributeNames[iii]));
 
         if (attr)
@@ -55,25 +73,36 @@ void SurvivalWheel::Update(const Profile* const p)
             // We see nothing, so default into all bars are full
             prog->set_max(1);
             prog->set_value(1);
-            godot::Godot::print("You can't look into the mind of this unit");
         }
     }
 }
 
-void SurvivalWheel::Show(const Profile* const p)
+void SurvivalWheel::_on_HoverUnit_hover_new_unit(const Profile* const unit)
 {
     // We update the bars before visualizing
-    // DO NOT swap the order of set_visible() and then Update()
+    // DO NOT swap the order of these functions:
+    // set_visible() => Update()
+    // _hoveredUnit = GetPtr() => set_process()
     set_visible(true);
-    Update(p);
+
+    MindRead* mindread = MindRead::_new();
+    mindread->SetReader(_viewer);
+
+    _hoveredUnit = unit->GetPtr<Unit>();
+    _hoveredUnit->AffectedBy(mindread);
+    Update(mindread->GetProfile());
+    mindread->queue_free();
+
+    // Finally there's someone hovered
+    set_process(true);
 
     // Only start tweening if it's not fading
     if (_isFading)
     {
         _isFading = false;
         // Set Transparency from Fully Transparent to Fully Opaque
-        _tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 1), 0.4, Tween::TRANS_LINEAR, Tween::EASE_OUT_IN);
-        _tween->start();
+        _Tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 1), 0.4, Tween::TRANS_LINEAR, Tween::EASE_OUT_IN);
+        _Tween->start();
     }
 }
 
@@ -83,17 +112,20 @@ void SurvivalWheel::FadeAway()
     {
         _isFading = true;
         // Set Transparency from Fully Opaque to Fully Transparent
-        _tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 0), 0.4, Tween::TRANS_LINEAR, Tween::EASE_IN_OUT);
-        _tween->start();
+        _Tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 0), 0.4, Tween::TRANS_LINEAR, Tween::EASE_IN_OUT);
+        _Tween->start();
     }
 }
 
-void SurvivalWheel::CompletedTweening()
+void SurvivalWheel::_on_Tween_tween_completed()
 {
     // Hide the bars if it's transparent
     // I think hiding will stop it from being rendered
+    // Also stop it from following anyone
     if (get_modulate() == Color(1,1,1,0))
     {
         set_visible(false);
+        set_process(false);
+        _hoveredUnit = nullptr;
     }
 }

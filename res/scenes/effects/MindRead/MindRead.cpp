@@ -36,7 +36,7 @@ void MindRead::_ready()
 
 void MindRead::Read(const Unit* const target) const
 {
-    _Profile->WipeClean(); 
+    _Profile->Wipe(); 
     // And here comes the real reading part
     DoRead(_reader, target, _Profile);
 }
@@ -75,8 +75,8 @@ void MindRead::DoRead(const Unit* const source, const Unit* const target, Profil
 {
     // Do nothing because we have no right to stalk other people
     // TODO: Read not just ourselves, but also our team
-    if (target != source)
-        return;
+    //if (target != source)
+    //    return;
 
     // First time I see Read and Write child classes. Pretty neat
     auto peekedNodes = _peekedNodes.read();
@@ -91,7 +91,7 @@ void MindRead::DoRead(const Unit* const source, const Unit* const target, Profil
         // Add it to the Profile
         auto attr = target->get_node_or_null((NodePath) peekedNodes[iii]);
         if (attr)
-            dirtyProfile->AddInfo(attr);
+            dirtyProfile->Add(attr);
     }
 
     // TODO: Add Effect infos to Profile
@@ -132,7 +132,7 @@ void DivineInterrogation::AppendChain(const MindRead* const mr)
 void DivineInterrogation::DoRead(const Unit* const source, const Unit* const target, Profile* const dirtyProfile) const
 {
     // All information we get from parents MindRead is trash
-    _Profile->WipeClean();
+    _Profile->Wipe();
 
     auto peekedNodes = _peekedNodes.read();
     for (int iii=0; iii<_peekedNodes.size(); ++iii)
@@ -141,6 +141,6 @@ void DivineInterrogation::DoRead(const Unit* const source, const Unit* const tar
         // Add it to the Profile
         auto attr = target->get_node_or_null((NodePath) peekedNodes[iii]);
         if (attr)
-            dirtyProfile->AddInfo(attr);
+            dirtyProfile->Add(attr);
     }
 }

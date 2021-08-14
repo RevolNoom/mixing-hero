@@ -3,6 +3,6 @@
 [ext_resource path="res://res/libs/gdnativelibrary.tres" type="GDNativeLibrary" id=1]
 
 [resource]
-resource_name = "PickInteractionWheel"
-class_name = "PickInteractionWheel"
+resource_name = "InputHogger"
+class_name = "InputHogger"
 library = ExtResource( 1 )

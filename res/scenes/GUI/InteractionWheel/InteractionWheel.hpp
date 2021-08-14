@@ -1,7 +1,7 @@
 /*
     InteractionWheel Class
 
-    Provide a beautiful (*cough, cough) interface to display as GUI,
+    Provide a beautiful (*cough, cough) interface to display,
     as well as handling insertion, deletion, arrangement 
     of interactions, interaction icons
 
@@ -9,12 +9,13 @@
 
     Path2D InteractionWheel
     |_ PathFollow2D 0           (Yes, pure Natural number)
-    |   |_ Interaction [Slap]
+        |_ Interaction
     |_ PathFollow2D 1           (Each PathFollow is a slot on the wheel)
-    |   |_ Interaction [Cuddle]
+        |_ Interaction
     |_ ... 
     |_ PathFollow2D 9           
-        |_ Interaction [Cuddle]
+        |_ Interaction 
+    |_ ClickUnit ClickUnit
 */
 #ifndef INTERACTION_WHEEL_HPP
 #define INTERACTION_WHEEL_HPP
@@ -53,8 +54,9 @@ public:
     // Smoothly push the interactions back in like a chain 
     void Hide();
 
+    // Tween's signal handler
     // Called to invisiblize the interaction wheel when it's done hiding
-    void Invisiblize();
+    void _on_Tween_Tween_completed();
 
     // ===========================================================
     // I N T E R A C T I O N S  M A N A G I N G  F U N C T I O N S
@@ -76,6 +78,13 @@ public:
 
     // Remove all interactions in each slot
     void CleanWheel();
+
+    //
+    // SIGNAL HANDLERS
+    //
+
+    // Emit signal on which interaction was picked
+    void _on_Interaction_picked(Interaction* const pickedInteraction);
 
     // ===============================================
     // W H E E L  A R R A N G I N G  F U N C T I O N S

@@ -6,18 +6,29 @@ void Profile::_init()
 
 void Profile::_register_methods()
 {
-    register_method("AddInfo", &Profile::AddInfo);
-    register_method("RemoveInfo", &Profile::RemoveInfo);
-    register_method("GetInfo", &Profile::GetInfo);
+    register_method("Add", &Profile::Add);
+    register_method("Get", &Profile::Get<Node>);
+    register_method("Remove", &Profile::Remove);
 }
 
 
-void Profile::AddInfo(const Node* info)
+void Profile::Add(const Node* info)
 {
     this->add_child(info->duplicate());
 }
 
-void Profile::RemoveInfo(const NodePath nodepath)
+void Profile::Steal(Node* const info)
+{
+    auto unfortunateParent = info->get_parent();
+    if (unfortunateParent)
+    {
+        unfortunateParent->remove_child(info);
+    }
+
+    add_child(info);
+}
+
+void Profile::Remove(const NodePath nodepath)
 {
     // Phelp, Luckily I read the docs
     // Removing child does not delete the child.
@@ -27,12 +38,7 @@ void Profile::RemoveInfo(const NodePath nodepath)
     deletedNode->queue_free();
 }
 
-const Node* Profile::GetInfo(const NodePath nodepath) const
-{
-    return this->get_node_or_null(nodepath);
-}
-
-void Profile::WipeClean()
+void Profile::Wipe()
 {
     auto children = this->get_children();
 
@@ -42,5 +48,6 @@ void Profile::WipeClean()
         remove_child(info);
         info->queue_free();
     }
-    
+
+    _EasterEgg = Variant();
 }

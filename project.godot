@@ -10,9 +10,13 @@ config_version=4
 
 [application]
 
-config/name="Mixing Hero"
+config/name="Summer Nights"
 run/main_scene="res://res/scenes/manager/Manager/Manager.tscn"
 config/icon="res://icon.png"
+
+[global]
+
+3D=false
 
 [rendering]
 

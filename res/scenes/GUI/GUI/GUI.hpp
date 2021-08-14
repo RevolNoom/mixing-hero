@@ -18,9 +18,10 @@
 #include <InputEventMouse.hpp>
 
 using namespace godot;
-class Unit;
-class SurvivalBars;
 class SurvivalWheel;
+class SurvivalBarsLeft;
+class SurvivalBarsRight;
+class Unit;
 
 class GUI: public Control
 {
@@ -35,19 +36,10 @@ public:
     // The info shown on the GUI is what this unit is permitted to see
     void SetController(Unit* const player);
 
-    // TODO: Let the bars update automatically when units have attributes changed
-    // MindRead unit, then show an unit profile on the right bars
-    // If this unit is the player (already bound to left bars),
-    // then nothing new needs to be updated
-    void ShowBars(Unit* const unit);
-
 private:
     // The character which the user is controlling
     // The left survival bars are bound to this unit
     Unit* _controller;
-
-    // The right survival bars is currently bound to this unit
-    Unit* _barrist;
 
     // TODO: Setup a MindRead cache to prevent creating too many MindRead
     // Also, create a signal to flush the cache when needed
@@ -55,7 +47,7 @@ private:
     // needs to redo MindRead (when they are "attribute_modified", maybe?)
 
     // Child Nodes
-    SurvivalBars*  _rightBars;
-    SurvivalBars*  _controllerBars;
+    SurvivalBarsRight*  _rightBars;
+    SurvivalBarsLeft*  _controllerBars;
 };
 #endif

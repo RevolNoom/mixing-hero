@@ -1,32 +1,17 @@
 #include "SurvivalBars.hpp"
 #include "Attribute.hpp"
-#include "Profile.hpp"
+#include "MindRead.hpp"
 #include "Label.hpp"
+#include "Unit.hpp"
 
-void SurvivalBars::_register_methods()
-{
+using namespace Effect;
 
-}
-
-void SurvivalBars::_init()
-{
-    // The order of attributes ARE IMPORTANT
-    // (not at the moment, but in the future (i think?))
-    // Don't mess them up
-    _attributes.append("Health");
-    _attributes.append("Spirit");
-    _attributes.append("Stamina");
-}
-
-void SurvivalBars::_ready()
-{}
-
-void SurvivalBars::Display(const Profile* const p)
+void SurvivalBarsLeft::Update(const Profile* const p)
 {
     for (int iii=0; iii < _attributes.size(); ++iii)
     {
         // Get each info from Profile
-        AttributeDynamic* attr = cast_to<AttributeDynamic>(p->GetInfo((NodePath) _attributes[iii]));
+        AttributeDynamic* attr = cast_to<AttributeDynamic>(p->Get((NodePath) _attributes[iii]));
 
         // The progress bar of the attribute we're working on
         TextureProgress* tp = cast_to<TextureProgress>(get_node((NodePath) _attributes[iii]));
@@ -51,4 +36,20 @@ void SurvivalBars::Display(const Profile* const p)
             stat->set_text("");
         }
     }
+}
+
+void SurvivalBarsRight::_on_ClickUnit_hogged_full(const Profile* const unitPath)
+{
+    godot::Godot::print("RightBars");
+    MindRead* mr = MindRead::_new();
+
+    auto clickedUnit = get_node<Unit>(unitPath->get_node<Label>("0")->get_text());
+    mr->SetReader(_subject);
+
+    clickedUnit->AffectedBy(mr);
+
+    Update(mr->GetProfile());
+
+    _ClickUnit->Reset();
+
 }
