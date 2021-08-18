@@ -5,7 +5,7 @@
     An InputHogger continuously hogs InputEvent,
     and then decide what to do with that event for themselves.
 
-    InputHogger emits "hogged_full" when it has accumulated 
+    InputHogger emits "done" when it has accumulated 
     enough input. DO NOT MODIFY THE PROFILE IT PASSES TO YOU
 
     It's important to know the layout of the profile if 
@@ -38,29 +38,34 @@ public:
         register_method("_ready", &InputHogger::_ready);
         register_method("_unhandled_input", &InputHogger::_unhandled_input);
 
-        register_method("Reset", &InputHogger::Reset);
-        register_method("IsFull", &InputHogger::IsFull);
-        register_signal<InputHogger>("hogged_full", "Profile", GODOT_VARIANT_TYPE_OBJECT);
+        register_method("GetProfile", &InputHogger::GetProfile);
 
+        register_signal<InputHogger>("done", "InputHogger", GODOT_VARIANT_TYPE_OBJECT);
     }
 
-    // Discards everything and accept input again
-    virtual void Reset() {_Profile->Wipe();}
-
-    void _init(){}
+    virtual void _init(){}
 
     virtual void _ready()
     {
         _Profile=get_node<Profile>("Profile");
     }
 
-    // Return true when it cannot accept input anymore
-    // Default to false
-    virtual bool IsFull() const {return false;}
+    // Stop this InputHogger from hogging inputs
+    // Inputs hogged will be kept
+    void Enable(bool YesOrNo)
+    {
+        set_process(YesOrNo);
+        set_process_unhandled_input(YesOrNo);
+    }
 
     // OVERRIDE THIS
     // This is where you decide what to do with the input
     virtual void _unhandled_input(const InputEvent* const ev){}
+
+    const Profile* GetProfile() const
+    {
+        return _Profile;
+    }
 
 protected:
     // Input Sequence result

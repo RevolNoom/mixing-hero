@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://res/scenes/InputHogger/Pick/Pick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/scenes/GUI/InteractionWheel/InteractionWheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://res/scenes/manager/Manager/ManagerInteraction/ManagerInteraction.gdns" type="Script" id=3]
+[ext_resource path="res://res/scenes/manager/Profile/Profile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://res/scenes/Interaction/Slap/Slap.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 71.8877, -0.315553, -71.8877, 0.315553, 0, -128.233, 0, -71.3142, 0, 71.3142, -128.233, 0, -72.2377, 0, 72.2377, 0, 0, 128.233, 0.232852, 71.487, -0.232852, -71.487, 128.233, 0, 72.1525, -0.14769, -72.1525, 0.14769, 0, -128.233 )
+}
+
+[node name="ManagerInteraction" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Pick" parent="." instance=ExtResource( 1 )]
+
+[node name="ExecQueue" type="Node" parent="."]
+
+[node name="InteractionWheel" parent="." instance=ExtResource( 2 )]
+curve = SubResource( 1 )
+
+[node name="Top" type="Node" parent="."]
+
+[node name="Choices" parent="Top" instance=ExtResource( 4 )]
+
+[node name="Slap" parent="Top/Choices" instance=ExtResource( 5 )]

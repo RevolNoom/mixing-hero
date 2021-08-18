@@ -22,7 +22,7 @@
 #include <Tween.hpp>
 
 #include "Profile.hpp"
-#include "Click.hpp"
+#include "HoverUnit.hpp"
 
 using namespace godot;
 class Unit;
@@ -42,7 +42,7 @@ public:
 
 protected:
     // Show the wheel when you hover on the unit
-    void _on_HoverUnit_hover_new_unit(const Profile* const unitPtr);
+    void _on_HoverUnit_done(const InputHogger* const hogger);
 
     void FadeAway();
 

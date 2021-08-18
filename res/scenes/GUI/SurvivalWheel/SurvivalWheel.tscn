@@ -4,7 +4,7 @@
 [ext_resource path="res://res/scenes/GUI/SurvivalWheel/SurvivalWheel.gdns" type="Script" id=2]
 [ext_resource path="res://res/anim/GUI/SurvivalWheel/stamina.svg" type="Texture" id=3]
 [ext_resource path="res://res/anim/GUI/SurvivalWheel/health.svg" type="Texture" id=4]
-[ext_resource path="res://res/scenes/interactions/InputHogger/HoverUnit/HoverUnit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://res/scenes/InputHogger/HoverUnit/HoverUnit.tscn" type="PackedScene" id=5]
 
 [node name="SurvivalWheel" type="Control"]
 mouse_filter = 2

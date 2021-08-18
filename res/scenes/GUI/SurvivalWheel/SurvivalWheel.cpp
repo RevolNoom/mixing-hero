@@ -1,8 +1,8 @@
 #include "SurvivalWheel.hpp"
 #include "Attribute.hpp"
+#include "HoverUnit.hpp"
 #include "MindRead.hpp"
 #include "Profile.hpp"
-#include "Click.hpp"
 #include "Unit.hpp"
 
 void SurvivalWheel::_register_methods()
@@ -13,7 +13,7 @@ void SurvivalWheel::_register_methods()
     register_method("Update", &SurvivalWheel::Update);
     register_method("FadeAway", &SurvivalWheel::FadeAway);
     register_method("_on_Tween_tween_completed", &SurvivalWheel::_on_Tween_tween_completed); 
-    register_method("_on_HoverUnit_hover_new_unit", &SurvivalWheel::_on_HoverUnit_hover_new_unit);
+    register_method("_on_HoverUnit_done", &SurvivalWheel::_on_HoverUnit_done);
 }
 
 void SurvivalWheel::_process(float delta)
@@ -46,7 +46,7 @@ void SurvivalWheel::_ready()
 
     _HoverUnit = get_node<HoverUnit>("HoverUnit");
     _HoverUnit->connect("off_unit", this, "FadeAway");
-    _HoverUnit->connect("hover_new_unit", this, "_on_HoverUnit_hover_new_unit");
+    _HoverUnit->connect("done", this, "_on_HoverUnit_done");
 }
 
 void SurvivalWheel::Update(const Profile* const p)
@@ -77,7 +77,7 @@ void SurvivalWheel::Update(const Profile* const p)
     }
 }
 
-void SurvivalWheel::_on_HoverUnit_hover_new_unit(const Profile* const unit)
+void SurvivalWheel::_on_HoverUnit_done(const InputHogger* const hogger)
 {
     // We update the bars before visualizing
     // DO NOT swap the order of these functions:
@@ -88,7 +88,7 @@ void SurvivalWheel::_on_HoverUnit_hover_new_unit(const Profile* const unit)
     MindRead* mindread = MindRead::_new();
     mindread->SetReader(_viewer);
 
-    _hoveredUnit = unit->GetPtr<Unit>();
+    _hoveredUnit = hogger->GetProfile()->GetPtr<Unit>();
     _hoveredUnit->AffectedBy(mindread);
     Update(mindread->GetProfile());
     mindread->queue_free();

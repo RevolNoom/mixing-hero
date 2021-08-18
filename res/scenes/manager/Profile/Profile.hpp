@@ -64,7 +64,7 @@ public:
 
     // Ask for info, and I'll tell you what I know
     template <class T = Node>
-    const T* Get(const String nodepath) const
+    T* Get(const String nodepath) const
     {
         return cast_to<T>(get_node_or_null((String) nodepath));
     }
@@ -72,13 +72,14 @@ public:
 
     // Store a Variant to Profile
     void Store(Variant v) {_EasterEgg = v;}
+
     // Get the Variant this Profile holds
     Variant Get() const {return _EasterEgg;}
 
     // Store a Pointer to Profile
     // Be VERY CAREFUL when use Profile to store pointers!
     template <typename T>
-    void Store(T* aRandomPointerFellFromTheSky)
+    void StorePtr(T* aRandomPointerFellFromTheSky)
     {
         Store(reinterpret_cast<size_t>(aRandomPointerFellFromTheSky));
     }
@@ -87,12 +88,7 @@ public:
         <!> E X T R E M E L Y  D A N G E R O U S <!>
     
         Explicit cast Profile to a random pointer type
-        CONSULT your Sender for the EXACT object type
-
-        I'm not responsible for the following, but not
-        limited to your game breaking down, vomitting,
-        hallucinating, tripping all over, gut spilling
-        everywhere, destroying operating system,...
+        CONSULT your Sender for EXACTTYPE
     */
     template <typename ExactType>
     ExactType* GetPtr() const {return reinterpret_cast<ExactType*>((size_t)(_EasterEgg));}

@@ -21,7 +21,6 @@ using namespace godot;
 
 class GUI;
 class Unit;
-class InteractionManager;
 
 class Manager: public Node
 {

@@ -38,18 +38,18 @@ void SurvivalBarsLeft::Update(const Profile* const p)
     }
 }
 
-void SurvivalBarsRight::_on_ClickUnit_hogged_full(const Profile* const unitPath)
+void SurvivalBarsRight::_on_Pick_done(const InputHogger* const object)
 {
     godot::Godot::print("RightBars");
-    MindRead* mr = MindRead::_new();
+    auto clickedUnit = cast_to<Unit>(object->GetProfile()->GetPtr<Object>());
+    
+    if (clickedUnit)
+    {
+        godot::Godot::print("It's an unit");
+        MindRead* mr = MindRead::_new();
 
-    auto clickedUnit = get_node<Unit>(unitPath->get_node<Label>("0")->get_text());
-    mr->SetReader(_subject);
-
-    clickedUnit->AffectedBy(mr);
-
-    Update(mr->GetProfile());
-
-    _ClickUnit->Reset();
-
+        mr->SetReader(_subject);
+        clickedUnit->AffectedBy(mr);
+        Update(mr->GetProfile());
+    }
 }

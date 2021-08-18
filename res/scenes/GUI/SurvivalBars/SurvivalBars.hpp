@@ -23,7 +23,7 @@
 //#include <Tween.hpp>
 
 #include "Profile.hpp"
-#include "Click.hpp"
+#include "Pick.hpp"
 using namespace godot;
 class Unit;
 
@@ -67,12 +67,12 @@ protected:
 /*
     SURVIVAL BARS RIGHT
 
-    These bars show info of the unit you click on
+    These bars show info of the unit you PickMany on
 
     SurvivalBarsRight
     |_ (all the nodes of SurvivalBarsLeft)
     ...
-    |_ ClickUnit ClickUnit
+    |_ PickObject PickObject
 */
 class SurvivalBarsRight: public SurvivalBarsLeft
 {
@@ -82,21 +82,20 @@ public:
 
     static void _register_methods()
     {
-        register_method("_on_ClickUnit_hogged_full", &SurvivalBarsRight::_on_ClickUnit_hogged_full);
+        register_method("_on_Pick_done", &SurvivalBarsRight::_on_Pick_done);
     }
 
     virtual void _ready()
     {
-        _ClickUnit = get_node<ClickUnit>("ClickUnit");
-        _ClickUnit->SetPickAmount(1);
-        _ClickUnit->connect("hogged_full", this, "_on_ClickUnit_hogged_full");
+        _Pick = get_node<Pick>("Pick");
+        _Pick->connect("done", this, "_on_Pick_done");
     }
 
 
-    void _on_ClickUnit_hogged_full(const Profile* const unitPath);
+    void _on_Pick_done(const InputHogger* const unitPath);
 
 protected:
     
-    ClickUnit* _ClickUnit;
+    Pick* _Pick;
 };
 #endif

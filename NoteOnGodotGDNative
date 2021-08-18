@@ -62,3 +62,11 @@ Variant does not know how to cast to CustomClass, but it knows how to cast to a 
 - Virtual Methods registered in base class will also be "recognized" (does it show on editor?) in derived classes
 	Base's version will be called if Derived does not redefine it.
 	(applied to _init() as well)
+
+- Say, you have a scene SceneA, attached with a script of class A. When you do A::_new(), you do NOT get an instance
+	of SceneA. What does this mean? Well, let's say SceneA has this structure:
+		Scene A
+		|_ Node 1
+		|_ Node 2
+  You create ptr = A::_new(), and when you do ptr->get_node("1")... BAM! Node "1" does not exist.
+	(What can I do to instance a scene?)

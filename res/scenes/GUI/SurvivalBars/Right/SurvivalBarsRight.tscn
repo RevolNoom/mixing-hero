@@ -7,7 +7,7 @@
 [ext_resource path="res://res/anim/GUI/SurvivalBars/Right/HealthBarContent.svg" type="Texture" id=5]
 [ext_resource path="res://res/anim/GUI/SurvivalBars/Right/SurvivalBarUnder.svg" type="Texture" id=6]
 [ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/SurvivalBarsRight.gdns" type="Script" id=7]
-[ext_resource path="res://res/scenes/interactions/InputHogger/Click/ClickUnit/ClickUnit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://res/scenes/InputHogger/Pick/Pick.tscn" type="PackedScene" id=9]
 
 [node name="SurvivalBarsRight" type="Control"]
 margin_right = 226.0
@@ -106,5 +106,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClickUnit" parent="." instance=ExtResource( 8 )]
-PickAmount = 1
+[node name="Pick" parent="." instance=ExtResource( 9 )]

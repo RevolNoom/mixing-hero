@@ -3,6 +3,9 @@
 
 // Manager classes
 #include "Manager.hpp"
+#include "ManagerInteraction.hpp"
+#include "MIState.hpp"
+#include "StateChooseInteraction.hpp"
 
 // Unit related
 #include "Unit.hpp"
@@ -20,10 +23,17 @@
 #include "AttributeModify.hpp"
 #include "MindRead.hpp"
 
-// Interaction related 
+// InputHogger Family
 #include "InputHogger.hpp"
+#include "Pick.hpp"
+#include "PickMany.hpp"
+#include "PickManyUnit.hpp"
+#include "PickManyPosition.hpp"
+#include "HoverUnit.hpp"
+
+// Interaction related 
 #include "Interaction.hpp"
-#include "Click.hpp"
+#include "PickMany.hpp"
 #include "Slap.hpp"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options *o) {
@@ -41,12 +51,16 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
     
     // Managers family
     godot::register_class<Manager>();
+    godot::register_class<ManagerInteraction>();
+    godot::register_class<MIState>();
+    godot::register_class<StateChooseInteraction>();
 
     // InputHogger family
     godot::register_class<InputHogger>();
-    godot::register_class<Click>();
-    godot::register_class<ClickUnit>();
-    godot::register_class<ClickPosition>();
+    godot::register_class<Pick>();
+    godot::register_class<PickMany>();
+    godot::register_class<PickManyUnit>();
+    godot::register_class<PickManyPosition>();
     godot::register_class<HoverUnit>();
 
     // Unit related

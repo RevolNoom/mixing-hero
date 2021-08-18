@@ -8,6 +8,7 @@ void Profile::_register_methods()
 {
     register_method("Add", &Profile::Add);
     register_method("Get", &Profile::Get<Node>);
+    register_method("Store", &Profile::Store);
     register_method("Remove", &Profile::Remove);
 }
 

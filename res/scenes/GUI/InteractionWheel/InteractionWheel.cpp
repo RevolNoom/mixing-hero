@@ -1,52 +1,68 @@
 #include "InteractionWheel.hpp"
-#include "PathFollow2D.hpp"
 #include "Interaction.hpp"
+#include "Unit.hpp"
 #include "Node.hpp"
+
+#include "Slap.hpp"
 
 void InteractionWheel::_register_methods()
 {
     register_method("_ready", &InteractionWheel::_ready);
 
+
     register_method("Show", &InteractionWheel::Show);
     register_method("Hide", &InteractionWheel::Hide);
-    register_method("Invisiblize", &InteractionWheel::_on_Tween_Tween_completed);
+    register_method("_process", &InteractionWheel::_process);
+    register_method("_on_Interaction_picked", &InteractionWheel::_on_Interaction_picked);
+    register_method("_on_Tween_tween_completed", &InteractionWheel::_on_Tween_tween_completed);
+
 
     register_method("CleanWheel", &InteractionWheel::CleanWheel);
     register_method("AddInteraction", &InteractionWheel::AddInteraction);
+    register_method("RemoveInteraction", &InteractionWheel::RemoveInteraction);
+    register_method("LoadInteractionProfile", &InteractionWheel::LoadInteractionProfile);
 
-    register_method("Squeeze", &InteractionWheel::Squeeze);
+
     register_method("Untumble", &InteractionWheel::Untumble);
     register_method("SocialDistancing", &InteractionWheel::SocialDistancing);
     register_signal<InteractionWheel>("interaction_picked", "interaction", GODOT_VARIANT_TYPE_OBJECT);
+
 }
 
 void InteractionWheel::_init()
 {
-    _size = 0;
+    _carrier = nullptr;
 }
+
+void InteractionWheel::SetController(Unit* const u)
+{
+    _controller = u;
+}
+
 
 void InteractionWheel::_ready()
 {
-    Squeeze();
-
-    // Traverse the nodes "0", "1", "2",... 
-    // See how many slots we have used
-    for (int iii=0; iii < MAX_SIZE; ++iii)
-    {
-        NodePath slotPath = String::num_int64(iii);
-        Node* slot = get_node(slotPath);
-        auto nChildren = slot->get_children();
-        if (nChildren.size())
-            ++_size; 
-        else
-            // We squeezed the wheel, so all interactions,
-            // if any, should have been counted
-            break;  
-    }
-    
-    SocialDistancing();
+    Hide();
 }
 
+void InteractionWheel::_process(float delta)
+{
+    // Check for valid carrier. I don't want to
+    // fling my Wheel around to a dead soul
+    if(_carrier && _carrier->is_inside_tree())
+    {
+        // Setting position might be costly?
+        // So I test for their position first before 
+        // doing anything rampaging
+        if (_carrier->get_position() != get_position())
+            set_position(_carrier->get_position());
+    }
+    else
+    {
+        Hide();
+    }
+
+}
 
 
 // TODO: Come on! Give me some grand animation here!
@@ -55,19 +71,25 @@ void InteractionWheel::_ready()
 // A N I M E Z
 // ===========
 
-void InteractionWheel::Show()
+
+void InteractionWheel::Show(Unit* const u)
 {
     set_visible(true);
+    _carrier = u;
+    set_process(true);
 }
 
+// TODO: Create something like a bool in SurvivalWheel + Tween
 void InteractionWheel::Hide()
 {
-    set_visible(false);
+    _on_Tween_tween_completed();
 }
 
-void InteractionWheel::_on_Tween_Tween_completed()
+void InteractionWheel::_on_Tween_tween_completed()
 {
+    _carrier = nullptr;
     set_visible(false);
+    set_process(false);
 }
 
 
@@ -77,19 +99,17 @@ void InteractionWheel::_on_Tween_Tween_completed()
 
 bool InteractionWheel::AddInteraction(const Interaction* const interaction)
 {
-    auto i = cast_to<Interaction>(interaction);
-
-    if (i == nullptr)
+    if (interaction == nullptr)
     {
         godot::Godot::print_error("InteractionWheel encountered junk! This is not an Interaction",
                                     "InteractionWheel::AddInteraction", "InteractionWheel.cpp", 0);
         return false;
     }
 
-    if (_size >= MAX_SIZE)
+    if (get_child_count() >= MAX_SIZE)
     {
         godot::Godot::print_error("InteractionWheel can't add " + 
-                                 i->get_name() + " because it's full",
+                                 interaction->get_name() + " because it's full",
                                 "InteractionWheel::AddInteraction", "InteractionWheel.cpp", 0);
         return false;
     }
@@ -99,9 +119,10 @@ bool InteractionWheel::AddInteraction(const Interaction* const interaction)
     newInteraction->connect("picked", this, "_on_Interaction_picked");
 
     // Set up new home in node hierachy
-    NodePath slotPath = String::num_int64(_size);
-    get_node(slotPath)->add_child(newInteraction);
-    ++_size;
+    PathFollow2D *newSlot = PathFollow2D::_new();
+    newSlot->set_name(interaction->get_name());
+    add_child(newSlot);
+    newSlot->add_child(newInteraction);
     return true;
 }
 
@@ -112,28 +133,44 @@ bool InteractionWheel::AddInteraction(const Interaction* const interaction)
 // I N T E R A C T I O N S  M A N A G I N G  F U N C T I O N S
 // ===========================================================
 
-bool InteractionWheel::AddInteractionProfile(const Profile* const profileWithOnlyInteractionInfos)
+bool InteractionWheel::LoadInteractionProfile(const Profile* const profileWithOnlyInteractionInfos)
 {
-    // TODO: You know what to do
+    if (profileWithOnlyInteractionInfos->get_child_count() > MAX_SIZE)
+    {
+        godot::Godot::print("InteractionWheel Can't load Profile: Interaction amount exceeded max size");
+        return false;
+    }
+
+    // Test for junks (non-Interaction)
+    auto ominousInteractions = profileWithOnlyInteractionInfos->get_children();
+    for (int iii=0; iii<ominousInteractions.size(); ++iii)
+    {
+        if (!cast_to<Interaction>(ominousInteractions[iii]))
+        {
+            String error_message = "InteractionWheel Can't load Profile: Junk encountered: ";
+            error_message += cast_to<Interaction>(ominousInteractions[iii])->get_class();
+            godot::Godot::print(error_message);
+            return false;
+        }
+    }
+
+    // Everything seems ok. Time to add them.
+    for (int iii=0; iii<ominousInteractions.size(); ++iii)
+    {
+        AddInteraction(cast_to<Interaction>(ominousInteractions[iii]));
+    }
+
     return true;
 }
 
 bool InteractionWheel::RemoveInteraction(const String interactionName)
 {
-    // Traverse the nodes "9", "8", "7",... 
-    // And find the interaction with that name
-    for (int iii=_size-1; iii >= 0; --iii)
+    auto deleteNode = get_node((NodePath)interactionName);
+    if (deleteNode)
     {
-        NodePath slotPath = String::num_int64(iii);
-        Node* slot = get_node(slotPath);
-        // Blindly try and get the interaction 
-        Node* luckyLottery = slot->get_node_or_null((NodePath) interactionName);
-        if (luckyLottery)
-        {
-            slot->remove_child(luckyLottery);
-            luckyLottery->queue_free();
-            return true;
-        }
+        remove_child(deleteNode);
+        deleteNode->queue_free();
+        return true;
     }
     return false;
 }
@@ -141,22 +178,20 @@ bool InteractionWheel::RemoveInteraction(const String interactionName)
 // Remove all Interactions on the Wheel
 void InteractionWheel::CleanWheel()
 {
-    // Traverse the nodes "0", "1", "2",... 
-    for (int iii=0; iii < MAX_SIZE; ++iii)
+    auto children = get_children();
+    for (int iii=0; iii<children.size(); ++iii)
     {
-        NodePath slotPath = String::num_int64(iii);
-        Node* slot = get_node(slotPath);
-        auto nChildren = slot->get_children();
-
-        // Then delete all of its children
-        for (int jjj=0; jjj<nChildren.size(); ++jjj)
-        {
-            auto aNode = cast_to<Node>(nChildren[jjj]);
-            slot->remove_child(aNode);
-            aNode->queue_free();
-        }
+        auto pthfllw = cast_to<PathFollow2D>(children[iii]);
+        remove_child(pthfllw);
+        pthfllw->queue_free();
     }
 }
+
+
+
+// ============================
+// S I G N A L  H A N D L E R S
+// ============================
 
 void InteractionWheel::_on_Interaction_picked(Interaction* const pickedInteraction)
 {
@@ -164,64 +199,33 @@ void InteractionWheel::_on_Interaction_picked(Interaction* const pickedInteracti
     emit_signal("interaction_picked", pickedInteraction);
 }
 
-
-
 // ===============================================
 // W H E E L  A R R A N G I N G  F U N C T I O N S
 // ===============================================
 
-void InteractionWheel::Squeeze() const
-{
-    // Double-pointer strategy
-    int slot = 0, unused = -1;
-
-    for (; slot<MAX_SIZE; ++slot)
-    {
-        NodePath slotPath=String::num_int64(slot);
-        auto Slot = get_node(slotPath);
-        auto childNodes = Slot->get_children();
-
-        if (childNodes.size() > 0)
-        {
-            ++unused;
-            if (unused < slot)
-            {
-                // Relocate the children to most recently unused slot
-                NodePath unusedPath=String::num_int64(unused);
-                auto Unused = get_node(unusedPath);
-
-                for (int iii=0; iii<childNodes.size(); ++iii)
-                {
-                    auto nodeptr = cast_to<Node>(childNodes[iii]);
-                    Slot->remove_child(nodeptr);
-                    Unused->add_child(nodeptr);
-                }
-            }
-        }
-    }
-}
 
 void InteractionWheel::SocialDistancing() const
 {
-    // There's no interaction to distant-iate
-    if (_size == 0)
-        return;
+    auto children = get_children();
 
-    for (int iii=0; iii<_size; ++iii)
+    for (int iii=0; iii<children.size(); ++iii)
     {
-        auto slot = get_node<PathFollow2D>(String::num_int64(iii));
+        auto pthfllw = cast_to<PathFollow2D>(children[iii]);
+
         // Start from twelve O'clock. 
         // Which way it goes, I don't know. F.
         // Not even sure that it starts from 12
-        slot->set_unit_offset(iii/_size);
+        pthfllw->set_unit_offset(iii/children.size());
     }
 }
 
 void InteractionWheel::Untumble() const
 {
-    for (int iii=0; iii<MAX_SIZE; ++iii)
+    auto children = get_children();
+
+    for (int iii=0; iii<children.size(); ++iii)
     {
-        auto slot = get_node<PathFollow2D>(String::num_int64(iii));
+        auto slot = cast_to<PathFollow2D>(children[iii]);
         slot->set_rotate(false);
         slot->set_rotation(0);
     }
