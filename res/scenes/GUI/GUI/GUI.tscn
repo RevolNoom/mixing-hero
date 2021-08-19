@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://res/anim/GUI/Buttons/LogBook.svg" type="Texture" id=1]
-[ext_resource path="res://res/anim/GUI/Buttons/inventory.svg" type="Texture" id=2]
-[ext_resource path="res://res/anim/GUI/Buttons/SkillPallete.svg" type="Texture" id=3]
+[ext_resource path="res://res/scenes/GUI/GUI/Buttons/LogBook.svg" type="Texture" id=1]
+[ext_resource path="res://res/scenes/GUI/GUI/Buttons/inventory.svg" type="Texture" id=2]
+[ext_resource path="res://res/scenes/GUI/GUI/Buttons/SkillPallete.svg" type="Texture" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://res/scenes/GUI/SurvivalBars/Left/SurvivalBarsLeft.tscn" type="PackedScene" id=5]
 [ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/SurvivalBarsRight.tscn" type="PackedScene" id=6]
@@ -27,18 +27,20 @@ __meta__ = {
 }
 
 [node name="SurvivalBarsLeft" parent="Bars" instance=ExtResource( 5 )]
-margin_right = 0.0
+margin_right = 338.0
+size_flags_horizontal = 3
 
 [node name="VSeparator" type="VSeparator" parent="Bars"]
-margin_left = 4.0
-margin_right = 1020.0
+margin_left = 342.0
+margin_right = 681.0
 margin_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SurvivalBarsRight" parent="Bars" instance=ExtResource( 6 )]
-margin_left = 1024.0
+margin_left = 685.0
 margin_right = 1024.0
+size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 visible = false

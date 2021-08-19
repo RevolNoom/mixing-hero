@@ -50,7 +50,10 @@ public:
     // ===============================
 
 
-    void _on_InteractionWheel_interaction_picked(Interaction* const interaction);
+    void _on_InteractionWheel_interaction_picked(const Interaction* const interaction);
+
+    // Swap this state-changed interaction with a new one
+    void _handle_change_state(Interaction* const oldState, Interaction* const newState);
 
     // This Interaction the player pick has some sub-Interaction branch
     // that must be taken. We put it on the Interaction sets stack
@@ -59,7 +62,6 @@ public:
     // Direct input request from interaction to GetInput
     void _handle_request_input(Interaction* const interaction);
 
-    void _handle_change_state(Interaction* const interaction);
     // Move this readied interaction to ExecQueue 
     void _handle_exec_ready(Interaction* const interaction);
 

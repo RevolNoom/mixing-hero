@@ -6,12 +6,33 @@
 
 using namespace Effect;
 
-void SurvivalBarsLeft::Update(const Profile* const p)
+// TODO: There should be some signals here
+void SurvivalBarsLeft::SetController(Unit* const u)
 {
+    _controller = u;
+    Update();
+}
+
+void SurvivalBarsLeft::Update()
+{
+    Update(_controller);
+}
+
+void SurvivalBarsLeft::Update(Unit* const p)
+{
+    if (!p)
+        return;
+
+    MindRead* mr = MindRead::_new();
+
+    mr->SetReader(_controller);
+    p->AffectedBy(mr);
+    auto profile = mr->GetProfile();
+
     for (int iii=0; iii < _attributes.size(); ++iii)
     {
         // Get each info from Profile
-        AttributeDynamic* attr = cast_to<AttributeDynamic>(p->Get((NodePath) _attributes[iii]));
+        AttributeDynamic* attr = profile->Get<AttributeDynamic>((NodePath) _attributes[iii]);
 
         // The progress bar of the attribute we're working on
         TextureProgress* tp = cast_to<TextureProgress>(get_node((NodePath) _attributes[iii]));
@@ -36,20 +57,42 @@ void SurvivalBarsLeft::Update(const Profile* const p)
             stat->set_text("");
         }
     }
+
+    mr->queue_free();
+}
+
+// ===================
+// R I G H T   B A R S
+// ===================
+
+// TODO: There should be some signals here
+void SurvivalBarsRight::SetController(Unit* const u)
+{
+    _controller = u;
+}
+
+// TODO: There should be some signals here
+void SurvivalBarsRight::SetConnectedUnit(Unit* const u)
+{
+    _connectedUnit = u;
+    Update();
+}
+
+void SurvivalBarsRight::Update()
+{
+    // why... why must I explicitly refers to the base class?
+    SurvivalBarsLeft::Update(_connectedUnit);
 }
 
 void SurvivalBarsRight::_on_Pick_done(const InputHogger* const object)
 {
-    godot::Godot::print("RightBars");
     auto clickedUnit = cast_to<Unit>(object->GetProfile()->GetPtr<Object>());
     
-    if (clickedUnit)
+    if (clickedUnit && 
+        clickedUnit != _controller && 
+        clickedUnit != _connectedUnit)
     {
-        godot::Godot::print("It's an unit");
-        MindRead* mr = MindRead::_new();
-
-        mr->SetReader(_subject);
-        clickedUnit->AffectedBy(mr);
-        Update(mr->GetProfile());
+        SetConnectedUnit(clickedUnit);
+        Update();
     }
 }

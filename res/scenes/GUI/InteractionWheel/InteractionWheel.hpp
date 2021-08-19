@@ -68,6 +68,7 @@ public:
     // I N T E R A C T I O N S  M A N A G I N G  F U N C T I O N S
     // ===========================================================
 
+    // Set the unit who starts interactions with this wheels
     void SetController(Unit* const u);
 
     // Return true if the interaction is added successfully

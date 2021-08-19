@@ -1,26 +1,25 @@
 /*
     MANAGER CLASS
 
-    Has the responsibility to set up:
-    + Player (Controller)
-    + PickSurvivalBarsLeft & GUI
+    That boss who tells the newbies what to do. 
 
     Manager
     |_ GUI
-    |_ InteractionManager
-    |_ Units?
+    |_ ManagerInteraction
+    |_ ManagerUnit(?)
 */
 #ifndef MANAGER_HPP
 #define MANAGER_HPP
 
+#include <Control.hpp>
 #include <Godot.hpp>
 #include <Node.hpp>
-#include <Control.hpp>
 
 using namespace godot;
 
-class GUI;
+class ManagerInteraction;
 class Unit;
+class GUI;
 
 class Manager: public Node
 {
@@ -45,5 +44,6 @@ private:
     // Unit* _controller;
 
     GUI* _GUI;
+    ManagerInteraction* _ManagerInteraction;
 };
 #endif

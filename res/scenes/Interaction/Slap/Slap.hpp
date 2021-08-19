@@ -38,7 +38,6 @@ public:
         emit_signal("request_input", this);
 
         get_node<InputHogger>("InputHoggers/PickManyUnit")->Enable(true);
-        godot::Godot::print("Slap should starts hogging now");
     }
 
 
@@ -56,9 +55,10 @@ public:
 
         auto _effectsToSource = get_node("EffectsToSource")->get_children();
 
+        Godot::print(_performer? "Huh, Slap has performer" : "Slap Performer null");
         for (int iii=0; iii<_effectsToSource.size(); ++iii)
         {
-            //_performer->AffectedBy(cast_to<BaseEffect>(_effectsToSource[iii]));
+            _performer->AffectedBy(cast_to<BaseEffect>(_effectsToSource[iii]));
         }
     }
 
@@ -67,7 +67,6 @@ public:
 // ==================
     void _on_PickManyUnit_done(const InputHogger* const i)
     {
-        Godot::print("Slap ready");
         emit_signal("exec_ready", this);
     }
 };

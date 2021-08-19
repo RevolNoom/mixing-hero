@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://res/scenes/unit/Unit/Unit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://res/scenes/manager/Manager/ManagerInteraction/ManagerInteraction.tscn" type="PackedScene" id=2]
+[ext_resource path="res://res/scenes/manager/Manager/Manager.gdns" type="Script" id=3]
 [ext_resource path="res://res/scenes/GUI/GUI/GUI.tscn" type="PackedScene" id=5]
 
 [node name="Manager" type="Node"]
+script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

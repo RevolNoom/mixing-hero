@@ -1,109 +1,83 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Right/SpiritBarContent.svg" type="Texture" id=1]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Right/StaminaBarContent.svg" type="Texture" id=2]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Right/SurvivalBar.svg" type="Texture" id=3]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Right/AvatarDock.svg" type="Texture" id=4]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Right/HealthBarContent.svg" type="Texture" id=5]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Right/SurvivalBarUnder.svg" type="Texture" id=6]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/Texture/SurvivalBar.svg" type="Texture" id=1]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/Texture/SpiritBarContent.svg" type="Texture" id=2]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/Texture/StaminaBarContent.svg" type="Texture" id=3]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Left/SurvivalBarsLeft.tscn" type="PackedScene" id=4]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/Texture/AvatarDock.svg" type="Texture" id=5]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/Texture/SurvivalBarUnder.svg" type="Texture" id=6]
 [ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/SurvivalBarsRight.gdns" type="Script" id=7]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Right/Texture/HealthBarContent.svg" type="Texture" id=8]
 [ext_resource path="res://res/scenes/InputHogger/Pick/Pick.tscn" type="PackedScene" id=9]
 
-[node name="SurvivalBarsRight" type="Control"]
-margin_right = 226.0
-margin_bottom = 79.0
-mouse_filter = 2
+[node name="SurvivalBarsRight" instance=ExtResource( 4 )]
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Stamina" type="TextureProgress" parent="."]
-margin_left = -200.0
+[node name="Stamina" parent="." index="0"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -202.0
 margin_top = 48.0
-margin_right = -83.0
+margin_right = -85.0
 margin_bottom = 138.0
 rect_rotation = -30.0
-value = 100.0
 texture_under = ExtResource( 6 )
-texture_over = ExtResource( 3 )
-texture_progress = ExtResource( 2 )
-fill_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="Stamina"]
-margin_left = 56.3814
-margin_top = 36.6942
-margin_right = 109.381
-margin_bottom = 50.6942
+[node name="Label" parent="Stamina" index="0"]
+margin_left = 4.0
+margin_top = 9.0
+margin_right = 124.0
+margin_bottom = 23.0
 rect_rotation = 30.0
 align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Spirit" type="TextureProgress" parent="."]
-margin_left = -216.0
+[node name="Spirit" parent="." index="1"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -218.0
 margin_top = 24.0
-margin_right = -99.0
+margin_right = -101.0
 margin_bottom = 114.0
 rect_rotation = -30.0
-value = 100.0
 texture_under = ExtResource( 6 )
-texture_over = ExtResource( 3 )
-texture_progress = ExtResource( 1 )
-fill_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="Spirit"]
-margin_left = 60.7132
-margin_top = 39.6352
-margin_right = 113.713
-margin_bottom = 53.6352
+[node name="Label" parent="Spirit" index="0"]
+margin_left = 4.0
+margin_top = 9.0
+margin_right = 124.0
+margin_bottom = 23.0
 rect_rotation = 30.0
 align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Health" type="TextureProgress" parent="."]
-margin_left = -232.0
-margin_right = -115.0
-margin_bottom = 90.0
+[node name="Health" parent="." index="2"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -234.0
+margin_top = 2.5
+margin_right = -117.0
+margin_bottom = 92.5
 rect_rotation = -30.0
-value = 100.0
 texture_under = ExtResource( 6 )
-texture_over = ExtResource( 3 )
-texture_progress = ExtResource( 5 )
-fill_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 8 )
 
-[node name="Label" type="Label" parent="Health"]
-margin_left = 61.5737
-margin_top = 40.1103
-margin_right = 114.574
-margin_bottom = 54.1103
+[node name="Label" parent="Health" index="0"]
+margin_left = 4.1782
+margin_top = 8.76314
+margin_right = 132.178
+margin_bottom = 22.7631
 rect_rotation = 30.0
 align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchor_left = 0.004
-anchor_right = 0.004
-margin_left = -104.904
-margin_right = 0.096
-margin_bottom = 83.0
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TextureRect" parent="." index="3"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -105.0
+margin_right = 0.0
+texture = ExtResource( 5 )
 
-[node name="Pick" parent="." instance=ExtResource( 9 )]
+[node name="Pick" parent="." index="4" instance=ExtResource( 9 )]

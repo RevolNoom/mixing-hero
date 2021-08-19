@@ -80,7 +80,7 @@ void ManagerInteraction::Abort()
 // ===============================
 
 
-void ManagerInteraction::_on_InteractionWheel_interaction_picked(Interaction* const interaction)
+void ManagerInteraction::_on_InteractionWheel_interaction_picked(const Interaction* const interaction)
 {
     // Shoo the Wheel away
     _InteractionWheel->Hide();
@@ -98,7 +98,6 @@ void ManagerInteraction::_on_InteractionWheel_interaction_picked(Interaction* co
     newInteraction->connect("request_choice", this, "_handle_request_choice");
     IIA->add_child(newInteraction);
 
-    Godot::print("Slap picked");
     // Let that interaction throws at us with everything it has
     newInteraction->Start(_controller, _pickedUnit);
 }
@@ -131,7 +130,7 @@ void ManagerInteraction::_handle_request_input(Interaction* const interaction)
     _Pick->Enable(false);
 }
 
-void ManagerInteraction::_handle_change_state(Interaction* const interaction)
+void ManagerInteraction::_handle_change_state(Interaction* const oldState, Interaction* const newState)
 {
     // TODO
 }
@@ -185,7 +184,7 @@ void ManagerInteraction::PushInteractionSet(const Profile* const set)
         remove_child(_Top);
 
         // Append old top to new top
-        // Then finally, plug new top back to this State
+        // Then finally, plug new top back
         // We have successfully add a new choice Profile to the stack
         newTop->add_child(_Top);
         _Top = newTop;
@@ -235,4 +234,6 @@ void ManagerInteraction::SetController(Unit* const u)
 {
     _controller = u;
     _InteractionWheel->SetController(u);
+    Godot::print(get_name());
+    
 }

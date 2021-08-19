@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://res/scenes/GUI/SurvivalBars/SurvivalBarsLeft.gdns" type="Script" id=1]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/StaminaBarContent.svg" type="Texture" id=2]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/SurvivalBar.svg" type="Texture" id=3]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/SpiritBarContent.svg" type="Texture" id=4]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/HealthBarContent.svg" type="Texture" id=5]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/AvatarDock.svg" type="Texture" id=6]
-[ext_resource path="res://res/anim/GUI/SurvivalBars/Left/SurvivalBarUnder.svg" type="Texture" id=7]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Left/Texture/StaminaBarContent.svg" type="Texture" id=2]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Left/Texture/SurvivalBar.svg" type="Texture" id=3]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Left/Texture/SpiritBarContent.svg" type="Texture" id=4]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Left/Texture/HealthBarContent.svg" type="Texture" id=5]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Left/Texture/AvatarDock.svg" type="Texture" id=6]
+[ext_resource path="res://res/scenes/GUI/SurvivalBars/Left/Texture/SurvivalBarUnder.svg" type="Texture" id=7]
 
 [node name="SurvivalBarsLeft" type="Control"]
 margin_right = 226.0

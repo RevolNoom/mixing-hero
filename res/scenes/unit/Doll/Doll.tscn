@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://res/anim/illusion/arm.svg" type="Texture" id=2]
-[ext_resource path="res://res/anim/illusion/foot.svg" type="Texture" id=3]
-[ext_resource path="res://res/anim/illusion/shin.svg" type="Texture" id=4]
-[ext_resource path="res://res/anim/illusion/hand.svg" type="Texture" id=5]
-[ext_resource path="res://res/anim/illusion/thigh.svg" type="Texture" id=6]
-[ext_resource path="res://res/anim/illusion/head.svg" type="Texture" id=7]
-[ext_resource path="res://res/anim/illusion/hip.svg" type="Texture" id=8]
-[ext_resource path="res://res/anim/illusion/body.svg" type="Texture" id=9]
-[ext_resource path="res://res/anim/illusion/forearm.svg" type="Texture" id=10]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/arm.svg" type="Texture" id=2]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/foot.svg" type="Texture" id=3]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/shin.svg" type="Texture" id=4]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/hand.svg" type="Texture" id=5]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/thigh.svg" type="Texture" id=6]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/head.svg" type="Texture" id=7]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/hip.svg" type="Texture" id=8]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/body.svg" type="Texture" id=9]
+[ext_resource path="res://res/scenes/unit/Doll/Texture/forearm.svg" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"

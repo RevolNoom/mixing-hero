@@ -22,11 +22,7 @@ void GUI::_ready()
 
 void GUI::SetController(Unit* const player)
 {
-    // If we ever want to change the player in the middle of the game,
-    // SetController will unbind the current player first 
-    //if (_controller != nullptr)
-    //    _controller->disconnect("attributes_modified", this, "ShowBars");
-    //_controller = player;
-    //_controller->connect("attributes_modified", this, "ShowBars");
-    //ShowBars(_controller);
+    _controller = player;
+    _rightBars->SetController(player);
+    _controllerBars->SetController(player);
 }

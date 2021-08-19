@@ -100,6 +100,9 @@ void SurvivalWheel::_on_HoverUnit_done(const InputHogger* const hogger)
     if (_isFading)
     {
         _isFading = false;
+        // Do another tweening does not stop Tween from fading the wheel
+        // Which will bite us in _on_Tween_tween_completed() set_visible()
+        _Tween->stop_all();
         // Set Transparency from Fully Transparent to Fully Opaque
         _Tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 1), 0.4, Tween::TRANS_LINEAR, Tween::EASE_OUT_IN);
         _Tween->start();
@@ -111,6 +114,10 @@ void SurvivalWheel::FadeAway()
     if (!_isFading)
     {
         _isFading = true;
+
+        // Same stopping reason as in _on_HoverUnit_done()
+        _Tween->stop_all();
+
         // Set Transparency from Fully Opaque to Fully Transparent
         _Tween->interpolate_property(this, "modulate", get_modulate(), Color(1, 1, 1, 0), 0.4, Tween::TRANS_LINEAR, Tween::EASE_IN_OUT);
         _Tween->start();

@@ -35,6 +35,8 @@ public:
     static void _register_methods()
     {
         register_method("_ready", &SurvivalBarsLeft::_ready);
+        // TODO: A way for the unit to signal survival bars to 
+        // update automatically
     }
     virtual void _ready(){}
     virtual void _init()
@@ -47,17 +49,21 @@ public:
         _attributes.append("Stamina");
     }
 
-    // Get a Profile holding info of an Unit
     // Update the bars to reflect the info 
-    virtual void Update(const Profile* const unitProfile);
+    virtual void Update();
+
+    virtual void SetController(Unit* const u);   
 
 protected:
+
+    // That true function who do all the hard work
+    void Update(Unit* const u);
 
     // Consider adding a tween here. They're smooooooth
     // Tween* _Tween;
 
-    // The Bars are bound to this unit
-    Unit* _subject;
+    // The Left Bars are bound to this unit
+    Unit* _controller;
 
     // The attributes this objects requires from a Profile
     PoolStringArray _attributes;
@@ -73,6 +79,7 @@ protected:
     |_ (all the nodes of SurvivalBarsLeft)
     ...
     |_ PickObject PickObject
+    |_ Profile Reset (used to reset the Bars to full (actually contains nothing))
 */
 class SurvivalBarsRight: public SurvivalBarsLeft
 {
@@ -85,7 +92,7 @@ public:
         register_method("_on_Pick_done", &SurvivalBarsRight::_on_Pick_done);
     }
 
-    virtual void _ready()
+    virtual void _ready() override
     {
         _Pick = get_node<Pick>("Pick");
         _Pick->connect("done", this, "_on_Pick_done");
@@ -94,8 +101,21 @@ public:
 
     void _on_Pick_done(const InputHogger* const unitPath);
 
+    void SetController(Unit* const u) override;   
+
+    void SetConnectedUnit(Unit* const u);   
+
+    void Update() override;
 protected:
-    
+    // InputHogger to help pick an unit
     Pick* _Pick;
+
+    // The Right Bars are Not bound to _controller 
+    // But, info shown on the Bars depends on whether
+    // _controller has permission to read picked unit or not
+    // Unit* _controller;
+
+    // Unit whose infos are shown
+    Unit* _connectedUnit;
 };
 #endif

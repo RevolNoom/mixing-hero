@@ -4,8 +4,6 @@
 // Manager classes
 #include "Manager.hpp"
 #include "ManagerInteraction.hpp"
-#include "MIState.hpp"
-#include "StateChooseInteraction.hpp"
 
 // Unit related
 #include "Unit.hpp"
@@ -52,8 +50,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
     // Managers family
     godot::register_class<Manager>();
     godot::register_class<ManagerInteraction>();
-    godot::register_class<MIState>();
-    godot::register_class<StateChooseInteraction>();
 
     // InputHogger family
     godot::register_class<InputHogger>();
