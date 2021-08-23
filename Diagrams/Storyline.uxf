@@ -4,101 +4,164 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
-      <y>230</y>
-      <w>80</w>
+      <x>310</x>
+      <y>180</y>
+      <w>320</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>2 siblings:
+--
+Quyan (Dark/Twilight): Fighter/Assasin
+Thiem (Light): Mage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>40</y>
+      <w>280</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>4 kingdoms in tension
+1 demon kingdom underground</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>400</y>
+      <w>150</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Prologue:
---
-Millenias ago, there was a war between human and monsters of
-the continent
-
-Human emerged victory, and taken with them the most valuable
-trophy: The Ethereal Shard
-The Ethereal Shard contains infinite magical power. 
-
-With this shard, and skill in unnatural magic, the Emperor 
-has successfully extended his life for millenias.
-
-Those who served under the King gets their reward as well. 
-The higher their rank, the longer they live.
-
-It's almost seems too happy to be an ending. 
-
-...
-
-Because of its rich magic source, 
-monsters of all kind attacks the Empire, 
-trying to lay their hand on the Shard.
-
-And thus, the Emperor recruits adventurers to aid him in 
-the continent conquest.
-
-Those who contributed most to monster conquest will get 
-a share in royalty luxury, and a long life.
-
-There was one legendary adventurer, so prominent that the
-King himself shared him a splinter of the Shard, who nearly
-ended the monsters reign long ago. 
-
-He was slain by the monster king. And the splinter fell into
-the hand of monsters.
-
-...
-
-Will you be the hero to take the shard back?</panel_attributes>
+    <panel_attributes>Eternal Life Spell</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>40</y>
+      <w>270</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Conquests for magical crystals</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>100</y>
+      <w>390</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Living things deteriorate as no crystal is left
+to fuel their life energy, as well as no human dies
+to return energy to the world</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>180</y>
+      <w>390</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Quyan and Thiem set out to retrieve magical crystals</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>250</y>
+      <w>390</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>The last crystal, the biggest, most powerful, 
+reside in the demon kingdom. </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>310</y>
+      <w>420</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>At the throne room, Quyan and Thiem meet adventurers
+from other kingdoms. They team up to win demon king</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>370</y>
+      <w>420</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>When demon king dies, he lunges for Quyan, 
+wreck her badly and infuses his blood within her.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>440</y>
+      <w>430</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Quyan transforms into a ghostly shadow form, as her 
+brother is beaten 'til death. Quyan manages to kill some,
+but one of them slipped away with the crystal with him.</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>550</x>
-      <y>170</y>
-      <w>110</w>
-      <h>40</h>
+      <y>530</y>
+      <w>470</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>End 1
---
-The Adventurer brings the Shard back to the Emperor.
-He lives a prosperous life forever after...
-
---
-That is, until magic starts running out. 
-You have to deal with people and monsters union. 
-And then your magic shard fades its light, too.
-
--- 
-You travel to the capital and take the shard from him.
-The shard falls into your hand.
-And then, over time, the final shard, too, fades away.
-Life extinguish.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>550</x>
-      <y>260</y>
-      <w>110</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>End 2
---
-The Adventurer learns the truth about Shards.
-The monster king is the legendary hero in the past.
-He's too tired with this job.
-He passes his sword to you, embelled with his shard.
-The final Shard that'll decide the fate of all.
-
---
-The Adventurer travels back to the capital for the Emperor.
-To kill him.
---
-
-The monster king instructed the Adventurer to bring all
-the Shard back to the tree after Adventurer has collected them all.
+    <panel_attributes>With the newly found crystal, one kingdom triumphs the
+battle between their neighboring country. While Quyan is
+infused with a part of demon king soul. He explains to her
+the way magic works, and how human has been breaking the 
+cycle of life. Quyan becomes the next demon king.
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>640</y>
+      <w>470</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Although she does not want to, the only way to keep spiritual 
+balance is to break the Eternal Life Spell, return the crystals
+to its natural habitats. So she begins conquering one of the
+weakest kingdom, claiming its crystals and rally magical 
+creatures on the continent to fight for her.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>740</y>
+      <w>470</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Thus, begins the war between the demonic kingdom and human</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

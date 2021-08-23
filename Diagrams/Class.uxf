@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>10</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2050</x>
-      <y>2930</y>
-      <w>300</w>
-      <h>160</h>
+      <x>1106</x>
+      <y>945</y>
+      <w>210</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Unit
+--
+*Signals*
+die
+attribute_changed
 --
 Node2d Doll
 --
@@ -29,10 +33,10 @@ Node2d Doll
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2060</x>
-      <y>3240</y>
-      <w>230</w>
-      <h>200</h>
+      <x>1113</x>
+      <y>1162</y>
+      <w>161</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;
 Attribute
@@ -51,10 +55,10 @@ Attribute
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2060</x>
-      <y>3530</y>
-      <w>230</w>
-      <h>120</h>
+      <x>1113</x>
+      <y>1365</y>
+      <w>161</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 AttributeDynamic
@@ -68,10 +72,10 @@ AttributeDynamic
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2160</x>
-      <y>3430</y>
-      <w>30</w>
-      <h>120</h>
+      <x>1183</x>
+      <y>1295</y>
+      <w>21</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
@@ -79,10 +83,10 @@ AttributeDynamic
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2170</x>
-      <y>3080</y>
-      <w>30</w>
-      <h>180</h>
+      <x>1190</x>
+      <y>1050</y>
+      <w>21</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 </panel_attributes>
@@ -91,10 +95,10 @@ AttributeDynamic
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2470</x>
-      <y>3260</y>
-      <w>250</w>
-      <h>180</h>
+      <x>1400</x>
+      <y>1176</y>
+      <w>175</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract Class&gt;&gt;
 Item
@@ -108,10 +112,10 @@ Item
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1800</x>
-      <y>1690</y>
-      <w>350</w>
-      <h>230</h>
+      <x>931</x>
+      <y>77</y>
+      <w>245</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>&lt;&lt;class&gt;&gt;
 Interaction
@@ -134,10 +138,10 @@ ready_to_exec(Interaction: i)
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1990</x>
-      <y>2390</y>
-      <w>220</w>
-      <h>70</h>
+      <x>1036</x>
+      <y>602</y>
+      <w>154</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Note:
 _static_
@@ -148,10 +152,10 @@ _static_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2800</x>
-      <y>3260</y>
-      <w>210</w>
-      <h>190</h>
+      <x>1631</x>
+      <y>1176</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Consumable
@@ -163,10 +167,10 @@ Consumable
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2800</x>
-      <y>3530</y>
-      <w>210</w>
-      <h>130</h>
+      <x>1631</x>
+      <y>1365</y>
+      <w>147</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Equipable
@@ -178,10 +182,10 @@ Equipable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2710</x>
-      <y>3430</y>
-      <w>110</w>
-      <h>130</h>
+      <x>1568</x>
+      <y>1295</y>
+      <w>77</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>90.0;110.0;10.0;10.0</additional_attributes>
@@ -189,10 +193,10 @@ Equipable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2710</x>
-      <y>3340</y>
-      <w>110</w>
-      <h>30</h>
+      <x>1568</x>
+      <y>1232</y>
+      <w>77</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
@@ -200,10 +204,10 @@ Equipable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>3080</y>
-      <w>150</w>
-      <h>200</h>
+      <x>1309</x>
+      <y>1050</y>
+      <w>105</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 </panel_attributes>
@@ -212,14 +216,14 @@ Equipable
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2920</x>
-      <y>2920</y>
-      <w>210</w>
-      <h>180</h>
+      <x>1715</x>
+      <y>938</y>
+      <w>147</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 EffectOverTime
-ObManager, Composite
+{Manager, Composite}
 --
 - _potency: int
 --
@@ -230,10 +234,10 @@ ObManager, Composite
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2800</x>
-      <y>3050</y>
-      <w>140</w>
-      <h>30</h>
+      <x>1631</x>
+      <y>1029</y>
+      <w>98</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
@@ -241,10 +245,10 @@ ObManager, Composite
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2340</x>
-      <y>3020</y>
-      <w>150</w>
-      <h>40</h>
+      <x>1309</x>
+      <y>1008</y>
+      <w>105</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=.
 friends</panel_attributes>
@@ -253,10 +257,10 @@ friends</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2470</x>
-      <y>2920</y>
-      <w>340</w>
-      <h>210</h>
+      <x>1400</x>
+      <y>938</y>
+      <w>238</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 BaseEffect
@@ -280,10 +284,10 @@ BaseEffect
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2800</x>
-      <y>2990</y>
-      <w>140</w>
-      <h>40</h>
+      <x>1631</x>
+      <y>987</y>
+      <w>98</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..n
@@ -293,10 +297,10 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2890</x>
-      <y>2220</y>
-      <w>260</w>
-      <h>230</h>
+      <x>1694</x>
+      <y>448</y>
+      <w>182</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 SurvivalWheel
@@ -320,10 +324,10 @@ Tween Tween
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2410</x>
-      <y>2220</y>
-      <w>220</w>
-      <h>220</h>
+      <x>1351</x>
+      <y>448</y>
+      <w>161</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 SurvivalBars
@@ -345,10 +349,10 @@ TextureProgress Stamina
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2860</x>
-      <y>2180</y>
-      <w>150</w>
-      <h>60</h>
+      <x>1673</x>
+      <y>420</y>
+      <w>105</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>130.0;40.0;10.0;10.0</additional_attributes>
@@ -356,10 +360,10 @@ TextureProgress Stamina
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2500</x>
-      <y>2180</y>
-      <w>180</w>
-      <h>60</h>
+      <x>1421</x>
+      <y>420</y>
+      <w>126</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;40.0;160.0;10.0</additional_attributes>
@@ -367,10 +371,10 @@ TextureProgress Stamina
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2640</x>
-      <y>2290</y>
-      <w>230</w>
-      <h>120</h>
+      <x>1519</x>
+      <y>497</y>
+      <w>161</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 Profile
@@ -384,36 +388,33 @@ Profile
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2470</x>
-      <y>2570</y>
-      <w>330</w>
-      <h>260</h>
+      <x>1400</x>
+      <y>693</y>
+      <w>231</w>
+      <h>196</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 MindRead
 {Builder, Decorator}
 --
 - _reader: Unit*
-- _Profile: Profile*
 - _nextMindRead: MindRead*
 # _peekedNodes: PoolStringArray
 --
++ Read(source, target): Profile*
 + AffectOnUnit(Unit*): void
-+ Read(Unit*): void
-+ GetProfile(): Profile*
-+ SetReader(Unit*): void
 + AppendChain(MindRead*): void
 
-/# DoRead(Unit* source, Unit* target): void/</panel_attributes>
+/# DoRead(source, target, dirtyProfile): Profile*/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2120</x>
-      <y>2080</y>
-      <w>240</w>
-      <h>60</h>
+      <x>1155</x>
+      <y>350</y>
+      <w>168</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Manager</panel_attributes>
     <additional_attributes/>
@@ -421,21 +422,21 @@ MindRead
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2620</x>
-      <y>2820</y>
-      <w>30</w>
-      <h>120</h>
+      <x>1505</x>
+      <y>882</y>
+      <w>21</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2660</x>
-      <y>1870</y>
-      <w>210</w>
-      <h>320</h>
+      <x>1533</x>
+      <y>203</y>
+      <w>147</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 GUI
@@ -463,91 +464,10 @@ VBoxContainer Bars
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3810</x>
-      <y>2500</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>Manager
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>3420</x>
-      <y>2620</y>
-      <w>320</w>
-      <h>320</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Class&gt;&gt;
-InteractionManager
---
-|_ </panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>3810</x>
-      <y>2620</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>GUI</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>3980</x>
-      <y>2620</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>Units</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3680</x>
-      <y>2520</y>
-      <w>150</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;100.0;130.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3850</x>
-      <y>2520</y>
-      <w>30</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>3900</x>
-      <y>2520</y>
-      <w>140</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>120.0;100.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>820</x>
-      <y>2470</y>
-      <w>280</w>
-      <h>160</h>
+      <x>245</x>
+      <y>623</y>
+      <w>196</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract Class&gt;&gt;
 InputHogger
@@ -565,10 +485,10 @@ hogged_full(InputHogger: i)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1090</x>
-      <y>2450</y>
-      <w>100</w>
-      <h>80</h>
+      <x>434</x>
+      <y>609</y>
+      <w>70</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;80.0;10.0</additional_attributes>
@@ -576,10 +496,10 @@ hogged_full(InputHogger: i)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1140</x>
-      <y>2360</y>
-      <w>190</w>
-      <h>100</h>
+      <x>469</x>
+      <y>546</y>
+      <w>133</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
 PickObject
@@ -594,10 +514,10 @@ _RayCast2D
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1660</x>
-      <y>2340</y>
-      <w>110</w>
-      <h>30</h>
+      <x>833</x>
+      <y>532</y>
+      <w>77</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>PickManyUnit</panel_attributes>
     <additional_attributes/>
@@ -605,10 +525,10 @@ _RayCast2D
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1660</x>
-      <y>2440</y>
-      <w>150</w>
-      <h>30</h>
+      <x>833</x>
+      <y>602</y>
+      <w>105</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>PickManyPosition</panel_attributes>
     <additional_attributes/>
@@ -616,10 +536,10 @@ _RayCast2D
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1190</x>
-      <y>2610</y>
-      <w>110</w>
-      <h>30</h>
+      <x>504</x>
+      <y>721</y>
+      <w>77</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>HoverUnit</panel_attributes>
     <additional_attributes/>
@@ -627,10 +547,10 @@ _RayCast2D
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
-      <y>2300</y>
-      <w>60</w>
-      <h>70</h>
+      <x>805</x>
+      <y>504</y>
+      <w>42</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;40.0;50.0</additional_attributes>
@@ -638,10 +558,10 @@ _RayCast2D
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1090</x>
-      <y>2560</y>
-      <w>120</w>
-      <h>80</h>
+      <x>434</x>
+      <y>686</y>
+      <w>84</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;100.0;60.0</additional_attributes>
@@ -649,10 +569,10 @@ _RayCast2D
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
-      <y>2340</y>
-      <w>60</w>
-      <h>130</h>
+      <x>805</x>
+      <y>532</y>
+      <w>42</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;40.0;110.0</additional_attributes>
@@ -660,10 +580,10 @@ _RayCast2D
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1370</x>
-      <y>2290</y>
-      <w>260</w>
-      <h>100</h>
+      <x>630</x>
+      <y>497</y>
+      <w>182</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract Class&gt;&gt;
 PickMany
@@ -679,10 +599,10 @@ hogged_full(Profile: many objects)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1320</x>
-      <y>2330</y>
-      <w>70</w>
-      <h>110</h>
+      <x>595</x>
+      <y>525</y>
+      <w>49</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;90.0;50.0;10.0</additional_attributes>
@@ -690,10 +610,10 @@ hogged_full(Profile: many objects)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2190</x>
-      <y>1950</y>
-      <w>100</w>
-      <h>30</h>
+      <x>1204</x>
+      <y>259</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>InputHogger</panel_attributes>
     <additional_attributes/>
@@ -701,10 +621,10 @@ hogged_full(Profile: many objects)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2140</x>
-      <y>1810</y>
-      <w>130</w>
-      <h>160</h>
+      <x>1169</x>
+      <y>161</y>
+      <w>91</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;110.0;10.0;110.0;140.0</additional_attributes>
@@ -712,315 +632,10 @@ hogged_full(Profile: many objects)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1420</x>
-      <y>1500</y>
-      <w>490</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>Performable -&gt; Process() -&gt; Execute()</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1590</x>
-      <y>1110</y>
-      <w>220</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>ChooseInteractionScene
-(InteractionWheel?)
-SceneStack</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1590</x>
-      <y>1370</y>
-      <w>220</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>GetInputScene
-(InputHogger?)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1700</x>
-      <y>1160</y>
-      <w>380</w>
-      <h>230</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Process(Profile)
-request input (ProfileListInputHogger, Interaction)</panel_attributes>
-    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1580</x>
-      <y>1010</y>
-      <w>260</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-request choice (InteractionWheel)
-</panel_attributes>
-    <additional_attributes>80.0;100.0;80.0;20.0;170.0;20.0;170.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1640</x>
-      <y>1160</y>
+      <x>644</x>
+      <y>280</y>
       <w>70</w>
-      <h>230</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Abort</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1860</x>
-      <y>1230</y>
-      <w>220</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>ExecuteScene</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1800</x>
-      <y>1250</y>
-      <w>280</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Done
-Interaction.Accept(InputHogger)
-ExecuteScene.Store(Interaction)</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1800</x>
-      <y>1150</y>
-      <w>80</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1520</x>
-      <y>1110</y>
-      <w>90</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Abort
-(CIS)</panel_attributes>
-    <additional_attributes>70.0;40.0;10.0;40.0;10.0;10.0;70.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>790</x>
-      <y>1170</y>
-      <w>100</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>Manager
-Interaction</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>540</x>
-      <y>1170</y>
-      <w>100</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>ChooseInt</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1090</x>
-      <y>1180</y>
-      <w>100</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>GetInput</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>790</x>
-      <y>1360</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>Execute</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>630</x>
-      <y>1160</y>
-      <w>180</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Abort</panel_attributes>
-    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>880</x>
-      <y>1170</y>
-      <w>230</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Abort</panel_attributes>
-    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>630</x>
-      <y>1180</y>
-      <w>180</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-request_input</panel_attributes>
-    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>530</x>
-      <y>1120</y>
-      <w>130</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-request_choice</panel_attributes>
-    <additional_attributes>20.0;50.0;20.0;20.0;100.0;20.0;100.0;50.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>830</x>
-      <y>1230</y>
-      <w>60</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Store</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1230</x>
-      <y>1180</y>
-      <w>100</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>InputHogger</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1110</x>
-      <y>1140</y>
-      <w>180</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-done
-</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;20.0;160.0;20.0;160.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>880</x>
-      <y>1190</y>
-      <w>230</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-done
-</panel_attributes>
-    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>700</x>
-      <y>1430</y>
-      <w>280</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>StateChooseInteraction
---
-*Signal*
-request_input
---
-Stack Interactions Profile </panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>630</x>
-      <y>1200</y>
-      <w>180</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-NewCycle</panel_attributes>
-    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>880</x>
-      <y>1210</y>
-      <w>230</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-NewCycle</panel_attributes>
-    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1060</x>
-      <y>810</y>
-      <w>100</w>
-      <h>220</h>
+      <h>154</h>
     </coordinates>
     <panel_attributes>Interaction</panel_attributes>
     <additional_attributes/>
@@ -1028,10 +643,10 @@ NewCycle</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>710</x>
-      <y>810</y>
-      <w>100</w>
-      <h>220</h>
+      <x>399</x>
+      <y>280</y>
+      <w>70</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>Interaction
 Wheel </panel_attributes>
@@ -1040,10 +655,10 @@ Wheel </panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>510</y>
-      <w>250</w>
-      <h>40</h>
+      <x>602</x>
+      <y>70</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 request_input</panel_attributes>
@@ -1052,10 +667,10 @@ request_input</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>530</y>
-      <w>250</w>
-      <h>40</h>
+      <x>602</x>
+      <y>84</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 request_choice</panel_attributes>
@@ -1064,10 +679,10 @@ request_choice</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>550</y>
-      <w>250</w>
-      <h>40</h>
+      <x>602</x>
+      <y>98</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 change_state</panel_attributes>
@@ -1076,58 +691,22 @@ change_state</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>420</y>
-      <w>480</w>
-      <h>80</h>
+      <x>602</x>
+      <y>7</y>
+      <w>336</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 abort (for rq_choice, rq_input)</panel_attributes>
     <additional_attributes>250.0;60.0;250.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
-      <y>0</y>
-      <w>380</w>
-      <h>400</h>
-    </coordinates>
-    <panel_attributes>InteractionWheel
---
-Show()
-Hide()
-Abort()
-LoadInteractionProfile() // request_choice
-_on_Interaction_change_state(oldstate*, newstate*)
-
-\\ Back to previous choice set
-
-
-\\ Lock Wheel
-_on_Interaction_request_input(Interaction)
-
-\\ Unlock wheel
-_on_Interaction_done(Interaction)
-
-\\ Show Wheel if not locked
-_on_Pick_done()
-
---
-- Interaction *requesting_input
-- Unit* _controller
-- Unit* _performer
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>840</y>
-      <w>280</w>
-      <h>40</h>
+      <x>462</x>
+      <y>301</y>
+      <w>196</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 picked</panel_attributes>
@@ -1136,23 +715,10 @@ picked</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>600</x>
-      <y>130</y>
-      <w>320</w>
-      <h>170</h>
-    </coordinates>
-    <panel_attributes>InteractionManager
---
-Must signal if controller is dead.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>140</x>
-      <y>410</y>
-      <w>320</w>
-      <h>170</h>
+      <x>0</x>
+      <y>0</y>
+      <w>224</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>ExecQueue</panel_attributes>
     <additional_attributes/>
@@ -1160,10 +726,10 @@ Must signal if controller is dead.</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>580</y>
-      <w>120</w>
-      <h>250</h>
+      <x>427</x>
+      <y>119</y>
+      <w>84</w>
+      <h>175</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 SetController</panel_attributes>
@@ -1172,10 +738,10 @@ SetController</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>490</y>
-      <w>250</w>
-      <h>40</h>
+      <x>602</x>
+      <y>56</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 exec_ready</panel_attributes>
@@ -1184,12 +750,12 @@ exec_ready</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>420</y>
-      <w>320</w>
-      <h>170</h>
+      <x>385</x>
+      <y>7</y>
+      <w>224</w>
+      <h>119</h>
     </coordinates>
-    <panel_attributes>StateInteractionChoose
+    <panel_attributes>ManagerInteraction
 --
 Must signal if controller is dead.</panel_attributes>
     <additional_attributes/>
@@ -1197,22 +763,10 @@ Must signal if controller is dead.</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>290</y>
-      <w>130</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-SetController</panel_attributes>
-    <additional_attributes>30.0;130.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>450</x>
-      <y>430</y>
-      <w>260</w>
-      <h>40</h>
+      <x>217</x>
+      <y>14</y>
+      <w>182</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 queue_exec(Interaction)</panel_attributes>
@@ -1221,27 +775,10 @@ queue_exec(Interaction)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>110</x>
-      <y>730</y>
-      <w>440</w>
-      <h>220</h>
-    </coordinates>
-    <panel_attributes>InteractionWheel:
-Ability
---
-- Switch to a different wheel (change state &amp; request_choice)
-- Change interaction set (equest choice)
-- Change one interaction for a limited time (change state)
-- </panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1230</x>
-      <y>480</y>
-      <w>100</w>
-      <h>110</h>
+      <x>763</x>
+      <y>49</y>
+      <w>70</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Interaction</panel_attributes>
     <additional_attributes/>
@@ -1249,10 +786,10 @@ Ability
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1010</x>
-      <y>700</y>
-      <w>90</w>
-      <h>40</h>
+      <x>609</x>
+      <y>203</y>
+      <w>63</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Pick
 </panel_attributes>
@@ -1261,10 +798,10 @@ Ability
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>790</x>
-      <y>730</y>
-      <w>270</w>
-      <h>100</h>
+      <x>455</x>
+      <y>224</y>
+      <w>189</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Pick_done (show)</panel_attributes>
@@ -1273,10 +810,10 @@ Pick_done (show)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>580</y>
-      <w>100</w>
-      <h>140</h>
+      <x>602</x>
+      <y>119</y>
+      <w>70</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Pick_done</panel_attributes>
@@ -1285,10 +822,10 @@ Pick_done</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>770</x>
-      <y>580</y>
-      <w>180</w>
-      <h>250</h>
+      <x>441</x>
+      <y>119</y>
+      <w>126</w>
+      <h>175</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 ShowInteractionList</panel_attributes>
@@ -1297,10 +834,10 @@ ShowInteractionList</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
-      <y>580</y>
-      <w>160</w>
-      <h>410</h>
+      <x>378</x>
+      <y>119</y>
+      <w>112</w>
+      <h>287</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 picked
@@ -1310,13 +847,47 @@ picked
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>410</y>
-      <w>360</w>
-      <h>90</h>
+      <x>602</x>
+      <y>0</y>
+      <w>252</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 start</panel_attributes>
     <additional_attributes>310.0;70.0;310.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1708</x>
+      <y>693</y>
+      <w>301</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;class&gt;&gt;
+MindReadBank
+{Singleton, Bank}
+--
+- Dictionary &lt;Unit* participant, bool valid&gt;
+- Dictionary &lt; (participant1, participant2), Profile &gt;
+_- _singleton: MindReadBank*_
+
+--
+_+ Read(source, target): Profile_
++ Read(source, target): Profile (A handle for each instance)
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1624</x>
+      <y>777</y>
+      <w>98</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
   </element>
 </diagram>

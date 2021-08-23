@@ -47,7 +47,9 @@ private:
     // needs to redo MindRead (when they are "attribute_modified", maybe?)
 
     // Child Nodes
-    SurvivalBarsRight*  _rightBars;
-    SurvivalBarsLeft*  _controllerBars;
+    SurvivalWheel*     _SurvivalWheel;
+    // The left survival bars are designed to be bound to _controller
+    SurvivalBarsLeft*  _SurvivalBarsLeft;
+    SurvivalBarsRight*  _SurvivalBarsRight;
 };
 #endif

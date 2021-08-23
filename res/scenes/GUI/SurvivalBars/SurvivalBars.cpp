@@ -1,6 +1,6 @@
 #include "SurvivalBars.hpp"
+#include "MindReadBank.hpp"
 #include "Attribute.hpp"
-#include "MindRead.hpp"
 #include "Label.hpp"
 #include "Unit.hpp"
 
@@ -9,25 +9,29 @@ using namespace Effect;
 // TODO: There should be some signals here
 void SurvivalBarsLeft::SetController(Unit* const u)
 {
+    // Disconnect auto update signal from old controller
+    if (_controller != nullptr)
+        _controller->disconnect("attributes_modified", this, "Update");
+
+    // Reconnect to new controller
     _controller = u;
+    _controller->connect("attributes_modified", this, "Update");
+
+    _connectedUnit = u;
+
+    // Refresh the bars to show the infos of new controller
     Update();
 }
 
 void SurvivalBarsLeft::Update()
 {
-    Update(_controller);
-}
-
-void SurvivalBarsLeft::Update(Unit* const p)
-{
-    if (!p)
+    // TODO: I might have to redo the logic here
+    if (! (_connectedUnit && _connectedUnit->is_inside_tree() &&
+             _controller && _controller->is_inside_tree()))
         return;
 
-    MindRead* mr = MindRead::_new();
-
-    mr->SetReader(_controller);
-    p->AffectedBy(mr);
-    auto profile = mr->GetProfile();
+    // Self read
+    auto profile = get_node<MindReadBank>("/root/MindReadBank")->Read(_controller, _connectedUnit);
 
     for (int iii=0; iii < _attributes.size(); ++iii)
     {
@@ -57,31 +61,28 @@ void SurvivalBarsLeft::Update(Unit* const p)
             stat->set_text("");
         }
     }
-
-    mr->queue_free();
 }
 
 // ===================
 // R I G H T   B A R S
 // ===================
 
-// TODO: There should be some signals here
 void SurvivalBarsRight::SetController(Unit* const u)
 {
     _controller = u;
-}
-
-// TODO: There should be some signals here
-void SurvivalBarsRight::SetConnectedUnit(Unit* const u)
-{
-    _connectedUnit = u;
     Update();
 }
 
-void SurvivalBarsRight::Update()
+void SurvivalBarsRight::SetConnectedUnit(Unit* const u)
 {
-    // why... why must I explicitly refers to the base class?
-    SurvivalBarsLeft::Update(_connectedUnit);
+    if (_connectedUnit != nullptr)
+        _connectedUnit->disconnect("attributes_modified", this, "Update");
+
+    _connectedUnit = u;
+    _connectedUnit->connect("attributes_modified", this, "Update");
+
+    // 
+    Update();
 }
 
 void SurvivalBarsRight::_on_Pick_done(const InputHogger* const object)

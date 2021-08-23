@@ -3,8 +3,8 @@
 
     Provide a way for players to see attributes of other characters or themselves
 
-    Mind Read constructs a profile of the affected character, and then send that 
-    profile to GUI components
+    Mind Read constructs a profile of the affected character, and then read it,
+    adding more information for every depth level the profile is passed 
 
     Mind Read effectiveness can be confused, blocked by other effects
 
@@ -23,13 +23,8 @@
     Meaning that only the root (top) MindRead owns it
     But, Profile can be modified by any link in the chain.
 */
-#ifndef MIND_READ_H
-#define MIND_READ_H
-
-#include <Godot.hpp>
-#include <Node.hpp>
-
-using namespace std;
+#ifndef MIND_READ_HPP
+#define MIND_READ_HPP
 
 #include "BaseEffect.hpp"
 
@@ -61,48 +56,39 @@ namespace Effect
         void _init();
         void _ready();
 
-        // Construct a profile and add infos of this unit into it
-        void Read(const Unit* const target) const;
+        // The Bank will call this function
+        // Give you a _new() Profile, filled with reading information
+        // You are responsible for managing this memory piece
+        Profile* Read(Unit* const source, Unit* const target);
 
-        // Same as Read(). It's actually Read() in disguise.
-        // (*Implementation detail: This is why I must add _Profile as a private member,
-        // that is to conform to Effect interface) 
+        // This is only a handle to work with Unit. 
+        // Most work is done in DoRead()
         void AffectOnUnit(Unit* const u) const override;
 
-        // Return the profile you got from reading your latest target.
-        // Nullptr if you didn't perform a read beforehand
-        // (Don't come running to me asking why your game crashes :> )
-        const Profile* GetProfile() const;
+        // Most likely only affect on another mindread, though
+        // void AffectOnEffect(Effect* const e) const override;
 
-        // Set the perspective of this mind read. 
-        // Different source unit gets different MindRead result from the target
-        void SetReader(const Unit* const source_reader);
-
+        // [Optional] Override this
         // Pass Mr. along the MindRead chain. Hopefully
         // that Mr. will reach the chain ending and be appended there
         // NOT GUARANTEED, though.
         // Some effects could stop Mr. from joining the family
-        // *aggressively glare DivineRead (>_>)
+        // *aggressively glare DivineInterrogation (>_>)
         virtual void AppendChain(const MindRead* const mr);
 
     protected:
-        // Here's where you:
-        // + Perform reading unit
-        // + Modify already known informations
-        // + Pass the work along the chain. DON'T FORGET THIS! PUT THIS AT THE FINAL LINES
+        // OVERRIDE THIS
+        // Here's where you modify already known informations
         virtual void DoRead(const Unit* const source, const Unit* const target, Profile* const dirtyProfile) const;
 
         // List of NodePath for all the nodes 
         // this MindRead is going to peek at an Unit
         PoolStringArray _peekedNodes;
 
+        Profile* _Profile;
+
         // Who's doing reading?
         const Unit* _reader;
-
-        // Our Profile constructed so far
-        // This Profile is shared for modification to the whole chain
-        // But there's only one owner: The root MindRead
-        Profile* _Profile;
 
         // The next Profile processing phase
         MindRead* _nextMindRead;

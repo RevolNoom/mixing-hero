@@ -1,7 +1,7 @@
 #include "SurvivalWheel.hpp"
+#include "MindReadBank.hpp"
 #include "Attribute.hpp"
 #include "HoverUnit.hpp"
-#include "MindRead.hpp"
 #include "Profile.hpp"
 #include "Unit.hpp"
 
@@ -19,7 +19,6 @@ void SurvivalWheel::_register_methods()
 void SurvivalWheel::_process(float delta)
 {
     set_position(_hoveredUnit->get_position());
-
 }
 
 void SurvivalWheel::_init()
@@ -49,17 +48,19 @@ void SurvivalWheel::_ready()
     _HoverUnit->connect("done", this, "_on_HoverUnit_done");
 }
 
-void SurvivalWheel::Update(const Profile* const p)
+void SurvivalWheel::Update()
 {
     // Only update when the Wheel is shown
     // Who's going to know if the wheel is hidden, anyway?
     if (!is_visible())
         return;
-    
+
+    auto profile = get_node<MindReadBank>("/root/MindReadBank")->Read(_controller, _hoveredUnit);
+
     // Sequentially grabs each needed attribute and update the wheels
     for (int iii=0; iii<_attributeNames.size(); ++iii)
     {
-        const AttributeDynamic *attr = p->Get<AttributeDynamic>(_attributeNames[iii]);
+        const AttributeDynamic *attr = profile->Get<AttributeDynamic>(_attributeNames[iii]);
 
         TextureProgress *prog  = cast_to<TextureProgress>(get_node_or_null((String)_attributeNames[iii]));
 
@@ -77,24 +78,32 @@ void SurvivalWheel::Update(const Profile* const p)
     }
 }
 
+void SurvivalWheel::SetHoveredUnit(Unit* const hoveredUnit)
+{
+    if (_hoveredUnit)
+    {
+        _hoveredUnit->disconnect("attributes_modified", this, "Update");
+    }
+
+    _hoveredUnit = hoveredUnit;
+
+    if (hoveredUnit)
+    {
+        set_visible(true);
+        hoveredUnit->connect("attributes_modified", this, "Update");
+        set_process(true);
+    }
+    else 
+        set_process(false);
+}
+
 void SurvivalWheel::_on_HoverUnit_done(const InputHogger* const hogger)
 {
-    // We update the bars before visualizing
-    // DO NOT swap the order of these functions:
-    // set_visible() => Update()
-    // _hoveredUnit = GetPtr() => set_process()
-    set_visible(true);
+    SetHoveredUnit(hogger->GetProfile()->GetPtr<Unit>());
 
-    MindRead* mindread = MindRead::_new();
-    mindread->SetReader(_viewer);
+    // TODO: >>>>>>>>>>
+    Update();
 
-    _hoveredUnit = hogger->GetProfile()->GetPtr<Unit>();
-    _hoveredUnit->AffectedBy(mindread);
-    Update(mindread->GetProfile());
-    mindread->queue_free();
-
-    // Finally there's someone hovered
-    set_process(true);
 
     // Only start tweening if it's not fading
     if (_isFading)
@@ -132,7 +141,6 @@ void SurvivalWheel::_on_Tween_tween_completed()
     if (get_modulate() == Color(1,1,1,0))
     {
         set_visible(false);
-        set_process(false);
-        _hoveredUnit = nullptr;
+        SetHoveredUnit(nullptr);
     }
 }

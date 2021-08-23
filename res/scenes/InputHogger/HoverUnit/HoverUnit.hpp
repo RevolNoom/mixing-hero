@@ -49,7 +49,6 @@ public:
                 // last frame, then there's nothing to do
                 if (unit != _unit)
                 {
-                    godot::Godot::print("On");
                     _unit = unit;
                     _Profile->StorePtr<Unit>(unit);
 
@@ -61,7 +60,6 @@ public:
         {
             _unit = nullptr;
             emit_signal("off_unit");
-            godot::Godot::print("Off");
         }
     }
 

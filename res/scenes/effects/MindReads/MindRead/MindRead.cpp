@@ -7,18 +7,14 @@ using namespace Effect;
 void MindRead::_register_methods()
 {
     register_method("Read", &MindRead::Read);
-    register_method("GetProfile", &MindRead::GetProfile);
-    register_method("SetReader", &MindRead::SetReader);
+    register_method("AppendChain", &MindRead::AppendChain);
     
     register_method("_ready", &MindRead::_ready);
 }
 
 void MindRead::_init()
 {
-    // Create a new, blank profile
-    _Profile = Profile::_new();
-    add_child(_Profile);
-    _Profile->set_name("Profile");
+    Godot::print("A new sinister being is born");
 
     _peekedNodes.append("Attribute/Health");
     _peekedNodes.append("Attribute/Spirit");
@@ -34,28 +30,28 @@ void MindRead::_ready()
 {
 }
 
-void MindRead::Read(const Unit* const target) const
+Profile* MindRead::Read(Unit* const source, Unit* const target)
 {
-    _Profile->Wipe(); 
-    // And here comes the real reading part
-    DoRead(_reader, target, _Profile);
+    // Create a new, blank profile
+    // Who cares about the last reading Profile? Not me
+    // (This MindRead should have a MindReadBank to catch this Profile)
+    _Profile = Profile::_new();
+
+    _reader = source;
+
+    target->AffectedBy(this);
+    return _Profile;
 }
 
 void MindRead::AffectOnUnit(Unit* const u) const                 
 {
-    // a bit silly, eh?
-    Read(u);
+    // And here comes the real reading part
+    DoRead(_reader, u, _Profile);
+    // Pass the Profile along the chain
+    if (_nextMindRead)
+        _nextMindRead->DoRead(_reader, u, _Profile);
 }
 
-void MindRead::SetReader(const Unit* const source_reader)         
-{
-    _reader = source_reader;
-}
-
-const Profile* MindRead::GetProfile() const                       
-{
-    return _Profile; 
-} 
 
 void MindRead::AppendChain(const MindRead* const mr)
 {
@@ -70,6 +66,7 @@ void MindRead::AppendChain(const MindRead* const mr)
 
     _nextMindRead->AppendChain(mr);
 }
+
 
 void MindRead::DoRead(const Unit* const source, const Unit* const target, Profile* const dirtyProfile) const
 {

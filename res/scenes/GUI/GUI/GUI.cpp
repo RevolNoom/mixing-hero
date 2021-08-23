@@ -16,13 +16,16 @@ void GUI::_register_methods()
 
 void GUI::_ready()
 {
-    _controllerBars = get_node<SurvivalBarsLeft>("Bars/SurvivalBarsLeft");
-    _rightBars = get_node<SurvivalBarsRight>("Bars/SurvivalBarsRight");
+    _SurvivalWheel = get_node<SurvivalWheel>("SurvivalWheel");
+    _SurvivalBarsLeft = get_node<SurvivalBarsLeft>("Bars/SurvivalBarsLeft");
+    _SurvivalBarsRight = get_node<SurvivalBarsRight>("Bars/SurvivalBarsRight");
 }
 
 void GUI::SetController(Unit* const player)
 {
     _controller = player;
-    _rightBars->SetController(player);
-    _controllerBars->SetController(player);
+    
+    _SurvivalWheel->SetController(player);
+    _SurvivalBarsLeft->SetController(player);
+    _SurvivalBarsRight->SetController(player);
 }

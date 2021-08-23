@@ -14,6 +14,10 @@ config/name="Summer Nights"
 run/main_scene="res://res/scenes/manager/Manager/Manager.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MindReadBank="*res://res/scenes/effects/MindReads/MindReadBank.tscn"
+
 [global]
 
 3D=false

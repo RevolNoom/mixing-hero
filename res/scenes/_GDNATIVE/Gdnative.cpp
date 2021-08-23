@@ -20,6 +20,7 @@
 #include "EffectOvertime.hpp"
 #include "AttributeModify.hpp"
 #include "MindRead.hpp"
+#include "MindReadBank.hpp"
 
 // InputHogger Family
 #include "InputHogger.hpp"
@@ -79,6 +80,7 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
         // Mind Readings
         godot::register_class<MindRead>();
         godot::register_class<DivineInterrogation>();
+        godot::register_class<MindReadBank>();
 
         // Attributes modifying
         godot::register_class<Heal>();

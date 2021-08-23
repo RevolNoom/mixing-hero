@@ -38,21 +38,24 @@ public:
     void _process(float delta);
 
     // The Wheel will show info based on point of view of this Unit
-    void SetViewer(Unit* const viewer) { _viewer = viewer;}
+    void SetController(Unit* const controller) { _controller = controller;}
+
+    // Update the wheel values
+    void Update();
 
 protected:
     // Show the wheel when you hover on the unit
     void _on_HoverUnit_done(const InputHogger* const hogger);
+
+    // The wheel will update itself with info and follow this Unit
+    // Set to nullptr to stop the wheel from following and updating
+    void SetHoveredUnit(Unit* const hoveredUnit);
 
     void FadeAway();
 
     // If the wheel is transparent when tweening complete
     // Set visibility to false
     void _on_Tween_tween_completed();
-
-    // Update the wheel values with this profile
-    void Update(const Profile* const mindReadInfo);
-
 private:
 
     Tween* _Tween;
@@ -62,7 +65,7 @@ private:
     HoverUnit* _HoverUnit;
 
     // The Unit who is trying to see info of others
-    Unit* _viewer;
+    Unit* _controller;
 
     // The Wheel will try to follow this Unit 
     Unit* _hoveredUnit;

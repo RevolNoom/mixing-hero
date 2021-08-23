@@ -35,8 +35,7 @@ public:
     static void _register_methods()
     {
         register_method("_ready", &SurvivalBarsLeft::_ready);
-        // TODO: A way for the unit to signal survival bars to 
-        // update automatically
+        register_method("Update", &SurvivalBarsLeft::Update);
     }
     virtual void _ready(){}
     virtual void _init()
@@ -50,20 +49,20 @@ public:
     }
 
     // Update the bars to reflect the info 
-    virtual void Update();
+    void Update();
 
     virtual void SetController(Unit* const u);   
 
 protected:
 
-    // That true function who do all the hard work
-    void Update(Unit* const u);
-
     // Consider adding a tween here. They're smooooooth
     // Tween* _Tween;
 
-    // The Left Bars are bound to this unit
+    // Who is trying to see the information of other unit? 
     Unit* _controller;
+
+    // Whose infos are shown on the bars?
+    Unit* _connectedUnit;
 
     // The attributes this objects requires from a Profile
     PoolStringArray _attributes;
@@ -104,18 +103,8 @@ public:
     void SetController(Unit* const u) override;   
 
     void SetConnectedUnit(Unit* const u);   
-
-    void Update() override;
 protected:
     // InputHogger to help pick an unit
     Pick* _Pick;
-
-    // The Right Bars are Not bound to _controller 
-    // But, info shown on the Bars depends on whether
-    // _controller has permission to read picked unit or not
-    // Unit* _controller;
-
-    // Unit whose infos are shown
-    Unit* _connectedUnit;
 };
 #endif
